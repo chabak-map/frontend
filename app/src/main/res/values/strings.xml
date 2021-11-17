@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">My Application</string>
+
+    <!--Login-->
+    <string name="login_main_text">Welcome to Lafyuu</string>
+    <string name="enter_join">회원가입</string>
+    <string name="find_id_pw">아이디/비밀번호 찾기</string>
+    <string name="enter_id">이메일을 입력해주세요.</string>
+    <string name="enter_pw">비밀번호를 입력해주세요.</string>
+    <string name="OAuth">간편 로그인</string>
+
+    <string name="kakao_app_key">629bcbed9f698446a64088c677ef69cd</string>
+
+    <!--  join  -->
+    <string name="join_id">사용하실 이메일을 입력해주세요.</string>
+    <string name="join_pw">사용하실 비밀번호를 입력해주세요.</string>
+    <string name="join_name">성함을 입력해주세요.</string>
+    <string name="check_pw">비밀번호 확인</string>
+    <string name="SignUp">회원가입</string>
+    <string name="email_error">이메일 형식이 맞지 않습니다.</string>
+    <string name="passwd_error">숫자,문자,특수문자 중 2가지를 포함하여 8자이상 15자이하로 작성하여 주세요.</string>
+    <string name="passwd_check_error">패스워드가 일치하지 않습니다.</string>
+    <string name="join">Join</string>
+    <string name="join_signup">Please Sign Up</string>
 </resources>

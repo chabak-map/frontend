@@ -23,6 +23,10 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
 		binding.joinPw.setOnClickListener(this)
 		binding.joinCheckPw.setOnClickListener(this)
 
+		binding.checkPhoneNumBtn.setOnClickListener {
+			binding.checkPhoneNumEt.visibility = View.VISIBLE
+		}
+
 		binding.joinBtn.setOnClickListener {
 			if (binding.joinName.text.toString() == "") {
 				showCustomToast("이름을 입력해주세요")

@@ -2,7 +2,7 @@
     <string name="app_name">My Application</string>
 
     <!--Login-->
-    <string name="login_main_text">Welcome to Lafyuu</string>
+    <string name="login_main_text">Welcome to Chabak</string>
     <string name="enter_join">회원가입</string>
     <string name="find_id_pw">아이디/비밀번호 찾기</string>
     <string name="enter_id">이메일을 입력해주세요.</string>
@@ -20,6 +20,9 @@
     <string name="email_error">이메일 형식이 맞지 않습니다.</string>
     <string name="passwd_error">숫자,문자,특수문자 중 2가지를 포함하여 8자이상 15자이하로 작성하여 주세요.</string>
     <string name="passwd_check_error">패스워드가 일치하지 않습니다.</string>
+    <string name="phone_num">핸드폰 번호를 입력해주세요.</string>
+    <string name="phone_num_check">인증번호 보내기</string>
+    <string name="check_num">인증번호</string>
     <string name="join">Join</string>
     <string name="join_signup">Please Sign Up</string>
 </resources>

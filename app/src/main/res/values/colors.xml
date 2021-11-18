@@ -20,4 +20,6 @@
     <color name="kakao_text">#191919</color>
     <color name="blue_40BFFF">#40BFFF</color>
 
+    <!--  bottom_nav_  -->
+    <color name="bottom_selected_color">#FF0000</color>
 </resources>

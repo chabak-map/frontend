@@ -3,6 +3,7 @@ package com.example.myapplication.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityLoginBinding
@@ -15,6 +16,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 
 		binding.gotoJoinTv.setOnClickListener {
 			startActivity(Intent(this, JoinActivity::class.java))
+		}
+		binding.btnLogin.setOnClickListener {
+			startActivity(Intent(this, MainActivity::class.java))
 		}
 	}
 }

@@ -14,9 +14,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 		super.onCreate(savedInstanceState)
 		setContentView(binding.root)
 
-		binding.gotoJoinTv.setOnClickListener {
-			startActivity(Intent(this, JoinActivity::class.java))
-		}
 		binding.btnLogin.setOnClickListener {
 			startActivity(Intent(this, MainActivity::class.java))
 		}

@@ -19,159 +19,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/logo_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/logo"
-        app:layout_constraintTop_toBottomOf="@id/tv_main"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="25sp"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
         android:textColor="@color/logo"
-        android:id="@+id/logo_tv"/>
-
-    <EditText
-        android:id="@+id/et_email"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/input_id"
-        android:hint="@string/enter_id"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="44dp"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/logo_tv"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <ImageView
-        android:id="@+id/iv_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:src="@drawable/mail_off"
-        app:layout_constraintBottom_toBottomOf="@+id/et_email"
-        app:layout_constraintStart_toStartOf="@+id/et_email"
-        app:layout_constraintTop_toTopOf="@+id/et_email" />
-
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/input_id"
-        android:hint="@string/enter_pw"
-        android:inputType="textPassword"
-        android:paddingLeft="44dp"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/et_email" />
-
-    <ImageView
-        android:id="@+id/iv_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:src="@drawable/password_off"
-        app:layout_constraintBottom_toBottomOf="@+id/et_password"
-        app:layout_constraintStart_toStartOf="@+id/et_password"
-        app:layout_constraintTop_toTopOf="@+id/et_password" />
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/input_id"
-        android:backgroundTint="@color/blue_40BFFF"
-        android:text="Login"
-        android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
-
-    <LinearLayout
-        android:id="@+id/OAuth_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/btn_login"
-        tools:layout_editor_absoluteX="16dp">
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_gravity="center"
-            android:layout_weight="4"
-            android:background="@color/id" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="@string/OAuth" />
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_gravity="center"
-            android:layout_weight="4"
-            android:background="@color/id" />
-    </LinearLayout>
-
-    <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
-        android:id="@+id/btn_naver_login"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/input_id"
-        android:backgroundTint="@color/naver_color"
-        android:src="@drawable/naver_logo_g"
-        app:layout_constraintTop_toBottomOf="@id/OAuth_layout" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="네이버로 로그인"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_naver_login"
-        app:layout_constraintEnd_toEndOf="@id/btn_naver_login"
-        app:layout_constraintStart_toStartOf="@id/btn_naver_login"
-        app:layout_constraintTop_toTopOf="@+id/btn_naver_login" />
-
-    <ImageView
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_margin="18dp"
-        android:src="@drawable/naver_logo"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_naver_login"
-        app:layout_constraintStart_toStartOf="@+id/btn_naver_login"
-        app:layout_constraintTop_toTopOf="@+id/btn_naver_login" />
-
-    <ImageButton
-        android:id="@+id/btn_kakao_login"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/input_id"
-        android:backgroundTint="@color/kakao_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_naver_login" />
+        app:layout_constraintTop_toBottomOf="@id/tv_main" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -193,37 +51,127 @@
         app:layout_constraintStart_toStartOf="@+id/btn_kakao_login"
         app:layout_constraintTop_toTopOf="@+id/btn_kakao_login" />
 
-    <View
-        android:id="@+id/div_low"
-        android:layout_width="1dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/id"
+    <ImageButton
+        android:id="@+id/btn_kakao_login"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/oauth"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_tv" />
+
+    <ImageButton
+        android:id="@+id/btn_google_login"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/oauth"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_kakao_login" />
 
-    <TextView
-        android:id="@+id/goto_join_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="12dp"
-        android:text="회원가입"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/div_low"
-        app:layout_constraintEnd_toStartOf="@+id/div_low"
-        app:layout_constraintTop_toTopOf="@+id/div_low" />
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/input_id"
+        android:hint="@string/enter_id"
+        android:inputType="textEmailAddress"
+        android:paddingStart="44dp"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/btn_google_login"
+        tools:layout_editor_absoluteX="16dp" />
 
-    <TextView
-        android:id="@+id/tv_passwd_find"
+    <ImageView
+        android:id="@+id/iv_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:text="비밀번호 찾기"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/div_low"
-        app:layout_constraintStart_toStartOf="@id/div_low"
-        app:layout_constraintTop_toTopOf="@+id/div_low" />
+        android:layout_marginStart="12dp"
+        android:src="@drawable/mail_off"
+        app:layout_constraintBottom_toBottomOf="@+id/et_email"
+        app:layout_constraintStart_toStartOf="@+id/et_email"
+        app:layout_constraintTop_toTopOf="@+id/et_email" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/input_id"
+        android:hint="@string/enter_pw"
+        android:inputType="textPassword"
+        android:paddingStart="44dp"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+    <ImageView
+        android:id="@+id/iv_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/password_off"
+        app:layout_constraintBottom_toBottomOf="@+id/et_password"
+        app:layout_constraintStart_toStartOf="@+id/et_password"
+        app:layout_constraintTop_toTopOf="@+id/et_password" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/oauth"
+        android:backgroundTint="@color/logo"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/btn_login"
+        app:layout_constraintTop_toBottomOf="@id/btn_login"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/find_id"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:id="@+id/find_id_tv"/>
+
+        <View
+            android:layout_marginStart="20dp"
+            android:layout_width="3dp"
+            android:layout_height="25dp"
+            android:background="@color/basic"
+            android:id="@+id/div_low"/>
+
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/find_pw"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:id="@+id/find_pw_tv"/>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

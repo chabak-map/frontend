@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="id">#EAEAEA</color>
     <color name="colorAccent">#889dfe</color>
+    <color name="Oauth">#BDBDBD</color>
+    <color name="basic">#EAEAEA</color>
 
     <!-- join  -->
     <color name="join_color">#00D8FF</color>

@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/img_join"
+    <TextView
+        android:id="@+id/tv_join"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:background="@drawable/logo"
+        android:text="@string/join_signup"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +31,7 @@
         android:drawablePadding="24dp"
         android:paddingLeft="20dp"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/img_join" />
+        app:layout_constraintTop_toBottomOf="@id/tv_join" />
 
     <EditText
         android:id="@+id/join_id"

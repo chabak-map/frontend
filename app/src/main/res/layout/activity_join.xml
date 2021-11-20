@@ -17,45 +17,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/name_off"
-        app:layout_constraintBottom_toBottomOf="@id/join_name"
-        app:layout_constraintStart_toStartOf="@id/join_name"
-        app:layout_constraintTop_toTopOf="@id/join_name" />
 
     <EditText
         android:id="@+id/join_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:drawableStart="@drawable/name_off"
         android:layout_marginTop="100dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/input_id"
         android:hint="@string/join_name"
-        android:paddingLeft="44dp"
+        android:drawablePadding="24dp"
+        android:paddingLeft="20dp"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/tv_join" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/mail_off"
-        app:layout_constraintBottom_toBottomOf="@id/join_id"
-        app:layout_constraintStart_toStartOf="@id/join_id"
-        app:layout_constraintTop_toTopOf="@id/join_id" />
 
     <EditText
         android:id="@+id/join_id"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="16dp"
+        android:drawablePadding="24dp"
         android:background="@drawable/input_id"
+        android:drawableStart="@drawable/mail_off"
         android:hint="@string/join_id"
-        android:paddingLeft="44dp"
+        android:paddingLeft="20dp"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/join_name" />
 
@@ -70,23 +57,17 @@
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/join_id" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/password_off"
-        app:layout_constraintBottom_toBottomOf="@id/join_pw"
-        app:layout_constraintStart_toStartOf="@id/join_pw"
-        app:layout_constraintTop_toTopOf="@id/join_pw" />
 
     <EditText
         android:id="@+id/join_pw"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:drawableStart="@drawable/password_off"
         android:layout_margin="16dp"
+        android:drawablePadding="24dp"
         android:background="@drawable/input_id"
         android:hint="@string/join_pw"
-        android:paddingLeft="44dp"
+        android:paddingLeft="20dp"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/error_email" />
 
@@ -101,23 +82,17 @@
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/join_pw" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/password_off"
-        app:layout_constraintBottom_toBottomOf="@id/join_check_pw"
-        app:layout_constraintStart_toStartOf="@id/join_check_pw"
-        app:layout_constraintTop_toTopOf="@id/join_check_pw" />
 
     <EditText
         android:id="@+id/join_check_pw"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="16dp"
+        android:drawableStart="@drawable/password_off"
         android:background="@drawable/input_id"
         android:hint="@string/check_pw"
-        android:paddingLeft="44dp"
+        android:drawablePadding="24dp"
+        android:paddingLeft="20dp"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/error_pw" />
 

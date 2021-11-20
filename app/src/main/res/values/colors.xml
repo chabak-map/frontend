@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="id">#EAEAEA</color>
     <color name="colorAccent">#889dfe</color>
-    <color name="Oauth">#BDBDBD</color>
+    <color name="Oauth">#DDDDDD</color>
     <color name="basic">#EAEAEA</color>
 
     <!-- join  -->
@@ -21,7 +21,7 @@
     <color name="kakao_color">#F7E600</color>
     <color name="kakao_text">#191919</color>
     <color name="blue_40BFFF">#40BFFF</color>
-    <color name="logo">#5F00FF</color>
+    <color name="logo">#4D4DDD</color>
 
     <!--  bottom_nav_  -->
     <color name="bottom_selected_color">#FF0000</color>

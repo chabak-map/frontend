@@ -10,7 +10,8 @@
     <string name="enter_pw">비밀번호를 입력해주세요.</string>
     <string name="OAuth">간편 로그인</string>
     <string name="logo">차박지추천 앱</string>
-
+    <string name="kakao_login">카카오로 로그인</string>
+    <string name="google_login">구글로 로그인</string>
     <string name="kakao_app_key">629bcbed9f698446a64088c677ef69cd</string>
 
     <!--  join  -->

@@ -22,7 +22,7 @@
         android:id="@+id/logo_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="@string/logo"
         android:textColor="@color/logo"
         android:textSize="25sp"
@@ -34,9 +34,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="카카오로 로그인"
+        android:text="@string/kakao_login"
         android:textColor="@color/kakao_text"
-        android:textSize="16sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_kakao_login"
         app:layout_constraintEnd_toEndOf="@id/btn_kakao_login"
         app:layout_constraintStart_toStartOf="@id/btn_kakao_login"
@@ -54,7 +54,7 @@
     <ImageButton
         android:id="@+id/btn_kakao_login"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -63,10 +63,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_tv" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/google_login"
+        android:textColor="@color/kakao_text"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_google_login"
+        app:layout_constraintEnd_toEndOf="@id/btn_google_login"
+        app:layout_constraintStart_toStartOf="@id/btn_google_login"
+        app:layout_constraintTop_toTopOf="@+id/btn_google_login" />
+
+    <ImageView
+        android:layout_width="28dp"
+        android:layout_height="30dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/google"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_google_login"
+        app:layout_constraintStart_toStartOf="@+id/btn_google_login"
+        app:layout_constraintTop_toTopOf="@+id/btn_google_login" />
+
     <ImageButton
         android:id="@+id/btn_google_login"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="20dp"
@@ -78,7 +98,7 @@
     <EditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="20dp"
@@ -103,7 +123,7 @@
     <EditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="20dp"
@@ -127,7 +147,7 @@
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"

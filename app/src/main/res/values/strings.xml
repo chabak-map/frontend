@@ -6,7 +6,7 @@
     <string name="enter_join">회원가입</string>
     <string name="find_id">아이디찾기</string>
     <string name="find_pw">비밀번호 찾기</string>
-    <string name="enter_id">아이디</string>
+    <string name="enter_id">이메일</string>
     <string name="enter_pw">비밀번호</string>
     <string name="OAuth">간편 로그인</string>
     <string name="logo">차박지추천 앱</string>

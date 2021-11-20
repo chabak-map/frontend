@@ -17,17 +17,27 @@
     <string name="kakao_app_key">629bcbed9f698446a64088c677ef69cd</string>
 
     <!--  join  -->
-    <string name="join_id">사용하실 이메일을 입력해주세요.</string>
-    <string name="join_pw">사용하실 비밀번호를 입력해주세요.</string>
-    <string name="join_name">성함을 입력해주세요.</string>
-    <string name="check_pw">비밀번호 확인</string>
     <string name="SignUp">회원가입</string>
+    <string name="join_name">이름</string>
+    <string name="join_email">이메일</string>
+    <string name="join_email_hint">이메일@직접입력</string>
+    <string name="join_pw">비밀번호</string>
+    <string name="check_pw">비밀번호 확인</string>
+    <string name="pw_error">비밀번호가 일치하지 않습니다.</string>
+
+    <string name="phone">휴대폰 인증</string>
+    <string name="phone_num">- 제외 번호 입력</string>
+    <string name="phone_num_btn">인증번호 전송</string>
+    <string name="code_num">번호 입력</string>
+    <string name="code_num_btn">확인</string>
+    <string name="phone_error">인증번호가 일치하지 않습니다.</string>
+
     <string name="email_error">이메일 형식이 맞지 않습니다.</string>
     <string name="passwd_error">숫자,문자,특수문자 중 2가지를 포함하여 8자이상 15자이하로 작성하여 주세요.</string>
     <string name="passwd_check_error">패스워드가 일치하지 않습니다.</string>
-    <string name="phone_num">핸드폰 번호를 입력해주세요.</string>
+
     <string name="phone_num_check">인증번호 보내기</string>
     <string name="check_num">인증번호</string>
-    <string name="join">Join</string>
-    <string name="join_signup">Please Sign Up</string>
+    <string name="join">가입하기</string>
+    <string name="join_signup">회원가입</string>
 </resources>

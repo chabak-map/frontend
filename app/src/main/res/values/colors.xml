@@ -12,14 +12,25 @@
     <color name="Oauth">#DDDDDD</color>
     <color name="basic">#EAEAEA</color>
 
+    <!-- color -->
+    <color name="main_blue">#4d4ddd</color>
+    <color name="main_yellow">#ffb84e</color>
+    <color name="error">#e84d3d</color>
+
+    <!-- text -->
+    <color name="text_222">#222222</color>
+    <color name="text_555">#555555</color>
+    <color name="text_bbb">#BBBBBB</color>
+    <color name="text_ddd">#DDDDDD</color>
+
+    <!-- background -->
+    <color name="bg_f4">#f4f4f4</color>
+    <color name="bg_f5e5">#fff5e5</color>
+
     <!-- join  -->
     <color name="join_color">#00D8FF</color>
-    <color name="error">#FF0000</color>
 
     <!--  login  -->
-    <color name="naver_color">#03c75a</color>
-    <color name="kakao_color">#F7E600</color>
-    <color name="kakao_text">#191919</color>
     <color name="blue_40BFFF">#40BFFF</color>
     <color name="logo">#4D4DDD</color>
 

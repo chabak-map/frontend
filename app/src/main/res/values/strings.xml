@@ -13,6 +13,8 @@
     <string name="kakao_login">카카오로 로그인</string>
     <string name="google_login">구글로 로그인</string>
     <string name="login_join">계정이 없으세요?</string>
+    <string name="login_error">아이디 혹은 비밀번호가 맞지 않습니다. 확인 후 다시 입력해주시기 바랍니다.</string>
+    <string name="login_error_ok">확인</string>
     <string name="login_join_new">가입하기</string>
     <string name="kakao_app_key">629bcbed9f698446a64088c677ef69cd</string>
 

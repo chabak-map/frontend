@@ -23,7 +23,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             }
 
             R.id.map -> {
-                supportFragmentManager.beginTransaction().replace(R.id.pager, MapFragment())
+                supportFragmentManager.beginTransaction().replace(R.id.main_frame, MapFragment())
                     .commit()
                 return true
             }

@@ -33,5 +33,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 				startActivity(Intent(this, MainActivity::class.java))
 			}
 		}
+
+		binding.tvJoinStart.setOnClickListener {
+			startActivity(Intent(this, JoinActivity::class.java))
+		}
 	}
 }

@@ -3,6 +3,7 @@ package com.example.myapplication.join
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
@@ -70,7 +71,7 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
 			} else {
 				val name = binding.joinName.text.toString()
 				val email = binding.joinId.text.toString()
-				val password = binding.joinPw.toString()
+				val password = binding.joinPw.text.toString()
 				val phoneNumber = binding.etPhoneNum.text.toString()
 				val postRequest = PostSignUpRequest(
 					email = email, password = password, nickname = name,

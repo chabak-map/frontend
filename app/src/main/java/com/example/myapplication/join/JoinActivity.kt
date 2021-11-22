@@ -23,183 +23,187 @@ import retrofit2.Response
 import java.util.regex.Pattern
 
 class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::inflate),
-	View.OnClickListener, JoinActivityView {
-	val emailValidation =
-		"^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
-	val passwdValidation = "^(?=.*[a-zA-Z0-9])(?=.*[a-zA-Z!@#\$%^&*])(?=.*[0-9!@#\$%^&*]).{8,15}\$"
+    View.OnClickListener, JoinActivityView {
+    val emailValidation =
+        "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+    val passwdValidation = "^(?=.*[a-zA-Z0-9])(?=.*[a-zA-Z!@#\$%^&*])(?=.*[0-9!@#\$%^&*]).{8,15}\$"
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
-		setContentView(binding.root)
-		binding.joinName.setOnClickListener(this)
-		binding.joinId.setOnClickListener(this)
-		binding.joinPw.setOnClickListener(this)
-		binding.joinCheckPw.setOnClickListener(this)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        binding.joinName.setOnClickListener(this)
+        binding.joinId.setOnClickListener(this)
+        binding.joinPw.setOnClickListener(this)
+        binding.joinCheckPw.setOnClickListener(this)
 
-		//뒤로가기 버튼 클릭
-		binding.ivJoinBack.setOnClickListener {
-			finish()
-		}
+        //뒤로가기 버튼 클릭
+        binding.ivJoinBack.setOnClickListener {
+            finish()
+        }
 
-		// 인증번호 버튼
-		binding.ivPhoneNumBtn.setOnClickListener {
-			val phoneNumber = binding.etPhoneNum.text.toString()
-			val smsRequest = PostSmsRequest(
-				phoneNumber = phoneNumber
-			)
-			tryPostSMS(smsRequest)
-		}
+        // 인증번호 버튼
+        binding.ivPhoneNumBtn.setOnClickListener {
+            val phoneNumber = binding.etPhoneNum.text.toString()
+            val smsRequest = PostSmsRequest(
+                phoneNumber = phoneNumber
+            )
+            tryPostSMS(smsRequest)
+        }
 
-		binding.ivCodeNumBtn.setOnClickListener {
-			val phone = binding.etPhoneNum.text.toString()
-			val verify = binding.etCodeNum.text.toString()
-			val verifyRequest = PostVerifyRequest(
-				phoneNumber = phone, verifyCode = verify
-			)
-			tryPostVerify(verifyRequest)
-		}
-		//가입하기 버튼 클릭 시
-		binding.joinBtn.setOnClickListener {
-			if (binding.joinName.text.toString() == "") {
-				showCustomToast("이름을 입력해주세요")
-			} else if (binding.joinPw.text.toString() == "") {
-				showCustomToast("패스워드를 입력해주세요.")
-			} else if (binding.joinId.text.toString() == "") {
-				showCustomToast("아이디를 입력해주세요.")
-			} else if (binding.joinCheckPw.text.toString() == "") {
-				showCustomToast("패스워드를 입력해주세요")
-			} else {
-				val name = binding.joinName.text.toString()
-				val email = binding.joinId.text.toString()
-				val password = binding.joinPw.text.toString()
-				val phoneNumber = binding.etPhoneNum.text.toString()
-				val postRequest = PostSignUpRequest(
-					email = email, password = password, nickname = name,
-					phoneNumber = phoneNumber
-				)
-				JoinService(this).tryPostSignUp(postRequest)
-				finish()
-			}
-		}
+        binding.ivCodeNumBtn.setOnClickListener {
+            val phone = binding.etPhoneNum.text.toString()
+            val verify = binding.etCodeNum.text.toString()
+            val verifyRequest = PostVerifyRequest(
+                phoneNumber = phone, verifyCode = verify
+            )
+            tryPostVerify(verifyRequest)
+        }
+        //가입하기 버튼 클릭 시
+        binding.joinBtn.setOnClickListener {
+            if (binding.joinName.text.toString() == "") {
+                showCustomToast("이름을 입력해주세요")
+            } else if (binding.joinPw.text.toString() == "") {
+                showCustomToast("패스워드를 입력해주세요.")
+            } else if (binding.joinId.text.toString() == "") {
+                showCustomToast("아이디를 입력해주세요.")
+            } else if (binding.joinCheckPw.text.toString() == "") {
+                showCustomToast("패스워드를 입력해주세요")
+            }
+            //비밀번호 확인이 일치하지 않으면 오류메세지 띄우기
+            else if (binding.joinPw.text.toString() != binding.joinCheckPw.text.toString()) {
+                binding.layoutPwError.visibility = View.VISIBLE
+            } else {
+                val name = binding.joinName.text.toString()
+                val email = binding.joinId.text.toString()
+                val password = binding.joinPw.text.toString()
+                val phoneNumber = binding.etPhoneNum.text.toString()
+                val postRequest = PostSignUpRequest(
+                    email = email, password = password, nickname = name,
+                    phoneNumber = phoneNumber
+                )
+                JoinService(this).tryPostSignUp(postRequest)
+                finish()
+            }
+        }
 
-		binding.joinId.addTextChangedListener(object : TextWatcher {
-			override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        binding.joinId.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
-			}
+            }
 
-			override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 //                checkEmail()
-			}
+            }
 
-			override fun afterTextChanged(s: Editable?) {
+            override fun afterTextChanged(s: Editable?) {
 
-			}
-		})
-		binding.joinPw.addTextChangedListener(object : TextWatcher {
-			override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+        })
+        binding.joinPw.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
-			}
+            }
 
-			override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 //                checkPasswd()
-			}
+            }
 
-			override fun afterTextChanged(s: Editable?) {
+            override fun afterTextChanged(s: Editable?) {
 
-			}
-		})
+            }
+        })
 
-		binding.joinCheckPw.addTextChangedListener(object : TextWatcher {
-			override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        binding.joinCheckPw.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
-			}
+            }
 
-			override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 //                if (binding.joinPw.text.toString() == binding.joinCheckPw.text.toString()) {
 //                    binding.errorCheckPw.visibility = View.GONE
 //                } else {
 //                    binding.errorCheckPw.visibility = View.VISIBLE
 //                }
-			}
+            }
 
-			override fun afterTextChanged(s: Editable?) {
+            override fun afterTextChanged(s: Editable?) {
 
-			}
-		})
-	}
+            }
+        })
+    }
 
-	fun tryPostSMS(smsRequest: PostSmsRequest) {
-		val smsRetrofitInterface =
-			ApplicationClass.sRetrofit.create(SMSRetrofitInterface::class.java)
-		smsRetrofitInterface.postSMS(smsRequest).enqueue(object : Callback<SMSResponse> {
+    fun tryPostSMS(smsRequest: PostSmsRequest) {
+        val smsRetrofitInterface =
+            ApplicationClass.sRetrofit.create(SMSRetrofitInterface::class.java)
+        smsRetrofitInterface.postSMS(smsRequest).enqueue(object : Callback<SMSResponse> {
 
-			override fun onResponse(call: Call<SMSResponse>, response: Response<SMSResponse>) {
-				val sms = response.body() as SMSResponse
-				showCustomToast("${sms.result}")
-			}
+            override fun onResponse(call: Call<SMSResponse>, response: Response<SMSResponse>) {
+                val sms = response.body() as SMSResponse
+                showCustomToast("${sms.result}")
+            }
 
-			override fun onFailure(call: Call<SMSResponse>, t: Throwable) {
-				showCustomToast(t.message ?: "오류")
-			}
-		})
-	}
+            override fun onFailure(call: Call<SMSResponse>, t: Throwable) {
+                showCustomToast(t.message ?: "오류")
+            }
+        })
+    }
 
-	fun tryPostVerify(verifyRequest: PostVerifyRequest) {
-		val verifyRetrofitInterface =
-			ApplicationClass.sRetrofit.create(VerifyRetrofitInterface::class.java)
-		verifyRetrofitInterface.postVerify(verifyRequest)
-			.enqueue(object : Callback<VerifyResponse> {
-				override fun onResponse(
-					call: Call<VerifyResponse>,
-					response: Response<VerifyResponse>
-				) {
-					val verify = response.body() as VerifyResponse
-					showCustomToast("${verify.result}")
-				}
+    fun tryPostVerify(verifyRequest: PostVerifyRequest) {
+        val verifyRetrofitInterface =
+            ApplicationClass.sRetrofit.create(VerifyRetrofitInterface::class.java)
+        verifyRetrofitInterface.postVerify(verifyRequest)
+            .enqueue(object : Callback<VerifyResponse> {
+                override fun onResponse(
+                    call: Call<VerifyResponse>,
+                    response: Response<VerifyResponse>
+                ) {
+                    val verify = response.body() as VerifyResponse
+                    showCustomToast("${verify.result}")
+                }
 
-				override fun onFailure(call: Call<VerifyResponse>, t: Throwable) {
-					showCustomToast(t.message ?: "오류")
-				}
-			})
-	}
+                override fun onFailure(call: Call<VerifyResponse>, t: Throwable) {
+                    showCustomToast(t.message ?: "오류")
+                }
+            })
+    }
 
-	override fun onPostSignUpSuccess(response: SignUpResponse) {
-		showCustomToast("${response.result}")
-	}
+    override fun onPostSignUpSuccess(response: SignUpResponse) {
+        showCustomToast("${response.result}")
+    }
 
-	override fun onPostSignUpFailure(message: String) {
-		showCustomToast("오류  : $message")
-	}
+    override fun onPostSignUpFailure(message: String) {
+        showCustomToast("오류  : $message")
+    }
 
-	override fun onClick(v: View?) {
-		when (v?.id) {
-			binding.joinName.id -> {
-				binding.joinName.setBackgroundResource(R.drawable.join_click)
-				binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
-				binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
-				binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
-			}
-			binding.joinId.id -> {
-				binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
-				binding.joinId.setBackgroundResource(R.drawable.join_click)
-				binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
-				binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
-			}
-			binding.joinPw.id -> {
-				binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
-				binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
-				binding.joinPw.setBackgroundResource(R.drawable.join_click)
-				binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
-			}
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            binding.joinName.id -> {
+                binding.joinName.setBackgroundResource(R.drawable.join_click)
+                binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
+                binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
+                binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
+            }
+            binding.joinId.id -> {
+                binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
+                binding.joinId.setBackgroundResource(R.drawable.join_click)
+                binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
+                binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
+            }
+            binding.joinPw.id -> {
+                binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
+                binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
+                binding.joinPw.setBackgroundResource(R.drawable.join_click)
+                binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
+            }
 
-			binding.joinCheckPw.id -> {
-				binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
-				binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
-				binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
-				binding.joinCheckPw.setBackgroundResource(R.drawable.join_click)
-			}
-		}
-	}
+            binding.joinCheckPw.id -> {
+                binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
+                binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
+                binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
+                binding.joinCheckPw.setBackgroundResource(R.drawable.join_click)
+            }
+        }
+    }
 
 //    fun checkEmail(): Boolean {
 //        var email = binding.joinId.text.toString().trim() // trim: 문자열의 양쪽 공백을 없애주는 것

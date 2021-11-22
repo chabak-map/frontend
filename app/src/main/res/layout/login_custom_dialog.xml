@@ -18,7 +18,7 @@
             android:layout_margin="5dp"
             android:layout_weight="0.6"
             android:text="@string/login_error"
-            android:textColor="#ff0000" />
+            android:textColor="@color/error" />
 
         <Button
             style="@style/Widget.AppCompat.Button.Borderless"

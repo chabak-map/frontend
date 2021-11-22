@@ -13,6 +13,9 @@ import com.example.myapplication.join.models.SignUpResponse
 import com.example.myapplication.join.sms.PostSmsRequest
 import com.example.myapplication.join.sms.SMSResponse
 import com.example.myapplication.join.sms.SMSRetrofitInterface
+import com.example.myapplication.join.verify.PostVerifyRequest
+import com.example.myapplication.join.verify.VerifyResponse
+import com.example.myapplication.join.verify.VerifyRetrofitInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,6 +49,14 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
 			tryPostSMS(smsRequest)
 		}
 
+		binding.ivCodeNumBtn.setOnClickListener {
+			val phone = binding.etPhoneNum.text.toString()
+			val verify = binding.etCodeNum.text.toString()
+			val verifyRequest = PostVerifyRequest(
+				phoneNumber = phone, verifyCode = verify
+			)
+			tryPostVerify(verifyRequest)
+		}
 		//가입하기 버튼 클릭 시
 		binding.joinBtn.setOnClickListener {
 			if (binding.joinName.text.toString() == "") {
@@ -116,8 +127,9 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
 		})
 	}
 
-	fun tryPostSMS(smsRequest: PostSmsRequest){
-		val smsRetrofitInterface = ApplicationClass.sRetrofit.create(SMSRetrofitInterface::class.java)
+	fun tryPostSMS(smsRequest: PostSmsRequest) {
+		val smsRetrofitInterface =
+			ApplicationClass.sRetrofit.create(SMSRetrofitInterface::class.java)
 		smsRetrofitInterface.postSMS(smsRequest).enqueue(object : Callback<SMSResponse> {
 
 			override fun onResponse(call: Call<SMSResponse>, response: Response<SMSResponse>) {
@@ -129,6 +141,25 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
 				showCustomToast(t.message ?: "오류")
 			}
 		})
+	}
+
+	fun tryPostVerify(verifyRequest: PostVerifyRequest) {
+		val verifyRetrofitInterface =
+			ApplicationClass.sRetrofit.create(VerifyRetrofitInterface::class.java)
+		verifyRetrofitInterface.postVerify(verifyRequest)
+			.enqueue(object : Callback<VerifyResponse> {
+				override fun onResponse(
+					call: Call<VerifyResponse>,
+					response: Response<VerifyResponse>
+				) {
+					val verify = response.body() as VerifyResponse
+					showCustomToast("${verify.result}")
+				}
+
+				override fun onFailure(call: Call<VerifyResponse>, t: Throwable) {
+					showCustomToast(t.message ?: "오류")
+				}
+			})
 	}
 
 	override fun onPostSignUpSuccess(response: SignUpResponse) {

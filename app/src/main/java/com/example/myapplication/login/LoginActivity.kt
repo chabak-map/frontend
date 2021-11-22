@@ -55,13 +55,6 @@ LoginActivityView{
 		}
 	}
 
-	override fun onGetUserSuccess(response: LoginResponse) {
-		showCustomToast("GET JWT 성공")
-	}
-
-	override fun onGetUserFailure(message: String) {
-		showCustomToast("오류 : $message")
-	}
 
 	override fun onPostSignUpSuccess(response: LoginResponse) {
 		response.message?.let { showCustomToast(it) }

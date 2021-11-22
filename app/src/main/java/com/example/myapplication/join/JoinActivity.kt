@@ -5,10 +5,17 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.example.myapplication.R
+import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityJoinBinding
 import com.example.myapplication.join.models.PostSignUpRequest
 import com.example.myapplication.join.models.SignUpResponse
+import com.example.myapplication.join.sms.PostSmsRequest
+import com.example.myapplication.join.sms.SMSResponse
+import com.example.myapplication.join.sms.SMSRetrofitInterface
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.regex.Pattern
 
 class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::inflate),
@@ -28,6 +35,15 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
 		//뒤로가기 버튼 클릭
 		binding.ivJoinBack.setOnClickListener {
 			finish()
+		}
+
+		// 인증번호 버튼
+		binding.ivPhoneNumBtn.setOnClickListener {
+			val phoneNumber = binding.etPhoneNum.text.toString()
+			val smsRequest = PostSmsRequest(
+				phoneNumber = phoneNumber
+			)
+			tryPostSMS(smsRequest)
 		}
 
 		//가입하기 버튼 클릭 시
@@ -99,6 +115,22 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
 			}
 		})
 	}
+
+	fun tryPostSMS(smsRequest: PostSmsRequest){
+		val smsRetrofitInterface = ApplicationClass.sRetrofit.create(SMSRetrofitInterface::class.java)
+		smsRetrofitInterface.postSMS(smsRequest).enqueue(object : Callback<SMSResponse> {
+
+			override fun onResponse(call: Call<SMSResponse>, response: Response<SMSResponse>) {
+				val sms = response.body() as SMSResponse
+				showCustomToast("${sms.result}")
+			}
+
+			override fun onFailure(call: Call<SMSResponse>, t: Throwable) {
+				showCustomToast(t.message ?: "오류")
+			}
+		})
+	}
+
 	override fun onPostSignUpSuccess(response: SignUpResponse) {
 		showCustomToast("${response.result}")
 	}

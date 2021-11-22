@@ -7,117 +7,135 @@ import android.view.View
 import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityJoinBinding
+import com.example.myapplication.join.models.PostSignUpRequest
+import com.example.myapplication.join.models.SignUpResponse
 import java.util.regex.Pattern
 
 class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::inflate),
-    View.OnClickListener {
-    val emailValidation =
-        "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
-    val passwdValidation = "^(?=.*[a-zA-Z0-9])(?=.*[a-zA-Z!@#\$%^&*])(?=.*[0-9!@#\$%^&*]).{8,15}\$"
+	View.OnClickListener, JoinActivityView {
+	val emailValidation =
+		"^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+	val passwdValidation = "^(?=.*[a-zA-Z0-9])(?=.*[a-zA-Z!@#\$%^&*])(?=.*[0-9!@#\$%^&*]).{8,15}\$"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-        binding.joinName.setOnClickListener(this)
-        binding.joinId.setOnClickListener(this)
-        binding.joinPw.setOnClickListener(this)
-        binding.joinCheckPw.setOnClickListener(this)
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		setContentView(binding.root)
+		binding.joinName.setOnClickListener(this)
+		binding.joinId.setOnClickListener(this)
+		binding.joinPw.setOnClickListener(this)
+		binding.joinCheckPw.setOnClickListener(this)
 
-        //뒤로가기 버튼 클릭
-        binding.ivJoinBack.setOnClickListener {
-            finish()
-        }
+		//뒤로가기 버튼 클릭
+		binding.ivJoinBack.setOnClickListener {
+			finish()
+		}
 
-        //가입하기 버튼 클릭 시
-        binding.joinBtn.setOnClickListener {
-            if (binding.joinName.text.toString() == "") {
-                showCustomToast("이름을 입력해주세요")
-            } else if (binding.joinPw.text.toString() == "") {
-                showCustomToast("패스워드를 입력해주세요.")
-            } else if (binding.joinId.text.toString() == "") {
-                showCustomToast("아이디를 입력해주세요.")
-            } else if (binding.joinCheckPw.text.toString() == "") {
-                showCustomToast("패스워드를 입력해주세요")
-            } else {
-                finish()
-            }
-        }
+		//가입하기 버튼 클릭 시
+		binding.joinBtn.setOnClickListener {
+			if (binding.joinName.text.toString() == "") {
+				showCustomToast("이름을 입력해주세요")
+			} else if (binding.joinPw.text.toString() == "") {
+				showCustomToast("패스워드를 입력해주세요.")
+			} else if (binding.joinId.text.toString() == "") {
+				showCustomToast("아이디를 입력해주세요.")
+			} else if (binding.joinCheckPw.text.toString() == "") {
+				showCustomToast("패스워드를 입력해주세요")
+			} else {
+				val name = binding.joinName.text.toString()
+				val email = binding.joinId.text.toString()
+				val password = binding.joinPw.toString()
+				val phoneNumber = binding.etPhoneNum.text.toString()
+				val postRequest = PostSignUpRequest(
+					email = email, password = password, nickname = name,
+					phoneNumber = phoneNumber
+				)
+				JoinService(this).tryPostSignUp(postRequest)
+				finish()
+			}
+		}
 
-        binding.joinId.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                7
-            }
+		binding.joinId.addTextChangedListener(object : TextWatcher {
+			override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+			}
+
+			override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 //                checkEmail()
-            }
+			}
 
-            override fun afterTextChanged(s: Editable?) {
+			override fun afterTextChanged(s: Editable?) {
 
-            }
-        })
-        binding.joinPw.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+			}
+		})
+		binding.joinPw.addTextChangedListener(object : TextWatcher {
+			override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
-            }
+			}
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+			override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 //                checkPasswd()
-            }
+			}
 
-            override fun afterTextChanged(s: Editable?) {
+			override fun afterTextChanged(s: Editable?) {
 
-            }
-        })
+			}
+		})
 
-        binding.joinCheckPw.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+		binding.joinCheckPw.addTextChangedListener(object : TextWatcher {
+			override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
-            }
+			}
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+			override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 //                if (binding.joinPw.text.toString() == binding.joinCheckPw.text.toString()) {
 //                    binding.errorCheckPw.visibility = View.GONE
 //                } else {
 //                    binding.errorCheckPw.visibility = View.VISIBLE
 //                }
-            }
+			}
 
-            override fun afterTextChanged(s: Editable?) {
+			override fun afterTextChanged(s: Editable?) {
 
-            }
-        })
-    }
+			}
+		})
+	}
+	override fun onPostSignUpSuccess(response: SignUpResponse) {
+		showCustomToast("${response.result}")
+	}
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            binding.joinName.id -> {
-                binding.joinName.setBackgroundResource(R.drawable.join_click)
-                binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
-                binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
-                binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
-            }
-            binding.joinId.id -> {
-                binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
-                binding.joinId.setBackgroundResource(R.drawable.join_click)
-                binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
-                binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
-            }
-            binding.joinPw.id -> {
-                binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
-                binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
-                binding.joinPw.setBackgroundResource(R.drawable.join_click)
-                binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
-            }
+	override fun onPostSignUpFailure(message: String) {
+		showCustomToast("오류  : $message")
+	}
 
-            binding.joinCheckPw.id -> {
-                binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
-                binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
-                binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
-                binding.joinCheckPw.setBackgroundResource(R.drawable.join_click)
-            }
-        }
-    }
+	override fun onClick(v: View?) {
+		when (v?.id) {
+			binding.joinName.id -> {
+				binding.joinName.setBackgroundResource(R.drawable.join_click)
+				binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
+				binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
+				binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
+			}
+			binding.joinId.id -> {
+				binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
+				binding.joinId.setBackgroundResource(R.drawable.join_click)
+				binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
+				binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
+			}
+			binding.joinPw.id -> {
+				binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
+				binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
+				binding.joinPw.setBackgroundResource(R.drawable.join_click)
+				binding.joinCheckPw.setBackgroundResource(R.drawable.join_nonclick)
+			}
+
+			binding.joinCheckPw.id -> {
+				binding.joinName.setBackgroundResource(R.drawable.join_nonclick)
+				binding.joinId.setBackgroundResource(R.drawable.join_nonclick)
+				binding.joinPw.setBackgroundResource(R.drawable.join_nonclick)
+				binding.joinCheckPw.setBackgroundResource(R.drawable.join_click)
+			}
+		}
+	}
 
 //    fun checkEmail(): Boolean {
 //        var email = binding.joinId.text.toString().trim() // trim: 문자열의 양쪽 공백을 없애주는 것

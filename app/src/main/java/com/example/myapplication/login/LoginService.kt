@@ -1,0 +1,27 @@
+package com.example.myapplication.login
+
+import android.util.Log
+import com.example.myapplication.config.ApplicationClass
+import com.example.myapplication.login.models.LoginRequest
+import com.example.myapplication.login.models.LoginResponse
+import okhttp3.Callback
+import retrofit2.Call
+import retrofit2.Response
+
+class LoginService(val view : LoginActivityView) {
+
+	fun tryPostSignUp(postLoginRequest: LoginRequest){
+		val loginRetrofitInterface = ApplicationClass.sRetrofit.create(LoginRetrofitInterface::class.java)
+		loginRetrofitInterface.postSignUp(postLoginRequest).enqueue(object :
+			retrofit2.Callback<LoginResponse> {
+			override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+				Log.d("login", "${response.body()}")
+				view.onPostSignUpSuccess(response.body() as LoginResponse)
+			}
+
+			override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+				view.onPostSignUpFailure(t.message ?: "통신 오류")
+			}
+		})
+	}
+}

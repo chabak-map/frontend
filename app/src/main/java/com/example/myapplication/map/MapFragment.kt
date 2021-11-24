@@ -17,7 +17,6 @@ import com.naver.maps.map.*
 import com.naver.maps.map.MapFragment
 import com.naver.maps.map.util.FusedLocationSource
 import com.naver.maps.map.widget.LocationButtonView
-import kotlinx.android.synthetic.main.activity_map.*
 import kotlinx.android.synthetic.main.fragment_map.*
 import kotlinx.android.synthetic.main.fragment_map.map
 import java.security.Permissions
@@ -39,6 +38,9 @@ OnMapReadyCallback{
 					fm?.beginTransaction()?.add(R.id.map, it)?.commit()
 				}
 		mapFragment.getMapAsync(this)
+
+		binding.mapSearchEt.bringToFront()
+
 	}
 
 	override fun onRequestPermissionsResult(

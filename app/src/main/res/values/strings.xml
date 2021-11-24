@@ -46,4 +46,7 @@
     <!-- main  -->
     <string name="alarm">알림</string>
     <string name="search">검색</string>
+
+    <!--  map  -->
+    <string name="map_search">장소 검색</string>
 </resources>

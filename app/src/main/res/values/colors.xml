@@ -16,6 +16,7 @@
     <color name="main_blue">#4d4ddd</color>
     <color name="main_yellow">#ffb84e</color>
     <color name="error">#e84d3d</color>
+    <color name="success">#18AD57</color>
 
     <!-- text -->
     <color name="text_222">#222222</color>

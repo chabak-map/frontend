@@ -5,6 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseActivity
@@ -36,20 +37,31 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
         binding.joinPw.setOnClickListener(this)
         binding.joinCheckPw.setOnClickListener(this)
 
-        //뒤로가기 버튼 클릭
+        // 뒤로가기 버튼 클릭
         binding.ivJoinBack.setOnClickListener {
             finish()
         }
 
-        // 인증번호 버튼
-        binding.ivPhoneNumBtn.setOnClickListener {
-            val phoneNumber = binding.etPhoneNum.text.toString()
-            val smsRequest = PostSmsRequest(
-                phoneNumber = phoneNumber
-            )
-            tryPostSMS(smsRequest)
+        // 인증번호 전송 버튼 클릭 - 번호입력칸이 null이 아닐 경우
+        if (binding.etPhoneNum.text != null) {
+            binding.ivPhoneNumBtn.setOnClickListener {
+
+                // 인증번호 입력창 띄우기
+                binding.etCodeNum.visibility = View.VISIBLE
+                binding.ivCodeNumBtn.visibility = View.VISIBLE
+                binding.tvCodeNumBtn.visibility = View.VISIBLE
+
+                val phoneNumber = binding.etPhoneNum.text.toString()
+                val smsRequest = PostSmsRequest(
+                    phoneNumber = phoneNumber
+                )
+                tryPostSMS(smsRequest)
+            }
+        } else {
+            Toast.makeText(this, "휴대폰 번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
         }
 
+        // 인증번호 확인 버튼 클릭 시
         binding.ivCodeNumBtn.setOnClickListener {
             val phone = binding.etPhoneNum.text.toString()
             val verify = binding.etCodeNum.text.toString()
@@ -58,20 +70,31 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
             )
             tryPostVerify(verifyRequest)
         }
+
         //가입하기 버튼 클릭 시
         binding.joinBtn.setOnClickListener {
             if (binding.joinName.text.toString() == "") {
                 showCustomToast("이름을 입력해주세요")
             } else if (binding.joinPw.text.toString() == "") {
-                showCustomToast("패스워드를 입력해주세요.")
+                showCustomToast("비밀번호를 입력해주세요.")
             } else if (binding.joinId.text.toString() == "") {
                 showCustomToast("아이디를 입력해주세요.")
             } else if (binding.joinCheckPw.text.toString() == "") {
-                showCustomToast("패스워드를 입력해주세요")
+                showCustomToast("비밀번호 확인을 입력해주세요")
             }
             //비밀번호 확인이 일치하지 않으면 오류메세지 띄우기
             else if (binding.joinPw.text.toString() != binding.joinCheckPw.text.toString()) {
-                binding.layoutPwError.visibility = View.VISIBLE
+                binding.ivPwError.visibility = View.VISIBLE
+                binding.tvPwError.visibility = View.VISIBLE
+
+                binding.tvPwSuccess.visibility = View.GONE
+            }
+            //비밀번호 확인이 일치하면 성공메세지 띄우기
+            else if (binding.joinPw.text.toString() == binding.joinCheckPw.text.toString()) {
+                binding.tvPwSuccess.visibility = View.VISIBLE
+
+                binding.ivPwError.visibility = View.GONE
+                binding.tvPwError.visibility = View.GONE
             } else {
                 val name = binding.joinName.text.toString()
                 val email = binding.joinId.text.toString()

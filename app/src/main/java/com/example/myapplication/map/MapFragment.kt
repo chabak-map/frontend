@@ -14,7 +14,9 @@ import com.example.myapplication.R
 import com.example.myapplication.config.BaseFragment
 import com.example.myapplication.databinding.FragmentMapBinding
 import com.naver.maps.map.*
+import com.naver.maps.map.MapFragment
 import com.naver.maps.map.util.FusedLocationSource
+import com.naver.maps.map.widget.LocationButtonView
 import kotlinx.android.synthetic.main.activity_map.*
 import kotlinx.android.synthetic.main.fragment_map.*
 import kotlinx.android.synthetic.main.fragment_map.map
@@ -30,11 +32,18 @@ OnMapReadyCallback{
 		super.onViewCreated(view, savedInstanceState)
 
 		locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
+		val fm = fragmentManager
+		val mapFragment = fm?.findFragmentById(R.id.map) as MapFragment?
+			?: MapFragment.newInstance(NaverMapOptions(). zoomControlEnabled(false))
+				.also {
+					fm?.beginTransaction()?.add(R.id.map, it)?.commit()
+				}
+		mapFragment.getMapAsync(this)
 	}
 
 	override fun onRequestPermissionsResult(
 		requestCode: Int,
-		permissions: Array<out String>,
+		permissions: Array<String>,
 		grantResults: IntArray
 	) {
 		if(locationSource.onRequestPermissionsResult(requestCode, permissions, grantResults)){
@@ -49,6 +58,9 @@ OnMapReadyCallback{
 	override fun onMapReady(naverMap: NaverMap) {
 		this.naverMap = naverMap
 		naverMap.locationSource = locationSource
+		val uiSettings = naverMap.uiSettings
+		uiSettings.isLocationButtonEnabled = true
+		uiSettings.isZoomControlEnabled = false
 	}
 
 	companion object {

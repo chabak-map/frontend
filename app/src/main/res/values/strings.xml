@@ -42,6 +42,8 @@
     <string name="check_num">인증번호</string>
     <string name="join">가입하기</string>
     <string name="join_signup">회원가입</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- main  -->
+    <string name="alarm">알림</string>
+    <string name="search">검색</string>
 </resources>

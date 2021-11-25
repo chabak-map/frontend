@@ -15,6 +15,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         binding.bottomNavigation.setOnNavigationItemSelectedListener(this)
+        binding.bottomNavigation.selectedItemId = R.id.home
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

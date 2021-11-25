@@ -5,17 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/input_id"
-        android:hint="@string/map_search"
-        android:padding="15dp"
+        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="@id/map"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/map_search_et"/>
+        android:id="@+id/search_ll">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_id"
+            android:hint="@string/map_search"
+            android:padding="15dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:id="@+id/map_search_et"/>
+
+        <Button
+            android:layout_weight="9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/map_search_et"
+            app:layout_constraintTop_toTopOf="@id/map_search_et"
+            android:text="@string/search"
+            android:background="@drawable/input_id"
+            android:id="@+id/search_btn"/>
+
+    </LinearLayout>
 
     <fragment
         android:id="@+id/map"

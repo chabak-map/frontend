@@ -6,6 +6,7 @@ import android.view.MenuItem
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.map.MapFragment
+import com.example.myapplication.post.PostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -24,6 +25,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
             R.id.map -> {
                 supportFragmentManager.beginTransaction().replace(R.id.main_frame, MapFragment())
+                    .commit()
+                return true
+            }
+
+            R.id.review -> {
+                supportFragmentManager.beginTransaction().replace(R.id.main_frame, PostFragment())
                     .commit()
                 return true
             }

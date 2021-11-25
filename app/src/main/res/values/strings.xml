@@ -50,4 +50,6 @@
 
     <!--  map  -->
     <string name="map_search">장소 검색</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

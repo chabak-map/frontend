@@ -8,6 +8,7 @@ import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.map.MapFragment
 import com.example.myapplication.post.place.PlaceFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate), BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +20,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.home -> {
-                startActivity(Intent(this, MainActivity::class.java))
+                supportFragmentManager.beginTransaction().replace(R.id.main_frame, HomeFragment())
+                    .commit()
                 return true
             }
 

@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_map.*
 import kotlinx.android.synthetic.main.fragment_map.map
 import java.security.Permissions
 
-class MapFragment() : BaseFragment<FragmentMapBinding>(FragmentMapBinding::bind, R.layout.fragment_map),
+class MapFragment : BaseFragment<FragmentMapBinding>(FragmentMapBinding::bind, R.layout.fragment_map),
 OnMapReadyCallback{
 
 	private lateinit var locationSource : FusedLocationSource
@@ -36,13 +36,17 @@ OnMapReadyCallback{
 		super.onViewCreated(view, savedInstanceState)
 
 		locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
+
 		val fm = fragmentManager
 		val mapFragment = fm?.findFragmentById(R.id.map) as MapFragment?
-			?: MapFragment.newInstance(NaverMapOptions(). zoomControlEnabled(false))
+			?: MapFragment.newInstance(NaverMapOptions().locationButtonEnabled(false))
 				.also {
 					fm?.beginTransaction()?.add(R.id.map, it)?.commit()
 				}
-		mapFragment.getMapAsync(this)
+		mapFragment.getMapAsync {
+			val locationButtonView = R.id.location_btn as LocationButtonView
+			locationButtonView.map = naverMap
+		}
 
 		binding.searchLl.bringToFront()
 
@@ -57,6 +61,10 @@ OnMapReadyCallback{
 			if(!locationSource.isActivated){
 				naverMap.locationTrackingMode = LocationTrackingMode.None // 권한 거부
 			}
+			else {
+				naverMap.locationTrackingMode = LocationTrackingMode.Follow
+				println(locationSource)
+			}
 			return
 		}
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -65,9 +73,6 @@ OnMapReadyCallback{
 	override fun onMapReady(naverMap: NaverMap) {
 		this.naverMap = naverMap
 		naverMap.locationSource = locationSource
-		val uiSettings = naverMap.uiSettings
-		uiSettings.isLocationButtonEnabled = true
-		uiSettings.isZoomControlEnabled = false
 
 		val geocoder = Geocoder(requireContext())
 		val infoWindow = InfoWindow()

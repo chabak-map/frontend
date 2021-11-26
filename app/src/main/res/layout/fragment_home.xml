@@ -4,16 +4,178 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".HomeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hello_blank_fragment"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_main"
+                android:layout_width="match_parent"
+                android:layout_height="245dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/main_banner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="98dp"
+                android:layout_height="84dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/main_text"
+                app:layout_constraintStart_toStartOf="@id/iv_main"
+                app:layout_constraintTop_toTopOf="@id/iv_main" />
+
+            <!-- 플로팅 검색 창 -->
+            <EditText
+                android:id="@+id/btn_main_location"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="220dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/oauth_main"
+                android:elevation="5dp"
+                android:hint="@string/main_search"
+                android:inputType="textEmailAddress"
+                android:paddingStart="48dp"
+                android:textColorHint="@color/text_bbb"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_main" />
+
+            <ImageView
+                android:id="@+id/iv_email"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="18dp"
+                android:elevation="80dp"
+                android:src="@drawable/search_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_main_location"
+                app:layout_constraintStart_toStartOf="@+id/btn_main_location"
+                app:layout_constraintTop_toTopOf="@+id/btn_main_location" />
+
+            <!-- 차박지 랭킹 -->
+            <TextView
+                android:id="@+id/tv_main_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/main_rank"
+                android:textColor="@color/black"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/btn_main_location"
+                app:layout_constraintTop_toBottomOf="@+id/btn_main_location" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="@+id/tv_main_rank"
+                app:layout_constraintTop_toBottomOf="@+id/tv_main_rank"
+                tools:listitem="@layout/main_rank_item" />
+
+            <!-- 차박지 포스트 -->
+            <TextView
+                android:id="@+id/tv_main_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/main_post"
+                android:textColor="@color/black"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/btn_main_location"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_rank" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="@+id/tv_main_post"
+                app:layout_constraintTop_toBottomOf="@+id/tv_main_post"
+                tools:listitem="@layout/main_post_item" />
+
+            <!-- 가까운 차박지 -->
+            <TextView
+                android:id="@+id/tv_main_closer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/main_close"
+                android:textColor="@color/black"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/btn_main_location"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_post" />
+
+            <LinearLayout
+                android:id="@+id/layout_closer_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="@id/tv_main_closer"
+                app:layout_constraintTop_toBottomOf="@id/tv_main_closer">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/my_location" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/main_closer_location"
+                    android:textColor="@color/text_555"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="경기도 성남시 수정구"
+                    android:textColor="@color/text_555"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_closer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_main_closer"
+                app:layout_constraintTop_toBottomOf="@+id/layout_closer_location"
+                tools:listitem="@layout/main_closer_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

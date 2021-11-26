@@ -47,6 +47,11 @@
     <!-- main  -->
     <string name="alarm">알림</string>
     <string name="search">검색</string>
+    <string name="main_search">Search</string>
+    <string name="main_rank">차박지 랭킹</string>
+    <string name="main_post">차박지 포스트</string>
+    <string name="main_close">가까운 차박지</string>
+    <string name="main_closer_location">내위치</string>
 
     <!--  map  -->
     <string name="map_search">장소 검색</string>

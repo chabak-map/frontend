@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_post_background"
+                android:layout_width="300dp"
+                android:layout_height="248dp"
+                android:background="@drawable/oauth_main"
+                android:scaleType="centerCrop"
+                android:src="@drawable/post_img_1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_post_black"
+                android:layout_width="300dp"
+                android:layout_height="94dp"
+                android:src="@drawable/post_img_black"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_post_background"
+                app:layout_constraintEnd_toEndOf="@id/iv_post_background"
+                app:layout_constraintStart_toStartOf="@id/iv_post_background" />
+
+            <TextView
+                android:id="@+id/tv_post_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:maxEms="12"
+                android:text="동화같은 풍경 속으로! 힐링하러 가보자~"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/iv_post_black"
+                app:layout_constraintTop_toTopOf="@id/iv_post_black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="BY tkdansla1"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_post_text"
+                app:layout_constraintTop_toBottomOf="@+id/tv_post_text" />
+
+            <ImageView
+                android:id="@+id/iv_post_heart_back"
+                android:layout_width="52dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/post_heart_black"
+                app:layout_constraintEnd_toEndOf="@id/iv_post_black"
+                app:layout_constraintTop_toTopOf="@id/tv_post_text" />
+
+            <ImageView
+                android:id="@+id/iv_post_heart"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/post_heart"
+                app:layout_constraintBottom_toBottomOf="@id/iv_post_heart_back"
+                app:layout_constraintStart_toStartOf="@id/iv_post_heart_back"
+                app:layout_constraintTop_toTopOf="@id/iv_post_heart_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="20"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/iv_post_heart"
+                app:layout_constraintStart_toEndOf="@id/iv_post_heart"
+                app:layout_constraintTop_toTopOf="@id/iv_post_heart" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

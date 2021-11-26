@@ -3,11 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_join.xml" value="0.3536458333333333" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/dialog_background_round.xml" value="0.3697916666666667" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/input_id.xml" value="0.3697916666666667" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/join_click.xml" value="0.3697916666666667" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/join_nonclick.xml" value="0.3697916666666667" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/main_search_shadow.xml" value="0.3697916666666667" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/oauth.xml" value="0.3697916666666667" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/oauth_main.xml" value="0.3697916666666667" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/oauth_post.xml" value="0.3641025641025641" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_join.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_login.xml" value="0.3482051282051282" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_map.xml" value="0.3536458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/dialog_loading.xml" value="0.3536458333333333" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_home.xml" value="0.24610366074664733" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_map.xml" value="0.3536458333333333" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_place.xml" value="0.3536458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/login_custom_dialog.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/main_close_item.xml" value="0.3536458333333333" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/main_closer_item.xml" value="0.75" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/main_post_item.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/main_rank_item.xml" value="0.67" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/bottom_icon_color.xml" value="0.1" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/dialog_background_round.xml" value="0.1712962962962963" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1925925925925926" />
@@ -19,12 +35,9 @@
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/activity_map.xml" value="0.1778115501519757" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/activity_splash.xml" value="0.3515625" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/dialog_loading.xml" value="0.12771739130434784" />
-        <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/fragment_home.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/fragment_map.xml" value="0.20572916666666666" />
-        <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/fragment_post.xml" value="0.17603850050658562" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/login_custom_dialog.xml" value="0.33" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/login_failed_alert.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/map_item.xml" value="0.1778115501519757" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/menu-v26/main_bottom_nav.xml" value="0.29444444444444445" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/menu/main_bottom_nav.xml" value="0.33" />
       </map>

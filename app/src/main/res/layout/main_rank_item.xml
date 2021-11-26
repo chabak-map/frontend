@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/iv_rank_background"
+        android:layout_width="199dp"
+        android:layout_height="230dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/oauth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_rank_img"
+        android:layout_width="167dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/oauth_main"
+        android:src="@drawable/rank_img_1"
+        app:layout_constraintEnd_toEndOf="@+id/iv_rank_background"
+        app:layout_constraintStart_toStartOf="@+id/iv_rank_background"
+        app:layout_constraintTop_toTopOf="@id/iv_rank_background" />
+
+    <ImageView
+        android:id="@+id/iv_post_number"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/oauth_post"
+        android:backgroundTint="@color/main_yellow"
+        app:layout_constraintStart_toStartOf="@+id/iv_rank_img"
+        app:layout_constraintTop_toTopOf="@+id/iv_rank_img" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_post_number"
+        app:layout_constraintEnd_toEndOf="@+id/iv_post_number"
+        app:layout_constraintStart_toStartOf="@+id/iv_post_number"
+        app:layout_constraintTop_toTopOf="@+id/iv_post_number" />
+
+    <TextView
+        android:id="@+id/tv_rank_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:ems="8"
+        android:lineSpacingExtra="0.dp"
+        android:text="구시포해수욕장구시포해수욕장"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/iv_rank_img"
+        app:layout_constraintTop_toBottomOf="@+id/iv_rank_img" />
+
+    <ImageView
+        android:id="@+id/iv_map_icon"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/map_nav"
+        app:layout_constraintStart_toStartOf="@+id/iv_rank_img"
+        app:layout_constraintTop_toBottomOf="@+id/tv_rank_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="전북 고창군 상하면 자룡리"
+        android:textColor="@color/text_555"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_map_icon"
+        app:layout_constraintStart_toEndOf="@+id/iv_map_icon"
+        app:layout_constraintTop_toTopOf="@+id/iv_map_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

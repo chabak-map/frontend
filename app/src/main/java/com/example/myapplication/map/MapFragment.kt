@@ -32,11 +32,8 @@ OnMapReadyCallback{
 
 	private lateinit var locationSource : FusedLocationSource
 	private lateinit var naverMap: NaverMap
-
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-
-		locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 
 		val fm = fragmentManager
 		val mapFragment = fm?.findFragmentById(R.id.map) as MapFragment?
@@ -48,6 +45,7 @@ OnMapReadyCallback{
 
 		binding.searchLl.bringToFront()
 
+		locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 	}
 
 	override fun onRequestPermissionsResult(
@@ -61,7 +59,6 @@ OnMapReadyCallback{
 			}
 			else {
 				naverMap.locationTrackingMode = LocationTrackingMode.Follow
-				println(locationSource)
 			}
 			return
 		}
@@ -71,7 +68,6 @@ OnMapReadyCallback{
 	override fun onMapReady(naverMap: NaverMap) {
 		this.naverMap = naverMap
 		naverMap.locationSource = locationSource
-
 		val uiSettings = naverMap.uiSettings
 		uiSettings.isZoomControlEnabled = false
 
@@ -91,6 +87,13 @@ OnMapReadyCallback{
 				true
 			}
 		}
+		var now_lat : Double
+		var now_long : Double
+		naverMap.addOnLocationChangeListener { location ->
+			now_lat = location.latitude
+			now_long = location.longitude
+			println("$now_lat, $now_long")
+		}
 
 		infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
 			override fun getText(infoWindow: InfoWindow): CharSequence {
@@ -102,4 +105,5 @@ OnMapReadyCallback{
 	companion object {
 		private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
 	}
+
 }

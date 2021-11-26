@@ -27,8 +27,8 @@
                 android:id="@+id/map_search_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="2"
                 android:background="@drawable/input_id"
                 android:hint="@string/map_search"
                 android:padding="15dp" />
@@ -37,7 +37,8 @@
                 android:id="@+id/search_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="9"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="8"
                 android:background="@drawable/input_id"
                 android:text="@string/search"
                 app:layout_constraintLeft_toRightOf="@id/map_search_et"
@@ -61,7 +62,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|top"
-                android:layout_margin="12dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="16dp"
                 tools:ignore="MissingConstraints" />
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -83,7 +85,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="600dp"
             android:background="@drawable/slideuppanel">
 
             <TextView

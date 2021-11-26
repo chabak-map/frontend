@@ -6,6 +6,7 @@ import android.location.Geocoder
 import android.location.Location
 import android.location.LocationListener
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -43,10 +44,7 @@ OnMapReadyCallback{
 				.also {
 					fm?.beginTransaction()?.add(R.id.map, it)?.commit()
 				}
-		mapFragment.getMapAsync {
-			val locationButtonView = R.id.location_btn as LocationButtonView
-			locationButtonView.map = naverMap
-		}
+		mapFragment.getMapAsync(this)
 
 		binding.searchLl.bringToFront()
 
@@ -74,6 +72,11 @@ OnMapReadyCallback{
 		this.naverMap = naverMap
 		naverMap.locationSource = locationSource
 
+		val uiSettings = naverMap.uiSettings
+		uiSettings.isZoomControlEnabled = false
+
+		val locationButtonView = location_btn as LocationButtonView
+		locationButtonView.map = naverMap
 		val geocoder = Geocoder(requireContext())
 		val infoWindow = InfoWindow()
 		binding.searchBtn.setOnClickListener {

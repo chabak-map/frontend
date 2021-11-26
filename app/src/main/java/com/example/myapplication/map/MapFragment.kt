@@ -6,6 +6,7 @@ import android.location.Geocoder
 import android.location.Location
 import android.location.LocationListener
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,19 +27,17 @@ import kotlinx.android.synthetic.main.fragment_map.*
 import kotlinx.android.synthetic.main.fragment_map.map
 import java.security.Permissions
 
-class MapFragment() : BaseFragment<FragmentMapBinding>(FragmentMapBinding::bind, R.layout.fragment_map),
+class MapFragment : BaseFragment<FragmentMapBinding>(FragmentMapBinding::bind, R.layout.fragment_map),
 OnMapReadyCallback{
 
 	private lateinit var locationSource : FusedLocationSource
 	private lateinit var naverMap: NaverMap
-
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 		val fm = fragmentManager
 		val mapFragment = fm?.findFragmentById(R.id.map) as MapFragment?
-			?: MapFragment.newInstance(NaverMapOptions(). zoomControlEnabled(false))
+			?: MapFragment.newInstance(NaverMapOptions().locationButtonEnabled(false))
 				.also {
 					fm?.beginTransaction()?.add(R.id.map, it)?.commit()
 				}
@@ -46,6 +45,7 @@ OnMapReadyCallback{
 
 		binding.searchLl.bringToFront()
 
+		locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 	}
 
 	override fun onRequestPermissionsResult(
@@ -57,6 +57,9 @@ OnMapReadyCallback{
 			if(!locationSource.isActivated){
 				naverMap.locationTrackingMode = LocationTrackingMode.None // 권한 거부
 			}
+			else {
+				naverMap.locationTrackingMode = LocationTrackingMode.Follow
+			}
 			return
 		}
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -66,9 +69,10 @@ OnMapReadyCallback{
 		this.naverMap = naverMap
 		naverMap.locationSource = locationSource
 		val uiSettings = naverMap.uiSettings
-		uiSettings.isLocationButtonEnabled = true
 		uiSettings.isZoomControlEnabled = false
 
+		val locationButtonView = location_btn as LocationButtonView
+		locationButtonView.map = naverMap
 		val geocoder = Geocoder(requireContext())
 		val infoWindow = InfoWindow()
 		binding.searchBtn.setOnClickListener {
@@ -83,6 +87,13 @@ OnMapReadyCallback{
 				true
 			}
 		}
+		var now_lat : Double
+		var now_long : Double
+		naverMap.addOnLocationChangeListener { location ->
+			now_lat = location.latitude
+			now_long = location.longitude
+			println("$now_lat, $now_long")
+		}
 
 		infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
 			override fun getText(infoWindow: InfoWindow): CharSequence {
@@ -94,4 +105,5 @@ OnMapReadyCallback{
 	companion object {
 		private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
 	}
+
 }

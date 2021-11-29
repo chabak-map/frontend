@@ -1,6 +1,6 @@
 package com.example.myapplication.post.place.models
 
-data class place(
+data class Place(
     val code: Int,
     val isSuccess: Boolean,
     val message: String,

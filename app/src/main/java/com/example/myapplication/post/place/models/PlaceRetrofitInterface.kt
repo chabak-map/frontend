@@ -6,5 +6,5 @@ import retrofit2.http.Path
 
 interface PlaceRetrofitInterface {
 	@GET("/places/{placeId}")
-	fun getPlace(@Path("placeId") placeId : Int) : Call<place>
+	fun getPlace(@Path("placeId") placeId : Int) : Call<Place>
 }

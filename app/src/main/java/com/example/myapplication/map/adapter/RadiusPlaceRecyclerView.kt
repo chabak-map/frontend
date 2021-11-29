@@ -1,5 +1,6 @@
 package com.example.myapplication.map.adapter
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -35,6 +36,7 @@ RecyclerView.Adapter<RadiusPlaceRecyclerView.CustomViewHolder>(){
 	}
 
 	class CustomViewHolder(view : View) : RecyclerView.ViewHolder(view){
+		@SuppressLint("SetTextI18n")
 		fun bindItems(data : Result){
 			itemView.findViewById<TextView>(R.id.radius_place_distance_tv).text = data.distance.toString() + "m"
 			tryGetPlaceId(data.placeId)
@@ -45,6 +47,7 @@ RecyclerView.Adapter<RadiusPlaceRecyclerView.CustomViewHolder>(){
 				override fun onResponse(call: Call<Place>, response: Response<Place>) {
 					val result = response.body() as Place
 					itemView.findViewById<TextView>(R.id.radius_place_tv).text = result.result.name
+					itemView.findViewById<TextView>(R.id.radius_place_img)
 				}
 
 				override fun onFailure(call: Call<Place>, t: Throwable) {

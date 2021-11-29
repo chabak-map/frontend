@@ -94,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/input_id"
                 android:gravity="center_horizontal"
@@ -105,11 +105,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/item_radius_place_rv"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginTop="20dp"
                 app:layout_constraintTop_toBottomOf="@id/content_cnt_tv"
-                android:id="@+id/item_radius_place_rv"
-                tools:listitem="@layout/radius_place_item"/>
+                tools:listitem="@layout/radius_place_item" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>

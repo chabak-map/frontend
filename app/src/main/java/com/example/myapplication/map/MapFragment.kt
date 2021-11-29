@@ -3,13 +3,8 @@ package com.example.myapplication.map
 import android.annotation.SuppressLint
 import android.location.Geocoder
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseFragment
@@ -17,9 +12,6 @@ import com.example.myapplication.databinding.FragmentMapBinding
 import com.example.myapplication.map.adapter.RadiusPlaceRecyclerView
 import com.example.myapplication.map.models.RadiusPlace
 import com.example.myapplication.map.models.RadiusPlaceRetrofitInterface
-import com.example.myapplication.map.models.Result
-import com.example.myapplication.post.place.models.Place
-import com.example.myapplication.post.place.models.PlaceRetrofitInterface
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.MapFragment
@@ -28,7 +20,6 @@ import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.FusedLocationSource
 import com.naver.maps.map.widget.LocationButtonView
 import kotlinx.android.synthetic.main.fragment_map.*
-import kotlinx.android.synthetic.main.radius_place_item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -100,10 +91,8 @@ OnMapReadyCallback{
 			now_lat = location.latitude
 			now_long = location.longitude
 			println("$now_lat, $now_long")
-			tryGetPlace(35.6412549, 127.1463028, 10)
-
+			tryGetPlace(35.6412549, 127.1463028, 40)
 		}
-
 		infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
 			override fun getText(infoWindow: InfoWindow): CharSequence {
 				return infoWindow.marker?.tag as CharSequence? ?: ""
@@ -122,22 +111,6 @@ OnMapReadyCallback{
 			}
 
 			override fun onFailure(call: Call<RadiusPlace>, t: Throwable) {
-				showCustomToast("${t.message}")
-			}
-		})
-	}
-
-	fun tryGetPlaceId(placeId : Int){
-		val placeRetrofitInterface = ApplicationClass.sRetrofit.create(PlaceRetrofitInterface::class.java)
-		placeRetrofitInterface.getPlace(placeId).enqueue(object : Callback<Place> {
-			override fun onResponse(call: Call<Place>, response: Response<Place>) {
-				val result = response.body() as Place
-//				println(result)
-//				val place = radius_place_tv
-//				place.text = result.result.name
-			}
-
-			override fun onFailure(call: Call<Place>, t: Throwable) {
 				showCustomToast("${t.message}")
 			}
 		})

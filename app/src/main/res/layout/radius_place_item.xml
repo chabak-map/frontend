@@ -15,19 +15,18 @@
         android:id="@+id/radius_place_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="@string/radius_place_name"
         app:layout_constraintStart_toEndOf="@id/radius_place_img"
         app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
         android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/radius_place_distance_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/radius_place_distance"
         app:layout_constraintStart_toStartOf="@id/radius_place_tv"
         app:layout_constraintTop_toBottomOf="@id/radius_place_tv" />
 

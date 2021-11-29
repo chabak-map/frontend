@@ -37,7 +37,6 @@ RecyclerView.Adapter<RadiusPlaceRecyclerView.CustomViewHolder>(){
 	class CustomViewHolder(view : View) : RecyclerView.ViewHolder(view){
 		fun bindItems(data : Result){
 			itemView.findViewById<TextView>(R.id.radius_place_distance_tv).text = data.distance.toString() + "m"
-			itemView.findViewById<TextView>(R.id.radius_place_tv).text = data.placeId.toString()
 			tryGetPlaceId(data.placeId)
 		}
 		fun tryGetPlaceId(placeId : Int){
@@ -45,7 +44,7 @@ RecyclerView.Adapter<RadiusPlaceRecyclerView.CustomViewHolder>(){
 			placeRetrofitInterface.getPlace(placeId).enqueue(object : Callback<Place> {
 				override fun onResponse(call: Call<Place>, response: Response<Place>) {
 					val result = response.body() as Place
-
+					itemView.findViewById<TextView>(R.id.radius_place_tv).text = result.result.name
 				}
 
 				override fun onFailure(call: Call<Place>, t: Throwable) {

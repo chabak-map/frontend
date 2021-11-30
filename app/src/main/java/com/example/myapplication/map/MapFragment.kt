@@ -3,6 +3,7 @@ package com.example.myapplication.map
 import android.annotation.SuppressLint
 import android.location.Geocoder
 import android.os.Bundle
+import android.provider.SettingsSlicesContract.KEY_LOCATION
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
@@ -42,7 +43,8 @@ OnMapReadyCallback{
 				}
 		mapFragment.getMapAsync(this)
 
-		binding.searchLl.bringToFront()
+		binding.mapSearchEt.bringToFront()
+		binding.searchPlaceImg.bringToFront()
 		binding.itemRadiusPlaceRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 		binding.itemRadiusPlaceRv.setHasFixedSize(true)
 	}
@@ -75,7 +77,7 @@ OnMapReadyCallback{
 		locationButtonView.map = naverMap
 		val geocoder = Geocoder(requireContext())
 		val infoWindow = InfoWindow()
-		binding.searchBtn.setOnClickListener {
+		binding.searchPlaceImg.setOnClickListener {
 			val address = binding.mapSearchEt.text.toString()
 			val address_geo = geocoder.getFromLocationName(address, 1)
 			val marker = Marker()
@@ -91,7 +93,7 @@ OnMapReadyCallback{
 			now_lat = location.latitude
 			now_long = location.longitude
 			println("$now_lat, $now_long")
-			tryGetPlace(35.6412549, 127.1463028, 40)
+			tryGetPlace(35.6412, 127.1463, 40)
 		}
 		infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
 			override fun getText(infoWindow: InfoWindow): CharSequence {
@@ -114,6 +116,11 @@ OnMapReadyCallback{
 				showCustomToast("${t.message}")
 			}
 		})
+	}
+
+	override fun onSaveInstanceState(outState: Bundle) {
+		super.onSaveInstanceState(outState)
+
 	}
 	companion object {
 		private const val LOCATION_PERMISSION_REQUEST_CODE = 1000

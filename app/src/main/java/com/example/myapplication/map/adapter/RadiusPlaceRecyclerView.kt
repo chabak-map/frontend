@@ -5,8 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.map.models.RadiusPlace
@@ -36,18 +38,22 @@ RecyclerView.Adapter<RadiusPlaceRecyclerView.CustomViewHolder>(){
 	}
 
 	class CustomViewHolder(view : View) : RecyclerView.ViewHolder(view){
+		private val place_img : ImageView = view.findViewById(R.id.radius_place_img)
 		@SuppressLint("SetTextI18n")
 		fun bindItems(data : Result){
 			itemView.findViewById<TextView>(R.id.radius_place_distance_tv).text = data.distance.toString() + "m"
 			tryGetPlaceId(data.placeId)
+			itemView.setOnClickListener {
+				Log.d("click", "${data.placeId}")
+			}
 		}
-		fun tryGetPlaceId(placeId : Int){
+		private fun tryGetPlaceId(placeId : Int){
 			val placeRetrofitInterface = ApplicationClass.sRetrofit.create(PlaceRetrofitInterface::class.java)
 			placeRetrofitInterface.getPlace(placeId).enqueue(object : Callback<Place> {
 				override fun onResponse(call: Call<Place>, response: Response<Place>) {
 					val result = response.body() as Place
 					itemView.findViewById<TextView>(R.id.radius_place_tv).text = result.result.name
-					itemView.findViewById<TextView>(R.id.radius_place_img)
+					Glide.with(itemView).load(result.result.placeImageUrls[0]).into(place_img)
 				}
 
 				override fun onFailure(call: Call<Place>, t: Throwable) {

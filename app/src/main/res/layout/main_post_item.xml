@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
-                android:maxEms="12"
+                android:maxEms="11"
                 android:text="동화같은 풍경 속으로! 힐링하러 가보자~"
                 android:textColor="@color/white"
                 android:textSize="16sp"
@@ -54,6 +54,7 @@
                 app:layout_constraintTop_toTopOf="@id/iv_post_black" />
 
             <TextView
+                android:id="@+id/tv_post_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -83,6 +84,7 @@
                 app:layout_constraintTop_toTopOf="@id/iv_post_heart_back" />
 
             <TextView
+                android:id="@+id/tv_post_heart_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"

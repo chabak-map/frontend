@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TitleStyle_text" parent="android:TextAppearance">
+        <item name="android:textStyle">bold</item>
+<!--        <item name="android:textSize">@dimen/text_size_16</item>-->
+<!--        <item name="android:textColor">@color/colorBlack</item>-->
+        <item name="android:fontFamily">@font/app_font</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="MediumStyle_text" parent="android:TextAppearance">
+        <item name="android:textStyle">normal</item>
+<!--        <item name="android:textSize">@dimen/text_size_14</item>-->
+<!--        <item name="android:textColor">@color/colorGray</item>-->
+        <item name="android:fontFamily">@font/app_font</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+</resources>

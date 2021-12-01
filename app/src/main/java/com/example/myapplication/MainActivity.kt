@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.home.HomeFragment
 import com.example.myapplication.map.MapFragment
 import com.example.myapplication.post.place.PlaceFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView

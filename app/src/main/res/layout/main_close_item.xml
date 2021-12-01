@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!-- 거리 플로팅 -->
+    <ImageView
+        android:id="@+id/iv_close_background"
+        android:layout_width="300dp"
+        android:layout_height="230dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/oauth_main"
+        android:scaleType="centerCrop"
+        android:src="@drawable/close_img_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/iv_close_black"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/oauth"
+        android:backgroundTint="@color/main_blue"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_close_background"
+        app:layout_constraintEnd_toEndOf="@id/iv_close_background" />
+
+    <TextView
+        android:id="@+id/tv_close_distance"
+        style="@style/TitleStyle_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="60"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/iv_close_black"
+        app:layout_constraintStart_toStartOf="@+id/iv_close_black"
+        app:layout_constraintTop_toTopOf="@+id/iv_close_black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="KM"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_close_distance"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/tv_close_distance"
+        app:layout_constraintTop_toTopOf="@+id/tv_close_distance" />
+
+    <TextView
+        android:id="@+id/tv_close_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:text="당진 왜목마을"
+        android:textColor="@color/text_222"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/iv_close_background"
+        app:layout_constraintTop_toBottomOf="@+id/iv_close_background" />
+
+    <ImageView
+        android:id="@+id/iv_close_bookmark"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/bookmark"
+        app:layout_constraintEnd_toEndOf="@+id/iv_close_background"
+        app:layout_constraintTop_toTopOf="@+id/tv_close_name" />
+
+    <ImageView
+        android:id="@+id/iv_close_location"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="12dp"
+        android:src="@drawable/map_nav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_close_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_close_name" />
+
+    <TextView
+        android:id="@+id/tv_close_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="충청남도 당진시 석문면 교로리 844-25"
+        android:textColor="@color/text_555"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_close_location"
+        app:layout_constraintStart_toEndOf="@+id/iv_close_location"
+        app:layout_constraintTop_toTopOf="@+id/iv_close_location" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

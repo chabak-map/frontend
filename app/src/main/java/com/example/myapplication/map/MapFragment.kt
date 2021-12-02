@@ -3,7 +3,6 @@ package com.example.myapplication.map
 import android.annotation.SuppressLint
 import android.location.Geocoder
 import android.os.Bundle
-import android.provider.SettingsSlicesContract.KEY_LOCATION
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
@@ -11,6 +10,7 @@ import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseFragment
 import com.example.myapplication.databinding.FragmentMapBinding
 import com.example.myapplication.map.adapter.RadiusPlaceRecyclerView
+import com.example.myapplication.map.detail.DetailPostFragment
 import com.example.myapplication.map.models.RadiusPlace
 import com.example.myapplication.map.models.RadiusPlaceRetrofitInterface
 import com.naver.maps.geometry.LatLng
@@ -25,13 +25,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MapFragment : BaseFragment<FragmentMapBinding>(FragmentMapBinding::bind, R.layout.fragment_map),
-OnMapReadyCallback{
+class MapFragment :
+	BaseFragment<FragmentMapBinding>(FragmentMapBinding::bind, R.layout.fragment_map),
+	OnMapReadyCallback {
 
-	private lateinit var locationSource : FusedLocationSource
+	private lateinit var locationSource: FusedLocationSource
 	private lateinit var naverMap: NaverMap
-	var now_lat : Double ?= null
-	var now_long : Double ?= null
+	var now_lat: Double? = null
+	var now_long: Double? = null
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
@@ -45,7 +46,8 @@ OnMapReadyCallback{
 
 		binding.mapSearchEt.bringToFront()
 		binding.searchPlaceImg.bringToFront()
-		binding.itemRadiusPlaceRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+		binding.itemRadiusPlaceRv.layoutManager =
+			LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 		binding.itemRadiusPlaceRv.setHasFixedSize(true)
 	}
 
@@ -54,17 +56,17 @@ OnMapReadyCallback{
 		permissions: Array<String>,
 		grantResults: IntArray
 	) {
-		if(locationSource.onRequestPermissionsResult(requestCode, permissions, grantResults)){
-			if(!locationSource.isActivated){
+		if (locationSource.onRequestPermissionsResult(requestCode, permissions, grantResults)) {
+			if (!locationSource.isActivated) {
 				naverMap.locationTrackingMode = LocationTrackingMode.None // 권한 거부
-			}
-			else {
+			} else {
 				naverMap.locationTrackingMode = LocationTrackingMode.Follow
 			}
 			return
 		}
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 	}
+
 	override fun onMapReady(naverMap: NaverMap) {
 
 		locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
@@ -102,14 +104,21 @@ OnMapReadyCallback{
 		}
 	}
 
-	fun tryGetPlace(lat : Double, lng : Double, r : Int){
-		val radiusPlaceRetrofitInterface = ApplicationClass.sRetrofit.create(RadiusPlaceRetrofitInterface::class.java)
+	fun tryGetPlace(lat: Double, lng: Double, r: Int) {
+		val radiusPlaceRetrofitInterface =
+			ApplicationClass.sRetrofit.create(RadiusPlaceRetrofitInterface::class.java)
 		radiusPlaceRetrofitInterface.getPlace(lat, lng, r).enqueue(object : Callback<RadiusPlace> {
 			@SuppressLint("SetTextI18n")
 			override fun onResponse(call: Call<RadiusPlace>, response: Response<RadiusPlace>) {
 				val result = response.body() as RadiusPlace
-				binding.contentCntTv.text = "주변 장소 " + result.result.size.toString()+"개"
-				binding.itemRadiusPlaceRv.adapter = RadiusPlaceRecyclerView(result)
+				val radiusPlaceRecyclerView = RadiusPlaceRecyclerView(result)
+				binding.contentCntTv.text = "주변 장소 " + result.result.size.toString() + "개"
+				binding.itemRadiusPlaceRv.adapter = radiusPlaceRecyclerView
+				radiusPlaceRecyclerView.setItemClickListener(object : RadiusPlaceRecyclerView.OnItemClickListener{
+					override fun onClick(v: View, position: Int) {
+						requireFragmentManager().beginTransaction().replace(R.id.main_frame, DetailPostFragment()).commit()
+					}
+				})
 			}
 
 			override fun onFailure(call: Call<RadiusPlace>, t: Throwable) {
@@ -122,6 +131,7 @@ OnMapReadyCallback{
 		super.onSaveInstanceState(outState)
 
 	}
+
 	companion object {
 		private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
 	}

@@ -2,11 +2,12 @@ package com.example.myapplication
 
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.fragment.app.FragmentManager
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.home.HomeFragment
 import com.example.myapplication.map.MapFragment
-import com.example.myapplication.post.place.PlaceFragment
+import com.example.myapplication.post.PostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate),
@@ -34,11 +35,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             }
 
             R.id.review -> {
-                supportFragmentManager.beginTransaction().replace(R.id.main_frame, PlaceFragment())
+                supportFragmentManager.beginTransaction().replace(R.id.main_frame, PostFragment())
                     .commit()
                 return true
             }
         }
         return false
     }
+
 }

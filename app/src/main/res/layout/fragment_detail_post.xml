@@ -3,38 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".post.place.PlaceFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="@id/post_img_cv"
-        android:id="@+id/post_place_name_tv"/>
+        app:layout_constraintStart_toStartOf="@id/detail_place_vp"
+        android:id="@+id/detail_post_title_tv"/>
     <TextView
-        app:layout_constraintStart_toStartOf="@id/post_img_cv"
+        app:layout_constraintStart_toStartOf="@id/detail_place_vp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/post_place_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/detail_post_title_tv"
         android:layout_marginTop="5dp"
-        android:id="@+id/post_place_address_tv"/>
+        android:id="@+id/detail_post_content_tv"/>
 
-    <androidx.cardview.widget.CardView
+    <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintTop_toBottomOf="@id/post_place_address_tv"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:id="@+id/post_img_cv"/>
+        android:layout_height="400dp"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/detail_post_content_tv"
+        android:id="@+id/detail_place_vp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/post_img_cv"
+        app:layout_constraintTop_toBottomOf="@id/detail_place_vp"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@id/post_img_cv"
+        app:layout_constraintStart_toStartOf="@id/detail_place_vp"
         android:id="@+id/post_place_review_cnt_tv"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,6 @@
-package com.example.myapplication.post.place.models
+package com.example.myapplication.map.detail.models
 
-data class Place(
+data class DetailPost(
     val code: Int,
     val isSuccess: Boolean,
     val message: String,

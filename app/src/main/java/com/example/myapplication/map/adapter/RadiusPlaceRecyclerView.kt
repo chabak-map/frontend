@@ -1,30 +1,48 @@
 package com.example.myapplication.map.adapter
 
 import android.annotation.SuppressLint
+import android.app.FragmentManager
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
+import com.example.myapplication.databinding.FragmentDetailPostBinding
+import com.example.myapplication.map.MapFragment
+import com.example.myapplication.map.detail.DetailPostFragment
 import com.example.myapplication.map.models.RadiusPlace
 import com.example.myapplication.map.models.Result
-import com.example.myapplication.post.place.models.Place
-import com.example.myapplication.post.place.models.PlaceRetrofitInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.coroutines.coroutineContext
 
 class RadiusPlaceRecyclerView(val placeList : RadiusPlace) :
 RecyclerView.Adapter<RadiusPlaceRecyclerView.CustomViewHolder>(){
 	override fun onBindViewHolder(holder: RadiusPlaceRecyclerView.CustomViewHolder, position: Int) {
+		holder.itemView.setOnClickListener {
+			itemClickListener.onClick(it, position)
+		}
 		holder.bindItems(placeList.result[position])
 	}
 
+	interface OnItemClickListener {
+		fun onClick(v : View, position: Int)
+	}
+	// 외부에서 클릭 시 이벤트 설정
+	fun setItemClickListener(onItemClickListener : OnItemClickListener){
+		this.itemClickListener = onItemClickListener
+	}
+	
+	private lateinit var itemClickListener : OnItemClickListener
+	
 	override fun onCreateViewHolder(
 		parent: ViewGroup,
 		viewType: Int
@@ -42,25 +60,6 @@ RecyclerView.Adapter<RadiusPlaceRecyclerView.CustomViewHolder>(){
 		@SuppressLint("SetTextI18n")
 		fun bindItems(data : Result){
 			itemView.findViewById<TextView>(R.id.radius_place_distance_tv).text = data.distance.toString() + "m"
-			tryGetPlaceId(data.placeId)
-			itemView.setOnClickListener {
-				Log.d("click", "${data.placeId}")
-			}
-		}
-		private fun tryGetPlaceId(placeId : Int){
-			val placeRetrofitInterface = ApplicationClass.sRetrofit.create(PlaceRetrofitInterface::class.java)
-			placeRetrofitInterface.getPlace(placeId).enqueue(object : Callback<Place> {
-				override fun onResponse(call: Call<Place>, response: Response<Place>) {
-					val result = response.body() as Place
-					itemView.findViewById<TextView>(R.id.radius_place_tv).text = result.result.name
-					Glide.with(itemView).load(result.result.placeImageUrls[0]).into(place_img)
-				}
-
-				override fun onFailure(call: Call<Place>, t: Throwable) {
-					Log.d("error","${t.message}")
-				}
-			})
 		}
 	}
-
 }

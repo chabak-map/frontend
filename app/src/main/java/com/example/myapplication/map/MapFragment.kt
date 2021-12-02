@@ -14,9 +14,9 @@ import com.example.myapplication.config.BaseFragment
 import com.example.myapplication.databinding.FragmentMapBinding
 import com.example.myapplication.map.adapter.RadiusPlaceRecyclerView
 import com.example.myapplication.map.detail.DetailPostActivity
-import com.example.myapplication.map.detail.DetailPostFragment
 import com.example.myapplication.map.models.RadiusPlace
 import com.example.myapplication.map.models.RadiusPlaceRetrofitInterface
+import com.example.myapplication.map.models.Result
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.MapFragment
@@ -118,10 +118,13 @@ class MapFragment :
 				val radiusPlaceRecyclerView = RadiusPlaceRecyclerView(result)
 				binding.contentCntTv.text = "주변 장소 " + result.result.size.toString() + "개"
 				binding.itemRadiusPlaceRv.adapter = radiusPlaceRecyclerView
-				radiusPlaceRecyclerView.setItemClickListener(object : RadiusPlaceRecyclerView.OnItemClickListener{
-					override fun onClick(v: View, position: Int) {
-						showCustomToast(radiusPlaceRecyclerView.placeList.toString())
-						startActivity(Intent(context, DetailPostActivity::class.java))
+				radiusPlaceRecyclerView.setItemClickListener(object :
+					RadiusPlaceRecyclerView.OnItemClickListener {
+					override fun onClick(v: View, position: Int, data: Result) {
+						startActivity(Intent(context, DetailPostActivity::class.java).apply {
+							putExtra("data", data.placeId)
+							addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+						})
 					}
 				})
 			}

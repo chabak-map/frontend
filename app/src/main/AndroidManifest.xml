@@ -17,10 +17,12 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".map.detail.DetailPostActivity"
+            android:exported="false" />
+        <activity
             android:name=".splash.SplashActivity"
             android:exported="true"
             android:theme="@style/FullScreenTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,7 +42,7 @@
             android:name=".login.LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan"
-            tools:ignore="IntentFilterExportedReceiver"></activity>
+            tools:ignore="IntentFilterExportedReceiver" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />

@@ -1,15 +1,19 @@
 package com.example.myapplication.map
 
 import android.annotation.SuppressLint
+import android.app.FragmentManager
+import android.content.Intent
 import android.location.Geocoder
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseFragment
 import com.example.myapplication.databinding.FragmentMapBinding
 import com.example.myapplication.map.adapter.RadiusPlaceRecyclerView
+import com.example.myapplication.map.detail.DetailPostActivity
 import com.example.myapplication.map.detail.DetailPostFragment
 import com.example.myapplication.map.models.RadiusPlace
 import com.example.myapplication.map.models.RadiusPlaceRetrofitInterface
@@ -116,7 +120,8 @@ class MapFragment :
 				binding.itemRadiusPlaceRv.adapter = radiusPlaceRecyclerView
 				radiusPlaceRecyclerView.setItemClickListener(object : RadiusPlaceRecyclerView.OnItemClickListener{
 					override fun onClick(v: View, position: Int) {
-						requireFragmentManager().beginTransaction().replace(R.id.main_frame, DetailPostFragment()).commit()
+						showCustomToast(radiusPlaceRecyclerView.placeList.toString())
+						startActivity(Intent(context, DetailPostActivity::class.java))
 					}
 				})
 			}

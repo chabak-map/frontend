@@ -9,12 +9,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        android:text="타이틀"
         app:layout_constraintStart_toStartOf="@id/detail_place_vp"
         android:id="@+id/detail_post_title_tv"/>
     <TextView
         app:layout_constraintStart_toStartOf="@id/detail_place_vp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="내용"
         app:layout_constraintTop_toBottomOf="@id/detail_post_title_tv"
         android:layout_marginTop="5dp"
         android:id="@+id/detail_post_content_tv"/>

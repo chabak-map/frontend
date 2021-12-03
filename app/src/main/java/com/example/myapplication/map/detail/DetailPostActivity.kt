@@ -34,12 +34,14 @@ class DetailPostActivity : BaseActivity<ActivityDetailPostBinding>(ActivityDetai
 		detailPostRetrofitInterface.tryGetDetailPost(postId).enqueue(object : Callback<DetailPost>{
 			override fun onResponse(call: Call<DetailPost>, response: Response<DetailPost>) {
 				val result = response.body() as DetailPost
+				imgList.add(result.result.postImageUrls.toString())
 				binding.detailPostTitleTv.text = result.result.title
 				binding.detailPostWriterTv.text = result.result.nickname
 				binding.detailPostContentTv.text = result.result.content
-				imgList.add(result.result.postImageUrls.toString())
-				binding.detailPlaceVp.adapter = PostPagerAdapter(baseContext, imgList)
+
+				binding.detailPlaceVp.adapter = PostPagerAdapter(this@DetailPostActivity, imgList)
 				binding.detailPlaceVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+				println(binding.detailPlaceVp.adapter)
 			}
 
 			override fun onFailure(call: Call<DetailPost>, t: Throwable) {

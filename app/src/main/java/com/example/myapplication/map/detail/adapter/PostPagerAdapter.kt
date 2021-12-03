@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.annotation.GlideModule
+import com.bumptech.glide.module.AppGlideModule
 import com.example.myapplication.R
+import com.example.myapplication.glide.GlideApp
 import com.example.myapplication.map.detail.models.DetailPost
 import com.example.myapplication.map.detail.models.Result
 import kotlinx.android.synthetic.main.detail_post_item.view.*
@@ -22,7 +25,7 @@ class PostPagerAdapter(private val context:Context, private val items : ArrayLis
 
 
 	override fun onBindViewHolder(holder: PostPagerAdapter.PagerViewHolder, position: Int) {
-		Glide.with(context).load(items[position]).into(holder.img)
+		GlideApp.with(context).load(items[position]).centerCrop().into(holder.img)
 	}
 
 	override fun getItemCount(): Int {

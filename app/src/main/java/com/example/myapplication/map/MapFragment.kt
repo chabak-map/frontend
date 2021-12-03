@@ -98,9 +98,9 @@ class MapFragment :
 		naverMap.addOnLocationChangeListener { location ->
 			now_lat = location.latitude
 			now_long = location.longitude
-			println("$now_lat, $now_long")
-			tryGetPlace(35.6412, 127.1463, 40)
 		}
+		println(now_lat)
+		tryGetPlace(35.6412, 127.1463, 40)
 		infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
 			override fun getText(infoWindow: InfoWindow): CharSequence {
 				return infoWindow.marker?.tag as CharSequence? ?: ""

@@ -1,6 +1,7 @@
 package com.example.myapplication.map.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
+import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.map.models.RadiusPlace
+import com.example.myapplication.map.models.RadiusPlaceName
+import com.example.myapplication.map.models.RadiusPlaceRetrofitInterface
 import com.example.myapplication.map.models.Result
+import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 import kotlin.coroutines.coroutineContext
 
@@ -52,13 +58,29 @@ class RadiusPlaceRecyclerView(val placeList: RadiusPlace) :
 		fun bindItems(data: Result) {
 			itemView.findViewById<TextView>(R.id.radius_place_distance_tv).text =
 				data.distance.toString() + "m"
-
+			getPlaceId(data.placeId)
 			val pos = adapterPosition
 			if(pos!= RecyclerView.NO_POSITION){
 				itemView.setOnClickListener {
 					itemClickListener.onClick(itemView, pos, data)
 				}
 			}
+		}
+		fun getPlaceId(placeId : Int){
+			var placeRetrofitInterface = ApplicationClass.sRetrofit.create(RadiusPlaceRetrofitInterface::class.java)
+			placeRetrofitInterface.getPlaceName(placeId).enqueue(object : Callback<RadiusPlaceName>{
+				override fun onResponse(
+					call: Call<RadiusPlaceName>,
+					response: Response<RadiusPlaceName>
+				) {
+					val result = response.body() as RadiusPlaceName
+					itemView.findViewById<TextView>(R.id.radius_place_tv).text = result.result.name
+				}
+
+				override fun onFailure(call: Call<RadiusPlaceName>, t: Throwable) {
+					Log.d("NameError", "${t.message}")
+				}
+			})
 		}
 	}
 }

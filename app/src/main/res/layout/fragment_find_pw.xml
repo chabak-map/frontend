@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".find.FindPwFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/join_email"
+        android:textColor="@color/text_222"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/et_find_email"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/input_id"
+        android:backgroundTint="@color/bg_f4"
+        android:hint="@string/join_email_hint"
+        android:inputType="textEmailAddress"
+        android:paddingStart="16dp"
+        android:textColorHint="@color/text_bbb"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/phone"
+        android:textColor="@color/text_222"
+        android:textSize="14sp" />
+
+    <!-- 휴대폰 인증 인풋 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <!-- -제외 번호 입력 -->
+        <EditText
+            android:id="@+id/et_find_pw_phone_num"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="2"
+            android:background="@drawable/input_id"
+            android:backgroundTint="@color/bg_f4"
+            android:hint="@string/phone_num"
+            android:inputType="number"
+            android:paddingStart="16dp"
+            android:textColorHint="@color/text_bbb"
+            android:textSize="14sp" />
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/oauth"
+            android:text="인증번호 전송" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <!-- 인증번호 입력 -->
+        <EditText
+            android:id="@+id/et_code_num"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="2"
+            android:background="@drawable/input_id"
+            android:backgroundTint="@color/bg_f4"
+            android:hint="@string/code_num"
+            android:inputType="number"
+            android:paddingStart="16dp"
+            android:textColorHint="@color/text_bbb"
+            android:textSize="14sp"
+            android:visibility="visible" />
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/oauth"
+            android:text="확인"
+            android:textSize="14sp" />
+        <!-- 인증번호 입력 끝 -->
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/join_btn"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/oauth"
+        android:backgroundTint="@color/logo"
+        android:text="@string/find_btn"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

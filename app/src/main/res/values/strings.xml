@@ -4,8 +4,8 @@
     <!--Login-->
     <string name="login_main_text">Welcome to Chabak</string>
     <string name="enter_join">회원가입</string>
-    <string name="find_id">아이디찾기</string>
-    <string name="find_pw">비밀번호 찾기</string>
+    <string name="login_find_id">아이디찾기</string>
+    <string name="login_find_pw">비밀번호 찾기</string>
     <string name="enter_id">이메일</string>
     <string name="enter_pw">비밀번호</string>
     <string name="OAuth">간편 로그인</string>
@@ -43,6 +43,13 @@
     <string name="check_num">인증번호</string>
     <string name="join">가입하기</string>
     <string name="join_signup">회원가입</string>
+
+    <!--  find  -->
+    <string name="find_top">아이디/비밀번호 찾기</string>
+    <string name="find_id">아이디 찾기</string>
+    <string name="find_pw">비밀번호 찾기</string>
+    <string name="find_btn">확인</string>
+
 
     <!-- main  -->
     <string name="alarm">알림</string>

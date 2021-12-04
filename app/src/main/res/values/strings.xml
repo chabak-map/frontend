@@ -66,4 +66,8 @@
 
     <!--  place  -->
     <string name="review_cnt">리뷰 </string>
+    
+    <!--  TotalPost  -->
+    <string name="background_text">여행을 공유해주세요</string>
+    <string name="background_text2">포스트 및 리뷰를 적어 당신의 여행을 공유해주세요.</string>
 </resources>

@@ -83,6 +83,10 @@ class MapFragment :
 		locationButtonView.map = naverMap
 		val geocoder = Geocoder(requireContext())
 		val infoWindow = InfoWindow()
+
+		locationButtonView.setOnClickListener {
+			println("click")
+		}
 		binding.searchPlaceImg.setOnClickListener {
 			val address = binding.mapSearchEt.text.toString()
 			val address_geo = geocoder.getFromLocationName(address, 1)
@@ -95,11 +99,10 @@ class MapFragment :
 				true
 			}
 		}
-		naverMap.addOnLocationChangeListener { location ->
-			now_lat = location.latitude
-			now_long = location.longitude
-		}
-		println(now_lat)
+//		naverMap.addOnLocationChangeListener { location ->
+//			now_lat = location.latitude
+//			now_long = location.longitude
+//		}
 		tryGetPlace(35.6412, 127.1463, 40)
 		infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
 			override fun getText(infoWindow: InfoWindow): CharSequence {
@@ -107,7 +110,6 @@ class MapFragment :
 			}
 		}
 	}
-
 	fun tryGetPlace(lat: Double, lng: Double, r: Int) {
 		val radiusPlaceRetrofitInterface =
 			ApplicationClass.sRetrofit.create(RadiusPlaceRetrofitInterface::class.java)

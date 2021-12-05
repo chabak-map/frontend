@@ -14,7 +14,7 @@ class CustomDialog(context : Context) {
 
 	fun showDialog(){
 		dialog.setContentView(R.layout.login_custom_dialog)
-		dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+		dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) // 배경 투명
 		dialog.window!!.setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT)
 		dialog.setCanceledOnTouchOutside(true)
 		dialog.setCancelable(true)

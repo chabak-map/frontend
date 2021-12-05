@@ -46,6 +46,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
             startActivity(Intent(this, FindActivity::class.java))
         }
 
+        // 가입하기 클릭
         binding.tvJoinStart.setOnClickListener {
             startActivity(Intent(this, JoinActivity::class.java))
         }

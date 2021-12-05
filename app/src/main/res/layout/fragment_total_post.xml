@@ -6,38 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".post.total.TotalPostFragment">
 
-    <View
-        android:id="@+id/post_text_background"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/input_id"
-        android:backgroundTint="@color/bg_f4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/post_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/background_text"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/post_text_background"
-        app:layout_constraintTop_toTopOf="@id/post_text_background" />
+            <View
+                android:id="@+id/post_text_background"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/input_id"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/background_text2"
-        android:textColor="@color/text_555"
-        android:textSize="13sp"
-        app:layout_constraintStart_toStartOf="@id/post_tv"
-        app:layout_constraintTop_toBottomOf="@id/post_tv" />
+            <TextView
+                android:id="@+id/post_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/background_text"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/post_text_background"
+                app:layout_constraintStart_toStartOf="@id/post_text_background"
+                app:layout_constraintTop_toTopOf="@id/post_text_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/background_text2"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="@id/post_tv"
+                app:layout_constraintTop_toBottomOf="@id/post_tv" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                tools:listitem="@layout/total_post_item"
+                app:layout_constraintTop_toBottomOf="@id/post_text_background"
+                android:id="@+id/total_post_rv"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

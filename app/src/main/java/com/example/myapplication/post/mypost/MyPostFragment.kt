@@ -14,6 +14,10 @@ class MyPostFragment : BaseFragment<FragmentMyPostBinding>(FragmentMyPostBinding
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
+
 	}
 
+	fun tryGetMyPost(){
+		val 
+	}
 }

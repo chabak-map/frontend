@@ -34,6 +34,5 @@ class PostPagerAdapter(private val context:Context, private val items : ArrayLis
 
 	inner class PagerViewHolder(view : View) : RecyclerView.ViewHolder(view){
 		val img : ImageView = view.findViewById(R.id.detail_post)
-
 	}
 }

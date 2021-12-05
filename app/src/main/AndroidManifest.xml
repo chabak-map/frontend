@@ -17,6 +17,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".post.write.WriteActivity"
+            android:exported="false" />
+        <activity
             android:name=".comment.CommentActivity"
             android:exported="false" />
         <activity

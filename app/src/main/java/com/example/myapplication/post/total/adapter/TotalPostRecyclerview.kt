@@ -37,7 +37,6 @@ RecyclerView.Adapter<TotalPostRecyclerview.CustomHolder>(){
 			itemView.findViewById<TextView>(R.id.total_post_writer_tv).text = data.nickname
 			itemView.findViewById<TextView>(R.id.total_post_speech_cnt_tv).text = data.commentCount.toString()
 			Glide.with(itemView).load(data.imageUrl).into(img)
-
 		}
 	}
 }

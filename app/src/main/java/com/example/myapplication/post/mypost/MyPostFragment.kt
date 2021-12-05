@@ -16,4 +16,5 @@ class MyPostFragment : BaseFragment<FragmentMyPostBinding>(FragmentMyPostBinding
 		super.onViewCreated(view, savedInstanceState)
 
 	}
+
 }

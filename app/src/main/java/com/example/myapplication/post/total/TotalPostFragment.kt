@@ -1,5 +1,6 @@
 package com.example.myapplication.post.total
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import com.example.myapplication.map.detail.models.DetailPostRetrofitInterface
 import com.example.myapplication.post.total.adapter.TotalPostRecyclerview
 import com.example.myapplication.post.total.models.TotalPost
 import com.example.myapplication.post.total.models.TotalPostRetrofitInterface
+import com.example.myapplication.post.write.WriteActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,6 +30,9 @@ class TotalPostFragment : BaseFragment<FragmentTotalPostBinding>(FragmentTotalPo
 
 		binding.totalPostRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 		binding.totalPostRv.setHasFixedSize(true)
+		binding.postTextBackground.setOnClickListener {
+			startActivity(Intent(context, WriteActivity::class.java))
+		}
 		tryGetTotalPost()
 	}
 

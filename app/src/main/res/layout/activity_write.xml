@@ -7,7 +7,24 @@
     tools:context=".post.write.WriteActivity">
 
     <EditText
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/post_write_title_tv"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/post_write_title_tv"
+        app:layout_constraintStart_toStartOf="@id/post_write_title_tv"
+        android:id="@+id/post_write_content_tv"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/post_write_content_tv"
+        app:layout_constraintStart_toStartOf="@id/post_write_content_tv"
+        android:text="이미지 불러오기"
+        android:id="@+id/upload_img"/>
     
 </androidx.constraintlayout.widget.ConstraintLayout>

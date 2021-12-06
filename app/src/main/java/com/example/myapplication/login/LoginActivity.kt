@@ -35,7 +35,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                 val email = binding.etEmail.text.toString()
                 val password = binding.etPassword.text.toString()
                 val postRequest = LoginRequest(email = email, password = password)
-                println(password)
                 LoginService(this).tryPostSignUp(postRequest)
                 startActivity(Intent(this, MainActivity::class.java))
             }

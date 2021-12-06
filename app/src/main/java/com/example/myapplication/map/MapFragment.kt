@@ -76,6 +76,7 @@ class MapFragment :
 		locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 		this.naverMap = naverMap
 		naverMap.locationSource = locationSource
+		println(naverMap.locationSource.toString())
 		val uiSettings = naverMap.uiSettings
 		uiSettings.isZoomControlEnabled = false
 
@@ -87,6 +88,7 @@ class MapFragment :
 		locationButtonView.setOnClickListener {
 			println("click")
 		}
+
 		binding.searchPlaceImg.setOnClickListener {
 			val address = binding.mapSearchEt.text.toString()
 			val address_geo = geocoder.getFromLocationName(address, 1)
@@ -99,11 +101,11 @@ class MapFragment :
 				true
 			}
 		}
-//		naverMap.addOnLocationChangeListener { location ->
-//			now_lat = location.latitude
-//			now_long = location.longitude
-//		}
-		tryGetPlace(35.6412, 127.1463, 40)
+		naverMap.addOnLocationChangeListener { location ->
+			now_lat = location.latitude
+			now_long = location.longitude
+		}
+//		tryGetPlace(now_lat!!, now_long!!, 40)
 		infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
 			override fun getText(infoWindow: InfoWindow): CharSequence {
 				return infoWindow.marker?.tag as CharSequence? ?: ""

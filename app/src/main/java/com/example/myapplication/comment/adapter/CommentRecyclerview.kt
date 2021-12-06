@@ -20,7 +20,7 @@ RecyclerView.Adapter<CommentRecyclerview.ViewHolder>(){
 	}
 
 	override fun onBindViewHolder(holder: CommentRecyclerview.ViewHolder, position: Int) {
-		holder.bindItems(data.result[position])
+		holder.bindItems(commentList.result[position])
 	}
 
 	override fun getItemCount(): Int {

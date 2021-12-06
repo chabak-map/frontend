@@ -5,6 +5,7 @@ import android.app.FragmentManager
 import android.content.Intent
 import android.location.Geocoder
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.MainActivity
@@ -28,6 +29,7 @@ import kotlinx.android.synthetic.main.fragment_map.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.concurrent.thread
 
 class MapFragment :
 	BaseFragment<FragmentMapBinding>(FragmentMapBinding::bind, R.layout.fragment_map),
@@ -53,6 +55,7 @@ class MapFragment :
 		binding.itemRadiusPlaceRv.layoutManager =
 			LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 		binding.itemRadiusPlaceRv.setHasFixedSize(true)
+
 	}
 
 	override fun onRequestPermissionsResult(
@@ -76,7 +79,6 @@ class MapFragment :
 		locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 		this.naverMap = naverMap
 		naverMap.locationSource = locationSource
-		println(naverMap.locationSource.toString())
 		val uiSettings = naverMap.uiSettings
 		uiSettings.isZoomControlEnabled = false
 
@@ -84,10 +86,6 @@ class MapFragment :
 		locationButtonView.map = naverMap
 		val geocoder = Geocoder(requireContext())
 		val infoWindow = InfoWindow()
-
-		locationButtonView.setOnClickListener {
-			println("click")
-		}
 
 		binding.searchPlaceImg.setOnClickListener {
 			val address = binding.mapSearchEt.text.toString()
@@ -101,42 +99,56 @@ class MapFragment :
 				true
 			}
 		}
+
 		naverMap.addOnLocationChangeListener { location ->
 			now_lat = location.latitude
 			now_long = location.longitude
+			tryGetPlace(now_lat!!, now_long!!, 40)
+			locationSource.deactivate()
 		}
-//		tryGetPlace(now_lat!!, now_long!!, 40)
+
+
 		infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
 			override fun getText(infoWindow: InfoWindow): CharSequence {
 				return infoWindow.marker?.tag as CharSequence? ?: ""
 			}
 		}
 	}
+
 	fun tryGetPlace(lat: Double, lng: Double, r: Int) {
 		val radiusPlaceRetrofitInterface =
 			ApplicationClass.sRetrofit.create(RadiusPlaceRetrofitInterface::class.java)
-		radiusPlaceRetrofitInterface.getPlace(lat, lng, r).enqueue(object : Callback<RadiusPlace> {
-			@SuppressLint("SetTextI18n")
-			override fun onResponse(call: Call<RadiusPlace>, response: Response<RadiusPlace>) {
-				val result = response.body() as RadiusPlace
-				val radiusPlaceRecyclerView = RadiusPlaceRecyclerView(result)
-				binding.contentCntTv.text = "주변 장소 " + result.result.size.toString() + "개"
-				binding.itemRadiusPlaceRv.adapter = radiusPlaceRecyclerView
-				radiusPlaceRecyclerView.setItemClickListener(object :
-					RadiusPlaceRecyclerView.OnItemClickListener {
-					override fun onClick(v: View, position: Int, data: Result) {
-						startActivity(Intent(context, DetailPostActivity::class.java).apply {
-							putExtra("data", data.placeId)
-							addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-						})
-					}
-				})
-			}
+		radiusPlaceRetrofitInterface.getPlace(lat, lng, r)
+			.enqueue(object : Callback<RadiusPlace> {
+				@SuppressLint("SetTextI18n")
+				override fun onResponse(
+					call: Call<RadiusPlace>,
+					response: Response<RadiusPlace>
+				) {
+					val result = response.body() as RadiusPlace
+					val radiusPlaceRecyclerView = RadiusPlaceRecyclerView(result)
+					binding.contentCntTv.text = "주변 장소 " + result.result.size.toString() + "개"
+					binding.itemRadiusPlaceRv.adapter = radiusPlaceRecyclerView
+					radiusPlaceRecyclerView.setItemClickListener(object :
+						RadiusPlaceRecyclerView.OnItemClickListener {
+						override fun onClick(v: View, position: Int, data: Result) {
+							startActivity(
+								Intent(
+									context,
+									DetailPostActivity::class.java
+								).apply {
+									putExtra("data", data.placeId)
+									addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+								})
+						}
+					})
+				}
 
-			override fun onFailure(call: Call<RadiusPlace>, t: Throwable) {
-				showCustomToast("${t.message}")
-			}
-		})
+				override fun onFailure(call: Call<RadiusPlace>, t: Throwable) {
+					showCustomToast("${t.message}")
+				}
+			})
+
 	}
 
 	override fun onSaveInstanceState(outState: Bundle) {

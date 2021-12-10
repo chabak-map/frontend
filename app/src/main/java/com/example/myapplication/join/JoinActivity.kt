@@ -86,13 +86,11 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
             else if (binding.joinPw.text.toString() != binding.joinCheckPw.text.toString()) {
                 binding.ivPwError.visibility = View.VISIBLE
                 binding.tvPwError.visibility = View.VISIBLE
-
                 binding.tvPwSuccess.visibility = View.GONE
             }
             //비밀번호 확인이 일치하면 성공메세지 띄우기
             else if (binding.joinPw.text.toString() == binding.joinCheckPw.text.toString()) {
                 binding.tvPwSuccess.visibility = View.VISIBLE
-
                 binding.ivPwError.visibility = View.GONE
                 binding.tvPwError.visibility = View.GONE
             } else {
@@ -181,7 +179,7 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(ActivityJoinBinding::infl
                     response: Response<VerifyResponse>
                 ) {
                     val verify = response.body() as VerifyResponse
-                    showCustomToast("${verify.result}")
+                    showCustomToast("성공 ${verify.result}")
                 }
 
                 override fun onFailure(call: Call<VerifyResponse>, t: Throwable) {

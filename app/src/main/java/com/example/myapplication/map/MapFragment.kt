@@ -87,6 +87,10 @@ class MapFragment :
 		val geocoder = Geocoder(requireContext())
 		val infoWindow = InfoWindow()
 
+		binding.nowLocationBtn.setOnClickListener {
+			tryGetPlace(naverMap.cameraPosition.target.latitude, naverMap.cameraPosition.target.longitude, 40)
+		}
+
 		binding.searchPlaceImg.setOnClickListener {
 			val address = binding.mapSearchEt.text.toString()
 			val address_geo = geocoder.getFromLocationName(address, 1)

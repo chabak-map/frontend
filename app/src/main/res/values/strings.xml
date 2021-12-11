@@ -85,5 +85,9 @@
     <string name="comment_enter">등록하기</string>
     <string name="comment_warning">비방글은 신고 접수 시 삭제됩니다.</string>
     <string name="comment_cnt">댓글</string>
-    <string name="comment_report">신고</string>
+    <string name="report">신고</string>
+
+    <!--  detailPost  -->
+    <string name="detail_post">포스트</string>
+    <string name="detail_post_tag">태그</string>
 </resources>

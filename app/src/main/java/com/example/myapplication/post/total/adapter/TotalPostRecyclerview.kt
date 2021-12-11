@@ -14,6 +14,15 @@ import com.example.myapplication.post.total.models.TotalPost
 class TotalPostRecyclerview(val postList: TotalPost) :
 RecyclerView.Adapter<TotalPostRecyclerview.CustomHolder>(){
 
+	interface OnItemClickListener{
+		fun onClick(v: View, position: Int, data: Result)
+	}
+
+	fun setItemClickListener(onItemClickListener : OnItemClickListener){
+		this.itemClickListener = onItemClickListener
+	}
+
+	private lateinit var itemClickListener : OnItemClickListener
 	override fun onCreateViewHolder(
 		parent: ViewGroup,
 		viewType: Int
@@ -37,6 +46,13 @@ RecyclerView.Adapter<TotalPostRecyclerview.CustomHolder>(){
 			itemView.findViewById<TextView>(R.id.total_post_writer_tv).text = data.nickname
 			itemView.findViewById<TextView>(R.id.total_post_speech_cnt_tv).text = data.commentCount.toString()
 			Glide.with(itemView).load(data.imageUrl).into(img)
+
+			val pos = adapterPosition
+			if(pos!=RecyclerView.NO_POSITION){
+				itemView.setOnClickListener {
+					itemClickListener.onClick(itemView, pos, data)
+				}
+			}
 		}
 	}
 }

@@ -133,19 +133,19 @@ class MapFragment :
 					val radiusPlaceRecyclerView = RadiusPlaceRecyclerView(result)
 					binding.contentCntTv.text = "주변 장소 " + result.result.size.toString() + "개"
 					binding.itemRadiusPlaceRv.adapter = radiusPlaceRecyclerView
-					radiusPlaceRecyclerView.setItemClickListener(object :
-						RadiusPlaceRecyclerView.OnItemClickListener {
-						override fun onClick(v: View, position: Int, data: Result) {
-							startActivity(
-								Intent(
-									context,
-									DetailPostActivity::class.java
-								).apply {
-									putExtra("data", data.placeId)
-									addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-								})
-						}
-					})
+//					radiusPlaceRecyclerView.setItemClickListener(object :
+//						RadiusPlaceRecyclerView.OnItemClickListener {
+//						override fun onClick(v: View, position: Int, data: Result) {
+//							startActivity(
+//								Intent(
+//									context,
+//									DetailPostActivity::class.java
+//								).apply {
+//									putExtra("data", data.placeId)
+//									addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//								})
+//						}
+//					})
 				}
 
 				override fun onFailure(call: Call<RadiusPlace>, t: Throwable) {

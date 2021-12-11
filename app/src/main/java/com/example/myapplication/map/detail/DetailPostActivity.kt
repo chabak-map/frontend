@@ -13,6 +13,8 @@ import com.example.myapplication.map.adapter.RadiusPlaceRecyclerView
 import com.example.myapplication.map.detail.adapter.PostPagerAdapter
 import com.example.myapplication.map.detail.models.DetailPost
 import com.example.myapplication.map.detail.models.DetailPostRetrofitInterface
+import com.example.myapplication.map.detail.tagmodels.Tag
+import com.example.myapplication.map.detail.tagmodels.TagRetrofitInterface
 import com.example.myapplication.map.models.RadiusPlace
 import com.example.myapplication.map.models.Result
 import kotlinx.android.synthetic.main.detail_post_item.*
@@ -28,6 +30,7 @@ class DetailPostActivity : BaseActivity<ActivityDetailPostBinding>(ActivityDetai
 
 		val datas = intent.getSerializableExtra("data")
 		tryGetDetailPost(datas as Int)
+		tryGetDetailTag(datas as Int)
 
 	}
 	fun tryGetDetailPost(postId : Int){
@@ -48,6 +51,20 @@ class DetailPostActivity : BaseActivity<ActivityDetailPostBinding>(ActivityDetai
 
 			override fun onFailure(call: Call<DetailPost>, t: Throwable) {
 				showCustomToast("${t.message}")
+			}
+		})
+	}
+
+	fun tryGetDetailTag(placeId : Int){
+		val tagRetrofitInterface = ApplicationClass.sRetrofit.create(TagRetrofitInterface::class.java)
+		tagRetrofitInterface.getPostTag(placeId).enqueue(object : Callback<Tag>{
+			override fun onResponse(call: Call<Tag>, response: Response<Tag>) {
+				val result = response.body() as Tag
+				binding.detailPostDetailTagTv.text = "#" + result.result
+			}
+
+			override fun onFailure(call: Call<Tag>, t: Throwable) {
+				showCustomToast(t.message.toString())
 			}
 		})
 	}

@@ -26,5 +26,5 @@
         app:layout_constraintStart_toStartOf="@id/post_write_content_tv"
         android:text="이미지 불러오기"
         android:id="@+id/upload_img"/>
-    
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.myapplication.map.detail.adapter
+package com.example.myapplication.detail.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,14 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.annotation.GlideModule
-import com.bumptech.glide.module.AppGlideModule
 import com.example.myapplication.R
 import com.example.myapplication.glide.GlideApp
-import com.example.myapplication.map.detail.models.DetailPost
-import com.example.myapplication.map.detail.models.Result
-import kotlinx.android.synthetic.main.detail_post_item.view.*
 
 class PostPagerAdapter(private val context:Context, private val items : ArrayList<String>) :
 	RecyclerView.Adapter<PostPagerAdapter.PagerViewHolder>() {

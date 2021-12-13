@@ -2,22 +2,13 @@ package com.example.myapplication.post.total
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.ViewPager2
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseFragment
 import com.example.myapplication.databinding.FragmentTotalPostBinding
-import com.example.myapplication.map.detail.DetailPostActivity
-import com.example.myapplication.map.detail.adapter.PostPagerAdapter
-import com.example.myapplication.map.detail.models.DetailPost
-import com.example.myapplication.map.detail.models.DetailPostRetrofitInterface
 import com.example.myapplication.post.total.adapter.TotalPostRecyclerview
-import com.example.myapplication.post.total.models.Result
 import com.example.myapplication.post.total.models.TotalPost
 import com.example.myapplication.post.total.models.TotalPostRetrofitInterface
 import com.example.myapplication.post.write.WriteActivity

@@ -1,6 +1,7 @@
 package com.example.myapplication.map.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +9,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
+import com.example.myapplication.glide.GlideApp
 import com.example.myapplication.map.models.RadiusPlace
 import com.example.myapplication.map.models.RadiusPlaceName
 import com.example.myapplication.map.models.RadiusPlaceRetrofitInterface
@@ -57,7 +60,7 @@ class RadiusPlaceRecyclerView(val placeList: RadiusPlace) :
 		@SuppressLint("SetTextI18n")
 		fun bindItems(data: Result) {
 			itemView.findViewById<TextView>(R.id.radius_place_distance_tv).text =
-				data.distance.toString() + "m"
+				data.distance.toString() + "km"
 			getPlaceId(data.placeId)
 			val pos = adapterPosition
 			if(pos!= RecyclerView.NO_POSITION){
@@ -75,6 +78,7 @@ class RadiusPlaceRecyclerView(val placeList: RadiusPlace) :
 				) {
 					val result = response.body() as RadiusPlaceName
 					itemView.findViewById<TextView>(R.id.radius_place_tv).text = result.result.name
+//					Glide.with(itemView).load(result.result.placeImageUrls[0]).into(place_img)
 				}
 
 				override fun onFailure(call: Call<RadiusPlaceName>, t: Throwable) {

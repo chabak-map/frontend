@@ -1,8 +1,13 @@
 package com.example.myapplication.map.detail.models
 
 data class Result(
-    val content: String,
-    val nickname: String,
-    val postImageUrls: List<String>,
-    val title: String
+    val address: String,
+    val commentResList: List<CommentRes>,
+    val id: Int,
+    val imageCount: Int,
+    val name: String,
+    val phoneNumber: String,
+    val placeImageUrls: List<Any>,
+    val reviewCount: Int,
+    val tagNames: List<Any>
 )

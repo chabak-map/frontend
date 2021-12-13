@@ -1,22 +1,15 @@
-package com.example.myapplication.map.detail
+package com.example.myapplication.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
-import com.bumptech.glide.annotation.GlideModule
-import com.bumptech.glide.module.AppGlideModule
-import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityDetailPostBinding
-import com.example.myapplication.map.adapter.RadiusPlaceRecyclerView
-import com.example.myapplication.map.detail.adapter.PostPagerAdapter
-import com.example.myapplication.map.detail.models.DetailPost
-import com.example.myapplication.map.detail.models.DetailPostRetrofitInterface
-import com.example.myapplication.map.detail.tagmodels.Tag
-import com.example.myapplication.map.detail.tagmodels.TagRetrofitInterface
-import com.example.myapplication.map.models.RadiusPlace
-import com.example.myapplication.map.models.Result
+import com.example.myapplication.detail.adapter.PostPagerAdapter
+import com.example.myapplication.detail.models.DetailPost
+import com.example.myapplication.detail.models.DetailPostRetrofitInterface
+import com.example.myapplication.detail.tagmodels.Tag
+import com.example.myapplication.detail.tagmodels.TagRetrofitInterface
 import kotlinx.android.synthetic.main.detail_post_item.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,7 +22,7 @@ class DetailPostActivity : BaseActivity<ActivityDetailPostBinding>(ActivityDetai
 		setContentView(binding.root)
 
 		val datas = intent.getSerializableExtra("data")
-		tryGetDetailPost(datas as Int)
+//		tryGetDetailPost(datas as Int)
 		tryGetDetailTag(datas as Int)
 
 	}

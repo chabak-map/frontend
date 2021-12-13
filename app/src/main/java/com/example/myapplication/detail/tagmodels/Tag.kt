@@ -1,4 +1,4 @@
-package com.example.myapplication.map.detail.tagmodels
+package com.example.myapplication.detail.tagmodels
 
 data class Tag(
     val code: Int,

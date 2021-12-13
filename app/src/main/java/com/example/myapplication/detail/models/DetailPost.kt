@@ -1,4 +1,4 @@
-package com.example.myapplication.map.detail.models
+package com.example.myapplication.detail.models
 
 data class DetailPost(
     val code: Int,

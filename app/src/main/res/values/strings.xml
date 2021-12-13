@@ -92,4 +92,8 @@
     <!--  detailPost  -->
     <string name="detail_post">포스트</string>
     <string name="detail_post_tag">태그</string>
+
+    <!--  map_detail  -->
+    <string name="picture">사진</string>
+    <string name="todo_review">리뷰하기</string>
 </resources>

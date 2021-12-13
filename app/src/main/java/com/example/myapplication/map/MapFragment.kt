@@ -1,20 +1,16 @@
 package com.example.myapplication.map
 
 import android.annotation.SuppressLint
-import android.app.FragmentManager
-import android.content.Intent
 import android.location.Geocoder
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseFragment
 import com.example.myapplication.databinding.FragmentMapBinding
 import com.example.myapplication.map.adapter.RadiusPlaceRecyclerView
-import com.example.myapplication.map.detail.DetailPostActivity
+import com.example.myapplication.map.detail.MapDetailFragment
 import com.example.myapplication.map.models.RadiusPlace
 import com.example.myapplication.map.models.RadiusPlaceRetrofitInterface
 import com.example.myapplication.map.models.Result
@@ -29,7 +25,6 @@ import kotlinx.android.synthetic.main.fragment_map.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.concurrent.thread
 
 class MapFragment :
 	BaseFragment<FragmentMapBinding>(FragmentMapBinding::bind, R.layout.fragment_map),
@@ -146,6 +141,11 @@ class MapFragment :
 //								})
 //						}
 //					})
+					radiusPlaceRecyclerView.setItemClickListener(object: RadiusPlaceRecyclerView.OnItemClickListener{
+						override fun onClick(v: View, position: Int, data: Result) {
+							fragmentManager?.beginTransaction()?.replace(R.id.main_frame, MapDetailFragment(data.placeId))?.commit()
+						}
+					})
 				}
 
 				override fun onFailure(call: Call<RadiusPlace>, t: Throwable) {

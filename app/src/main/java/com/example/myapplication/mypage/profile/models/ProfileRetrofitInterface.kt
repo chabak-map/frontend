@@ -1,13 +1,12 @@
 package com.example.myapplication.mypage.profile.models
 
+import okhttp3.MultipartBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Multipart
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ProfileRetrofitInterface {
 	@Multipart
 	@POST("/members/image")
-	fun postProfile(@Body param: PostProfileRequest) : Call<ProfileResponse>
+	fun postProfile(@Part memberImage: MultipartBody.Part) : Call<ProfileResponse>
+
 }

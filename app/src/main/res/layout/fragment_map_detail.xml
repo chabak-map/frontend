@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:text="리뷰"
+        android:text="@string/review_cnt"
         app:layout_constraintStart_toEndOf="@id/map_detail_distance_tv"
         app:layout_constraintTop_toTopOf="@id/map_detail_distance_tv" />
 
@@ -124,9 +124,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         app:layout_constraintTop_toBottomOf="@id/map_detail_review_tv"
-        android:layout_marginTop="10dp"
-        android:id="@+id/map_detail_review_rv"/>
+        android:id="@+id/map_detail_review_rv"
+        tools:listitem="@layout/map_detail_item"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

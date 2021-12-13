@@ -1,5 +1,7 @@
 package com.example.myapplication.map.models
 
+import com.example.myapplication.map.detail.models.CommentRes
+
 data class ResultX(
     val address: String,
     val commentResList: List<CommentRes>,

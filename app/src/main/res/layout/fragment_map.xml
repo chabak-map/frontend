@@ -7,7 +7,7 @@
     android:gravity="bottom"
     app:umanoDragView="@id/slide_ll"
     app:umanoOverlay="true"
-    app:umanoPanelHeight="125dp"
+    app:umanoPanelHeight="50dp"
     app:umanoShadowHeight="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -58,38 +58,52 @@
                 android:layout_marginTop="80dp"
                 android:layout_marginEnd="16dp"
                 tools:ignore="MissingConstraints" />
-        </FrameLayout>
 
-        <Button
-            android:id="@+id/now_location_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="150dp"
-            android:text="클릭"
-            app:layout_constraintBottom_toBottomOf="@id/map_fl"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <View
+                android:id="@+id/now_location_view"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end|top"
+                android:background="@drawable/now_location"
+                android:layout_marginTop="150dp"
+                android:elevation="10dp"
+                android:layout_marginEnd="16dp" />
+
+            <ImageView
+                android:id="@+id/now_location_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mapline"
+                android:layout_gravity="end|top"
+                android:layout_marginTop="165dp"
+                android:layout_marginEnd="25dp" />
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/slide_ll"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:background="@android:color/transparent"
-        android:orientation="vertical">
+        android:background="@android:color/transparent">
 
         <View
+            android:id="@+id/slide_bar"
             android:layout_width="60dp"
-            android:layout_height="5dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_height="2dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/slideuppanel" />
+            android:background="@drawable/slideuppanel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/slide_const"
+            tools:ignore="MissingConstraints" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/slide_const"
             android:layout_width="match_parent"
             android:layout_height="600dp"
-            android:background="@drawable/slideuppanel">
+            android:background="@color/white"
+            tools:ignore="MissingConstraints">
 
             <TextView
                 android:id="@+id/content_cnt_tv"
@@ -98,7 +112,6 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/input_id"
                 android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="@string/content_cnt"
@@ -114,5 +127,5 @@
                 app:layout_constraintTop_toBottomOf="@id/content_cnt_tv"
                 tools:listitem="@layout/radius_place_item" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>

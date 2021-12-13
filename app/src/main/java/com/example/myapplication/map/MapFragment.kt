@@ -34,6 +34,7 @@ class MapFragment :
 	private lateinit var naverMap: NaverMap
 	var now_lat: Double? = null
 	var now_long: Double? = null
+	var contentCnt : String ?= null
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
@@ -47,10 +48,12 @@ class MapFragment :
 
 		binding.mapSearchEt.bringToFront()
 		binding.searchPlaceImg.bringToFront()
+		binding.slideBar.bringToFront()
 		binding.itemRadiusPlaceRv.layoutManager =
 			LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 		binding.itemRadiusPlaceRv.setHasFixedSize(true)
 
+		contentCnt = binding.contentCntTv.text.toString()
 	}
 
 	override fun onRequestPermissionsResult(
@@ -104,6 +107,9 @@ class MapFragment :
 			now_long = location.longitude
 			tryGetPlace(now_lat!!, now_long!!, 40)
 			locationSource.deactivate()
+			if (!locationSource.isActivated()){
+				binding.contentCntTv.text = contentCnt
+			}
 		}
 
 
@@ -126,7 +132,7 @@ class MapFragment :
 				) {
 					val result = response.body() as RadiusPlace
 					val radiusPlaceRecyclerView = RadiusPlaceRecyclerView(result)
-					binding.contentCntTv.text = "주변 장소 " + result.result.size.toString() + "개"
+					binding.contentCntTv.text = binding.contentCntTv.text.toString() + " " + result.result.size.toString() + "개"
 					binding.itemRadiusPlaceRv.adapter = radiusPlaceRecyclerView
 //					radiusPlaceRecyclerView.setItemClickListener(object :
 //						RadiusPlaceRecyclerView.OnItemClickListener {

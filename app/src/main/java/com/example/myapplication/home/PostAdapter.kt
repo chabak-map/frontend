@@ -38,16 +38,12 @@ class PostAdapter(
         private val postImg = binding.ivPostBackground
         private val postName = binding.tvPostText
         private val postUser = binding.tvPostUser
-        private val postHeart = binding.ivPostHeart
-        private val postHeartCnt = binding.tvPostHeartCount
 
         // 데이터와 뷰를 연결
         fun bind(postListData: PostListData) {
             postImg.setImageResource(postListData.postImage)
             postName.text = postListData.postName
             postUser.text = postListData.postUser
-            postHeart.setImageResource(postListData.postHeart)
-            postHeartCnt.text = postListData.postHeartCount
         }
     }
 

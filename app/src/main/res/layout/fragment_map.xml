@@ -62,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|top"
-                    tools:ignore="MissingConstraints" />
+                    tools:ignore=   "MissingConstraints" />
 
                 <ImageButton
                     android:id="@+id/now_location_btn"

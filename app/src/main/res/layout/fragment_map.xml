@@ -50,33 +50,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <com.naver.maps.map.widget.LocationButtonView
-                android:id="@+id/location_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="end|top"
                 android:layout_marginTop="80dp"
-                android:layout_marginEnd="16dp"
-                tools:ignore="MissingConstraints" />
+                android:orientation="vertical">
 
-            <View
-                android:id="@+id/now_location_view"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="end|top"
-                android:background="@drawable/now_location"
-                android:layout_marginTop="150dp"
-                android:elevation="10dp"
-                android:layout_marginEnd="16dp" />
+                <com.naver.maps.map.widget.LocationButtonView
+                    android:id="@+id/location_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    tools:ignore="MissingConstraints" />
 
-            <ImageView
-                android:id="@+id/now_location_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/mapline"
-                android:layout_gravity="end|top"
-                android:layout_marginTop="165dp"
-                android:layout_marginEnd="25dp" />
+                <ImageButton
+                    android:id="@+id/now_location_btn"
+                    android:layout_width="45dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="end|top"
+                    android:translationZ="2dp"
+                    android:layout_marginEnd="3.5dp"
+                    android:background="@drawable/now_location"
+                    android:elevation="5dp"
+                    android:src="@drawable/ic_outline_location_on_24"
+                    tools:ignore="UseAppTint" />
+            </LinearLayout>
+
+
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

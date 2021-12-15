@@ -8,13 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.map.detail.models.CommentRes
 import com.example.myapplication.map.detail.models.MapDetail
-import com.example.myapplication.map.detail.models.Result
 
 class MapCommentRecyclerView(val commentList : MapDetail) :
 RecyclerView.Adapter<MapCommentRecyclerView.CustomHolder>(){
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomHolder {
-		val view = LayoutInflater.from(parent.context).inflate(R.layout.map_detail_item, parent, false)
+		val view = LayoutInflater.from(parent.context).inflate(R.layout.map_detail_comment_item, parent, false)
 		return CustomHolder(view)
 	}
 

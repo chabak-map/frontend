@@ -14,6 +14,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
         <!-- icon color -->
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
+        <!--custom font-family 적용-->
+        <item name="android:textViewStyle">@style/customTextViewFontStyle</item>
+        <item name="android:buttonStyle">@style/customButtonFontStyle</item>
+        <item name="android:editTextStyle">@style/customEditTextFontStyle</item>
+        <item name="android:radioButtonStyle">@style/customRadioButtonFontStyle</item>
+        <item name="android:checkboxStyle">@style/customCheckboxFontStyle</item>
     </style>
 
     <!-- TabLayout color -->
@@ -26,4 +33,5 @@
     <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowFullscreen">true</item>
     </style>
+
 </resources>

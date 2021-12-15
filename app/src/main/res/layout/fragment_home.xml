@@ -73,7 +73,7 @@
             <!-- 차박지 랭킹 -->
             <TextView
                 android:id="@+id/tv_main_rank"
-                style="@style/TitleStyle_text"
+                style="@style/Bold_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -100,7 +100,7 @@
             <!-- 차박지 포스트 -->
             <TextView
                 android:id="@+id/tv_main_post"
-                style="@style/TitleStyle_text"
+                style="@style/Bold_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -126,7 +126,7 @@
             <!-- 가까운 차박지 -->
             <TextView
                 android:id="@+id/tv_main_closer"
-                style="@style/TitleStyle_text"
+                style="@style/Bold_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"

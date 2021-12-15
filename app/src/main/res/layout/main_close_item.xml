@@ -33,7 +33,7 @@
 
     <TextView
         android:id="@+id/tv_close_distance"
-        style="@style/TitleStyle_text"
+        style="@style/Bold_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"

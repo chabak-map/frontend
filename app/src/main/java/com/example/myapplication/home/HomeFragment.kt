@@ -18,9 +18,7 @@ data class RankListData(
 data class PostListData(
     val postImage: Int,
     val postName: String,
-    val postUser: String,
-    val postHeart: Int,
-    val postHeartCount: String
+    val postUser: String
 )
 
 // 가까운 차박지
@@ -72,8 +70,7 @@ class HomeFragment :
                 PostListData(
                     R.drawable.post_img_1,
                     "동화같은 풍경 속으로! 힐링하러 가보자~${i}",
-                    "BY tkdansla${i}",
-                    R.drawable.post_heart, "2${i}"
+                    "BY tkdansla${i}"
                 )
             this.postList.add(postListData)
         }

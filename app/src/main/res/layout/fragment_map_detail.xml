@@ -87,7 +87,7 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/map_locaation"
+                android:background="@drawable/map_location"
                 app:layout_constraintStart_toStartOf="@id/map_detail_call_img"
                 app:layout_constraintTop_toBottomOf="@id/map_detail_call_img" />
 

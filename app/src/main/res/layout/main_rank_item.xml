@@ -48,8 +48,7 @@
             android:lineSpacingExtra="0.dp"
             android:text="구시포해수욕장구시포해수욕장"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_rank_location"

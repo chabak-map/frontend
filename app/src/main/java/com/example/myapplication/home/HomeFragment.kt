@@ -56,7 +56,7 @@ class HomeFragment :
                 RankListData(
                     i.toString(),
                     R.drawable.rank_img_1,
-                    "구시포해수욕장${i},구시포해수욕장${i}",
+                    "구시포해수욕장${i}",
                     "전북 고창군 상하면 자룡리${i}"
                 )
             this.rankList.add(rankListData)

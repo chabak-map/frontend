@@ -42,9 +42,9 @@
 
         <TextView
             android:id="@+id/tv_rank_name"
+            style="@style/Medium_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:lineSpacingExtra="0.dp"
             android:text="구시포해수욕장구시포해수욕장"
             android:textColor="@color/black"
@@ -70,8 +70,8 @@
         android:layout_marginTop="9dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
-        app:cardElevation="0dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -79,9 +79,9 @@
         <ImageView
             android:id="@+id/iv_rank_img"
             android:layout_width="48dp"
-            android:outlineProvider="none"
             android:layout_height="48dp"
             android:background="@drawable/oauth_rank"
+            android:outlineProvider="none"
             android:scaleType="centerCrop"
             android:src="@drawable/rank_img_1" />
 

@@ -2,15 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/map_detail_id_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="아이디"
+        android:textColor="@color/text_555"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -18,36 +19,43 @@
         android:id="@+id/map_detail_date_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:text="날짜"
+        android:textColor="@color/text_bbb"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@id/map_detail_id_tv"
         app:layout_constraintTop_toTopOf="@id/map_detail_id_tv" />
 
     <TextView
         android:id="@+id/map_detail_report_tv"
+        style="@style/Medium_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:text="@string/report"
+        android:textColor="@color/text_bbb"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/map_detail_id_tv" />
 
     <TextView
-        android:layout_marginTop="10dp"
         android:id="@+id/map_detail_content_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ellipsize="start"
+        android:maxEms="18"
         android:maxLines="3"
-        android:text="내용"
+        android:text="아주 예쁘고 조용한 곳이에요.\n다음에는 넉넉하게 즐기다 가고 싶어요! 3줄을 넘기면 줄임표 처리 ..."
+        android:textColor="@color/text_555"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@id/map_detail_id_tv"
         app:layout_constraintTop_toBottomOf="@id/map_detail_date_tv" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/basic"
+        android:layout_marginTop="16dp"
+        android:background="@color/bg_f4"
         app:layout_constraintTop_toBottomOf="@id/map_detail_content_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

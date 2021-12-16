@@ -4,30 +4,52 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/radius_place_img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintStart_toStartOf="parent"
+    <TextView
+        android:id="@+id/radius_place_tv"
+        style="@style/Bold_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="30dp"
+        android:text="난지캠핑장"
+        android:textColor="@color/text_222"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/radius_place_card"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/radius_place_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/radius_place_img"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textStyle="bold"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <TextView
-        android:textStyle="bold"
         android:id="@+id/radius_place_distance_tv"
+        style="@style/Bold_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
+        android:text="30.36km"
+        android:textColor="@color/main_blue"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/radius_place_tv"
         app:layout_constraintTop_toBottomOf="@id/radius_place_tv" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/radius_place_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/radius_place_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/map_detail_img" />
+
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

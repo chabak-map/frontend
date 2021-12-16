@@ -151,13 +151,13 @@
                     android:src="@drawable/my_location" />
 
                 <TextView
+                    style="@style/Medium_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:text="@string/main_closer_location"
                     android:textColor="@color/text_555"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="wrap_content"

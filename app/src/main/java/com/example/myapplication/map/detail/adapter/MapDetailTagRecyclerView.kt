@@ -9,7 +9,7 @@ import com.example.myapplication.R
 import com.example.myapplication.map.detail.models.MapDetail
 import com.example.myapplication.map.detail.models.Result
 
-class MapDetailTagRecyclerView(var tagList : MapDetail) :
+class MapDetailTagRecyclerView(var tagList: MapDetail) :
 RecyclerView.Adapter<MapDetailTagRecyclerView.CustomHolder>(){
 	override fun onCreateViewHolder(
 		parent: ViewGroup,
@@ -20,7 +20,7 @@ RecyclerView.Adapter<MapDetailTagRecyclerView.CustomHolder>(){
 	}
 
 	override fun onBindViewHolder(holder: MapDetailTagRecyclerView.CustomHolder, position: Int) {
-		holder.bindItems(tagList.result.tagNames[position] as Result)
+		holder.bindItems(tagList.result)
 	}
 
 	override fun getItemCount(): Int {
@@ -29,9 +29,8 @@ RecyclerView.Adapter<MapDetailTagRecyclerView.CustomHolder>(){
 
 	inner class CustomHolder(view : View) : RecyclerView.ViewHolder(view){
 		fun bindItems(data: Result){
-			for (i in 0 .. data.tagNames.size){
-				itemView.findViewById<TextView>(R.id.map_detail_tag_tv).text = i.toString()
-				println(i)
+			for (i in 0..data.tagNames.size){
+				itemView.findViewById<TextView>(R.id.map_detail_tag_tv).text = data.tagNames[i].toString()
 			}
 		}
 	}

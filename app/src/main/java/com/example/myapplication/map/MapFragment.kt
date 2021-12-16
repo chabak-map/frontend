@@ -87,6 +87,7 @@ class MapFragment :
 
 		binding.nowLocationBtn.setOnClickListener {
 			tryGetPlace(naverMap.cameraPosition.target.latitude, naverMap.cameraPosition.target.longitude, 40)
+			binding.contentCntTv.text = contentCnt
 		}
 
 		binding.searchPlaceImg.setOnClickListener {

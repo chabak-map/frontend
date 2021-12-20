@@ -1,5 +1,6 @@
 package com.example.myapplication.post.mypost
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.example.myapplication.databinding.FragmentMyPostBinding
 import com.example.myapplication.post.mypost.adapter.MyPostRecyclerView
 import com.example.myapplication.post.mypost.models.MyPost
 import com.example.myapplication.post.mypost.models.MyPostRetrofitInterface
+import com.example.myapplication.post.write.WriteActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,6 +27,9 @@ class MyPostFragment : BaseFragment<FragmentMyPostBinding>(FragmentMyPostBinding
 		super.onViewCreated(view, savedInstanceState)
 		binding.mypostRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 		binding.mypostRv.setHasFixedSize(true)
+		binding.gotoWritePostFbtn.setOnClickListener {
+			startActivity(Intent(requireContext(), WriteActivity::class.java))
+		}
 		getMyPost()
 	}
 

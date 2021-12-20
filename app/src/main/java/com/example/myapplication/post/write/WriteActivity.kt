@@ -15,13 +15,8 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
 		super.onCreate(savedInstanceState)
 		setContentView(binding.root)
 
-		binding.uploadImg.setOnClickListener {
-			var intent = Intent(Intent.ACTION_PICK)
-			intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-			intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-			intent.action = Intent.ACTION_GET_CONTENT
-
-			startActivityForResult(intent, 200)
+		binding.gotoMypostImg.setOnClickListener {
+			finish()
 		}
 	}
 

@@ -7,6 +7,7 @@
     tools:context=".post.mypost.MyPostFragment">
 
     <TextView
+        android:id="@+id/nothing_mypost_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="등록된 포스트가 없어요."
@@ -15,13 +16,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/nothing_mypost_tv"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mypost_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/mypost_item"
-        android:id="@+id/mypost_rv"/>
+        tools:listitem="@layout/mypost_item" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/goto_write_post_fbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/floating_action"
+        android:src="@drawable/pencil_line"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

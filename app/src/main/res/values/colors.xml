@@ -41,4 +41,7 @@
 
     <!--  write_post  -->
     <color name="register_post">#18AD57</color>
+
+    <!--  my_post  -->
+    <color name="floating_action">#4D4DDD</color>
 </resources>

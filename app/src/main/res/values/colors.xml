@@ -38,4 +38,7 @@
 
     <!--  bottom_nav_  -->
     <color name="bottom_selected_color">#FF0000</color>
+
+    <!--  write_post  -->
+    <color name="register_post">#18AD57</color>
 </resources>

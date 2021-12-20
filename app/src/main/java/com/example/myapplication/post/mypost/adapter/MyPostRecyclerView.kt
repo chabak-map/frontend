@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
@@ -37,6 +38,14 @@ RecyclerView.Adapter<MyPostRecyclerView.CustomHolder>(){
 			itemView.findViewById<TextView>(R.id.my_post_writer_tv).text =data.nickname
 			GlideApp.with(itemView).load(data.imageUrl).into(img)
 			itemView.findViewById<TextView>(R.id.my_post_speech_cnt_tv).text = data.commentCount.toString()
+			if(data.imageUrl.isEmpty()){
+				itemView.findViewById<ImageView>(R.id.my_post_img).visibility = View.GONE
+				itemView.findViewById<ImageView>(R.id.my_post_multi_pic_img).visibility = View.GONE
+				itemView.findViewById<CardView>(R.id.my_post_background_cv).visibility = View.GONE
+			}
+			else if (data.imageUrl.split(",").size == 1){
+				itemView.findViewById<ImageView>(R.id.my_post_multi_pic_img).visibility = View.GONE
+			}
 		}
 	}
 }

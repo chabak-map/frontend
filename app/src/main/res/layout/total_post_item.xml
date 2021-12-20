@@ -29,42 +29,21 @@
         android:id="@+id/total_post_date_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:text="날짜"
         android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@id/total_post_writer_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@id/total_post_title_tv" />
 
     <ImageView
-        android:id="@+id/total_post_blank_heart_tv"
+        android:id="@+id/total_post_speech_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/blankheart"
-        app:layout_constraintStart_toStartOf="@id/total_post_title_tv"
-        app:layout_constraintTop_toBottomOf="@id/total_post_writer_tv" />
-
-    <TextView
-        android:id="@+id/total_post_like_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:text="좋아요"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@id/total_post_blank_heart_tv"
-        app:layout_constraintTop_toBottomOf="@id/total_post_writer_tv" />
-
-    <ImageView
-        android:id="@+id/total_post_speech_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/speechbubble"
-        app:layout_constraintStart_toEndOf="@id/total_post_like_tv"
-        app:layout_constraintTop_toBottomOf="@id/total_post_writer_tv" />
+        app:layout_constraintStart_toStartOf="@id/total_post_title_tv"
+        app:layout_constraintTop_toBottomOf="@id/total_post_img" />
 
     <TextView
         android:id="@+id/total_post_speech_cnt_tv"
@@ -74,26 +53,40 @@
         android:layout_marginTop="4dp"
         android:text="댓글"
         android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@id/total_post_speech_tv"
-        app:layout_constraintTop_toBottomOf="@id/total_post_writer_tv" />
+        app:layout_constraintStart_toEndOf="@id/total_post_speech_img"
+        app:layout_constraintTop_toBottomOf="@id/total_post_img" />
 
 
     <ImageView
         android:id="@+id/total_post_img"
-        android:layout_width="88dp"
-        android:layout_height="88dp"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/total_post_title_tv" />
+        app:layout_constraintEnd_toEndOf="@id/total_post_date_tv"
+        app:layout_constraintStart_toStartOf="@id/total_post_title_tv"
+        app:layout_constraintTop_toBottomOf="@id/total_post_tag_tv"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/total_post_writer_tv"
+        app:layout_constraintStart_toStartOf="@id/total_post_writer_tv"
+        android:text="내용"
+        android:maxLines="3"
+        android:ellipsize="middle"
+        android:id="@+id/total_post_content_tv"/>
 
     <TextView
         android:id="@+id/total_post_tag_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/total_post_content_tv"
         android:text="태그"
-        app:layout_constraintStart_toStartOf="@id/total_post_title_tv"
-        app:layout_constraintTop_toBottomOf="@id/total_post_like_tv" />
+        app:layout_constraintStart_toStartOf="@id/total_post_speech_img"/>
+
 
     <View
         android:layout_width="match_parent"
@@ -102,5 +95,5 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:background="@color/basic"
-        app:layout_constraintTop_toBottomOf="@id/total_post_img" />
+        app:layout_constraintTop_toBottomOf="@id/total_post_speech_img" />
 </androidx.constraintlayout.widget.ConstraintLayout>

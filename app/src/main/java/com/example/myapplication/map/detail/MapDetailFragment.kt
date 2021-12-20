@@ -29,7 +29,7 @@ class MapDetailFragment(placeId: Int) : BaseFragment<FragmentMapDetailBinding>(
 			LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 		binding.mapDetailReviewRv.setHasFixedSize(true)
 		binding.mapDetailTagRv.layoutManager =
-			LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+			LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 		binding.mapDetailTagRv.setHasFixedSize(true)
 	}
 

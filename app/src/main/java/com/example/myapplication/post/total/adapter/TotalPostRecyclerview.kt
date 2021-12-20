@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
+import com.example.myapplication.glide.GlideApp
 import com.example.myapplication.post.total.models.Result
 import com.example.myapplication.post.total.models.TotalPost
 
@@ -45,8 +46,10 @@ RecyclerView.Adapter<TotalPostRecyclerview.CustomHolder>(){
 			itemView.findViewById<TextView>(R.id.total_post_title_tv).text = data.title
 			itemView.findViewById<TextView>(R.id.total_post_writer_tv).text = data.nickname
 			itemView.findViewById<TextView>(R.id.total_post_speech_cnt_tv).text = data.commentCount.toString()
-			Glide.with(itemView).load(data.imageUrl).into(img)
-
+			GlideApp.with(itemView).load(data.imageUrl).into(img)
+			if(data.imageUrl.isEmpty()){
+				itemView.findViewById<ImageView>(R.id.total_post_img).visibility = View.GONE
+			}
 			val pos = adapterPosition
 			if(pos!=RecyclerView.NO_POSITION){
 				itemView.setOnClickListener {

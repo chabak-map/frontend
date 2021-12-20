@@ -1,4 +1,4 @@
-package com.example.myapplication.detail.models
+package com.example.myapplication.post.detail.models
 
 data class Result(
     val content: String,

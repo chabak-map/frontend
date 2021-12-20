@@ -27,7 +27,7 @@
             android:name=".find.FindActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.myapplication.detail.DetailPostActivity"
+            android:name="com.example.myapplication.post.detail.DetailPostActivity"
             android:exported="false" />
         <activity
             android:name=".splash.SplashActivity"

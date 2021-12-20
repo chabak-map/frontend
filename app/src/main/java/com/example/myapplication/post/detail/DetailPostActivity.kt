@@ -1,15 +1,15 @@
-package com.example.myapplication.detail
+package com.example.myapplication.post.detail
 
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityDetailPostBinding
-import com.example.myapplication.detail.adapter.PostPagerAdapter
-import com.example.myapplication.detail.models.DetailPost
-import com.example.myapplication.detail.models.DetailPostRetrofitInterface
-import com.example.myapplication.detail.tagmodels.Tag
-import com.example.myapplication.detail.tagmodels.TagRetrofitInterface
+import com.example.myapplication.post.detail.adapter.PostPagerAdapter
+import com.example.myapplication.post.detail.models.DetailPost
+import com.example.myapplication.post.detail.models.DetailPostRetrofitInterface
+import com.example.myapplication.post.detail.tagmodels.Tag
+import com.example.myapplication.post.detail.tagmodels.TagRetrofitInterface
 import kotlinx.android.synthetic.main.detail_post_item.*
 import retrofit2.Call
 import retrofit2.Callback

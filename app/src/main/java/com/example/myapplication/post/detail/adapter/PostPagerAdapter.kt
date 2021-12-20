@@ -1,4 +1,4 @@
-package com.example.myapplication.detail.adapter
+package com.example.myapplication.post.detail.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

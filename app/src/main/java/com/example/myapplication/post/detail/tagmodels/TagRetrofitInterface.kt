@@ -1,4 +1,4 @@
-package com.example.myapplication.detail.tagmodels
+package com.example.myapplication.post.detail.tagmodels
 
 import retrofit2.Call
 import retrofit2.http.GET

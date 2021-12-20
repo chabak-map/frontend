@@ -5,12 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.glide.GlideApp
 import com.example.myapplication.post.total.models.Result
 import com.example.myapplication.post.total.models.TotalPost
+import okio.utf8Size
 
 class TotalPostRecyclerview(val postList: TotalPost) :
 RecyclerView.Adapter<TotalPostRecyclerview.CustomHolder>(){
@@ -49,6 +51,11 @@ RecyclerView.Adapter<TotalPostRecyclerview.CustomHolder>(){
 			GlideApp.with(itemView).load(data.imageUrl).into(img)
 			if(data.imageUrl.isEmpty()){
 				itemView.findViewById<ImageView>(R.id.total_post_img).visibility = View.GONE
+				itemView.findViewById<ImageView>(R.id.total_post_multi_pic_img).visibility = View.GONE
+				itemView.findViewById<CardView>(R.id.total_post_background_cv).visibility = View.GONE
+			}
+			else if (data.imageUrl.split(",").size == 1){
+				itemView.findViewById<ImageView>(R.id.total_post_multi_pic_img).visibility = View.GONE
 			}
 			val pos = adapterPosition
 			if(pos!=RecyclerView.NO_POSITION){

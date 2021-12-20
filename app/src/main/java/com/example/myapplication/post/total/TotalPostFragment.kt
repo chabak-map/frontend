@@ -8,6 +8,7 @@ import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseFragment
 import com.example.myapplication.databinding.FragmentTotalPostBinding
+import com.example.myapplication.post.detail.DetailPostActivity
 import com.example.myapplication.post.total.adapter.TotalPostRecyclerview
 import com.example.myapplication.post.total.models.Result
 import com.example.myapplication.post.total.models.TotalPost
@@ -35,7 +36,21 @@ class TotalPostFragment : BaseFragment<FragmentTotalPostBinding>(FragmentTotalPo
 		totalPostRetrofitInterface.tryTotalPost().enqueue(object : Callback<TotalPost>{
 			override fun onResponse(call: Call<TotalPost>, response: Response<TotalPost>) {
 				val result = response.body() as TotalPost
-				binding.totalPostRv.adapter = TotalPostRecyclerview(result)
+				val totalPostRecyclerview = TotalPostRecyclerview(result)
+				binding.totalPostRv.adapter = totalPostRecyclerview
+//				totalPostRecyclerview.setItemClickListener(object : TotalPostRecyclerview.OnItemClickListener{
+//					override fun onClick(v: View, position: Int, data: Result) {
+//						startActivity(
+//							Intent(
+//								context,
+//								DetailPostActivity::class.java
+//							).apply {
+//								putExtra("data", data.)
+//							}
+//						)
+//					}
+//				})
+
 			}
 
 			override fun onFailure(call: Call<TotalPost>, t: Throwable) {

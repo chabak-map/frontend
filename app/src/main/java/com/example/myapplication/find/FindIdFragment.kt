@@ -13,9 +13,13 @@ class FindIdFragment :
         super.onViewCreated(view, savedInstanceState)
 
         binding.joinBtn.setOnClickListener {
-
-
+            childFragmentManager.beginTransaction()
+                .replace(R.id.frame_id, FindIdResultFragment())
+//                .addToBackStack(null)
+                .commit()
         }
+
+
     }
 
 }

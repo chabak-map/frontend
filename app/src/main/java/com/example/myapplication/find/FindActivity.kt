@@ -28,7 +28,6 @@ class FindActivity : BaseActivity<ActivityFindBinding>(ActivityFindBinding::infl
         TabLayoutMediator(binding.tabLayoutFind, binding.findFrame) { tab, position ->
             tab.text = tabTextList[position]
         }.attach()
-
     }
 
     private inner class ScreenSlidePagerAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
@@ -43,6 +42,7 @@ class FindActivity : BaseActivity<ActivityFindBinding>(ActivityFindBinding::infl
             }
         }
     }
+
 
 }
 

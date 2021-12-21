@@ -38,19 +38,18 @@ class TotalPostFragment : BaseFragment<FragmentTotalPostBinding>(FragmentTotalPo
 				val result = response.body() as TotalPost
 				val totalPostRecyclerview = TotalPostRecyclerview(result)
 				binding.totalPostRv.adapter = totalPostRecyclerview
-//				totalPostRecyclerview.setItemClickListener(object : TotalPostRecyclerview.OnItemClickListener{
-//					override fun onClick(v: View, position: Int, data: Result) {
-//						startActivity(
-//							Intent(
-//								context,
-//								DetailPostActivity::class.java
-//							).apply {
-//								putExtra("data", data.)
-//							}
-//						)
-//					}
-//				})
-
+				totalPostRecyclerview.setItemClickListener(object : TotalPostRecyclerview.OnItemClickListener{
+					override fun onClick(v: View, position: Int, data: Result) {
+						startActivity(
+							Intent(
+								context,
+								DetailPostActivity::class.java
+							).apply {
+								putExtra("data", data.id)
+							}
+						)
+					}
+				})
 			}
 
 			override fun onFailure(call: Call<TotalPost>, t: Throwable) {

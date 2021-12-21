@@ -11,8 +11,9 @@
         android:overScrollMode="never">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detail_post_main_cl"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/back_arrow_img"
@@ -24,22 +25,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/detail_post_report_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/detail_post"
-                android:textSize="20sp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/report"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/back_arrow_img" />
-
-            <ImageView
-                android:id="@+id/share_img"
-                android:layout_width="24dp"
-                android:layout_height="30dp"
-                android:layout_margin="16dp"
-                android:background="@drawable/share"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/detail_post_title_tv"
@@ -49,7 +41,7 @@
                 android:text="타이틀"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/detail_place_vp"
+                app:layout_constraintStart_toStartOf="@id/back_arrow_img"
                 app:layout_constraintTop_toBottomOf="@id/back_arrow_img" />
 
             <TextView
@@ -69,16 +61,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="날짜"
-                app:layout_constraintStart_toStartOf="@id/detail_post_writer_tv"
-                app:layout_constraintTop_toBottomOf="@id/detail_post_writer_tv" />
-
-            <View
-                android:id="@+id/content_line"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/basic"
-                app:layout_constraintTop_toBottomOf="@id/detail_post_date_tv" />
+                app:layout_constraintEnd_toEndOf="@id/detail_post_report_tv"
+                app:layout_constraintTop_toTopOf="@id/detail_post_writer_tv" />
 
             <TextView
                 android:id="@+id/detail_post_content_tv"
@@ -86,15 +70,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="내용"
-                app:layout_constraintStart_toStartOf="@id/detail_place_vp"
-                app:layout_constraintTop_toBottomOf="@id/content_line" />
+                app:layout_constraintStart_toStartOf="@id/back_arrow_img"
+                app:layout_constraintTop_toBottomOf="@id/detail_post_writer_tv" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/detail_place_vp"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@id/detail_post_content_tv" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/post_detail_background_cv"
+                android:layout_width="0dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:scaleType="fitXY"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="@id/detail_post_report_tv"
+                app:layout_constraintStart_toStartOf="@id/back_arrow_img"
+                app:layout_constraintTop_toBottomOf="@id/detail_post_content_tv">
+
+                <ImageView
+                    android:id="@+id/post_detail_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY" />
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/detail_post_tag_tv"
@@ -104,8 +100,8 @@
                 android:text="@string/detail_post_tag"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/detail_place_vp"
-                app:layout_constraintTop_toBottomOf="@id/detail_place_vp" />
+                app:layout_constraintStart_toStartOf="@id/back_arrow_img"
+                app:layout_constraintTop_toBottomOf="@id/post_detail_background_cv" />
 
             <TextView
                 android:id="@+id/detail_post_detail_tag_tv"
@@ -116,61 +112,34 @@
                 app:layout_constraintStart_toStartOf="@id/detail_post_tag_tv"
                 app:layout_constraintTop_toBottomOf="@id/detail_post_tag_tv" />
 
-            <View
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
                 android:background="@color/basic"
-                app:layout_constraintTop_toBottomOf="@id/detail_post_detail_tag_tv"
-                android:id="@+id/detail_post_bottom_line"/>
+                app:layout_constraintTop_toBottomOf="@id/detail_post_main_cl"
+                app:layout_constraintStart_toStartOf="@id/detail_post_main_cl">
 
-            <ImageView
-                android:id="@+id/detail_post_like_img"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/blankheart"
-                app:layout_constraintStart_toStartOf="@id/detail_place_vp"
-                app:layout_constraintTop_toBottomOf="@id/detail_post_bottom_line" />
+                <TextView
+                    android:id="@+id/post_place_review_cnt_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="댓글 수"
+                    app:layout_constraintStart_toEndOf="@id/detail_post_comment_img"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-            <TextView
-                android:id="@+id/detail_post_like_cnt_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="20dp"
-                android:text="좋아요 수"
-                app:layout_constraintStart_toEndOf="@id/detail_post_like_img"
-                app:layout_constraintTop_toBottomOf="@id/detail_post_bottom_line" />
-
-            <TextView
-                android:id="@+id/post_place_review_cnt_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toEndOf="@id/detail_post_comment_img"
-                android:text="댓글 수"
-                app:layout_constraintTop_toBottomOf="@id/detail_post_bottom_line" />
-
-            <ImageView
-                android:layout_marginStart="5dp"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/speechbubble"
-                app:layout_constraintTop_toBottomOf="@id/detail_post_bottom_line"
-                app:layout_constraintStart_toEndOf="@id/detail_post_like_cnt_tv"
-                android:id="@+id/detail_post_comment_img"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintTop_toTopOf="@id/detail_post_comment_img"
-                android:text="@string/report"
-                android:id="@+id/detail_post_report_tv"/>
+                <ImageView
+                    android:id="@+id/detail_post_comment_img"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/speechbubble"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

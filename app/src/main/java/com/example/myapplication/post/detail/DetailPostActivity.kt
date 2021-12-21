@@ -10,6 +10,7 @@ import com.example.myapplication.post.detail.models.DetailPost
 import com.example.myapplication.post.detail.models.DetailPostRetrofitInterface
 import com.example.myapplication.post.detail.tagmodels.Tag
 import com.example.myapplication.post.detail.tagmodels.TagRetrofitInterface
+import com.example.myapplication.post.total.adapter.TotalPostRecyclerview
 import kotlinx.android.synthetic.main.detail_post_item.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,8 +23,7 @@ class DetailPostActivity : BaseActivity<ActivityDetailPostBinding>(ActivityDetai
 		setContentView(binding.root)
 
 		val datas = intent.getSerializableExtra("data")
-//		tryGetDetailPost(datas as Int)
-		tryGetDetailTag(datas as Int)
+		tryGetDetailPost(datas as Int)
 
 	}
 	fun tryGetDetailPost(postId : Int){
@@ -38,8 +38,6 @@ class DetailPostActivity : BaseActivity<ActivityDetailPostBinding>(ActivityDetai
 				binding.detailPostWriterTv.text = result.result.nickname
 				binding.detailPostContentTv.text = result.result.content
 
-				binding.detailPlaceVp.adapter = PostPagerAdapter(this@DetailPostActivity, imgList)
-				binding.detailPlaceVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 			}
 
 			override fun onFailure(call: Call<DetailPost>, t: Throwable) {

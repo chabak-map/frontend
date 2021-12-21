@@ -32,6 +32,7 @@
         android:layout_margin="20dp"
         android:backgroundTint="@color/floating_action"
         android:src="@drawable/pencil_line"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

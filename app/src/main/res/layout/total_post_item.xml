@@ -10,7 +10,6 @@
         style="@style/Medium_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:text="타이틀"
         android:textColor="@color/text_222"
         android:textSize="16sp"
@@ -103,18 +102,16 @@
         app:layout_constraintStart_toEndOf="@id/total_post_speech_img"
         app:layout_constraintTop_toTopOf="@+id/total_post_speech_img" />
 
-
     <ImageView
         android:id="@+id/total_post_multi_pic_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/multipic"
         android:backgroundTint="@color/basic"
         app:layout_constraintBottom_toBottomOf="@id/total_post_background_cv"
         app:layout_constraintEnd_toEndOf="@id/total_post_background_cv" />
-
 
     <TextView
         android:id="@+id/total_post_report_tv"
@@ -133,5 +130,8 @@
         android:layout_height="1dp"
         android:layout_marginTop="12dp"
         android:background="@color/bg_f4"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/total_post_speech_img" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

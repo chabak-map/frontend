@@ -5,6 +5,10 @@
       <map>
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/commentbtn.xml" value="0.3697916666666667" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/dialog_background_round.xml" value="0.3697916666666667" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/input_cancel.xml" value="0.3697916666666667" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/input_id.xml" value="0.3697916666666667" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/join_click.xml" value="0.3697916666666667" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/join_nonclick.xml" value="0.3697916666666667" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/main_post_background.xml" value="0.3697916666666667" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/map_detail_tag.xml" value="0.3697916666666667" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/drawable/now_location.xml" value="0.3697916666666667" />
@@ -17,19 +21,25 @@
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/font-v26/font_custom.xml" value="0.33229166666666665" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/font/app_font.xml" value="0.38385416666666666" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/font/custom_font_family.xml" value="0.33229166666666665" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_comment.xml" value="0.4161458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_find.xml" value="0.33" />
-        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_join.xml" value="0.5205709487825357" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_find_pw_edit.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_join.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_join_finish.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_login.xml" value="0.3026041666666667" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_map.xml" value="0.3536458333333333" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/activity_write.xml" value="0.23020833333333332" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/comment_item.xml" value="0.3536458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/dialog_loading.xml" value="0.3536458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_find_id.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_find_id_result.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_find_pw.xml" value="0.3536458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_home.xml" value="0.30124223602484473" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_map.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_map_detail.xml" value="0.42305295950155763" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_my_page.xml" value="0.3536458333333333" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_my_post.xml" value="0.3925925925925926" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_place.xml" value="0.4161458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_post.xml" value="0.3536458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_total_post.xml" value="0.3536458333333333" />
@@ -42,15 +52,14 @@
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/map_detail_pic_item.xml" value="0.3536458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/map_detail_tag_item.xml" value="2.0" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/radius_place_item.xml" value="0.5" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/upload_picture_item.xml" value="0.3536458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/menu/main_bottom_nav.xml" value="0.3536458333333333" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/base_img_background.xml" value="0.3037037037037037" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/bottom_icon_color.xml" value="0.1" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/commentbtn.xml" value="0.38229166666666664" />
-        <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/detail_post_background.xml" value="0.25" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/dialog_background_round.xml" value="0.1712962962962963" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1925925925925926" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/input_id.xml" value="0.15092592592592594" />
-        <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/main_post_background.xml" value="0.25" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/now_location.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/oauth.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/search_place.xml" value="0.3425925925925926" />
@@ -86,7 +95,7 @@
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/main_rank_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/map_detail_comment_item.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/map_detail_item.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/map_detail_tag_item.xml" value="0.75" />
+        <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/map_detail_tag_item.xml" value="0.14447463768115942" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/map_item.xml" value="0.1778115501519757" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/mypost_item.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/radius_place_item.xml" value="0.25" />

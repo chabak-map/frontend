@@ -16,10 +16,16 @@ class FindIdResultFragment : BaseFragment<FragmentFindIdResultBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // 로그인 버튼 클릭
         binding.btnIdFindLogin.setOnClickListener {
 
             // 로그인 액티비티 열기
             startActivity(Intent(requireContext(), LoginActivity::class.java))
+        }
+
+        // 비밀번호 찾기 클릭
+        binding.btnIdFindPw.setOnClickListener {
+
         }
     }
 }

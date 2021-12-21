@@ -10,9 +10,9 @@
         android:id="@+id/tv_main"
         android:layout_width="160dp"
         android:layout_height="100dp"
-        android:scaleType="centerCrop"
         android:layout_marginTop="140dp"
         android:background="@drawable/login_logo"
+        android:scaleType="centerCrop"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,6 +148,7 @@
 
     <Button
         android:id="@+id/btn_login"
+        style="@style/Medium_text"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="20dp"
@@ -158,7 +159,6 @@
         android:text="로그인"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
@@ -225,15 +225,12 @@
             android:textSize="14sp" />
 
         <TextView
-
+            style="@style/Medium_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:text="@string/login_join_new"
-            android:textColor="@color/logo"
-            android:textStyle="bold" />
-
+            android:textColor="@color/logo" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

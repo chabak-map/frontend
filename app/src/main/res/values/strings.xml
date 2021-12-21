@@ -43,6 +43,9 @@
     <string name="check_num">인증번호</string>
     <string name="join">가입하기</string>
     <string name="join_signup">회원가입</string>
+    <string name="join_success">회원가입이\n완료되었습니다.</string>
+    <string name="join_success_text">로그인 후 나만의 차박지도를 이용하실 수 있어요.</string>
+    <string name="join_success_btn">로그인 하러가기</string>
 
     <!--  find  -->
     <string name="find_top">아이디/비밀번호 찾기</string>
@@ -51,6 +54,12 @@
     <string name="find_btn">확인</string>
     <string name="find_id_text">고객님의 정보와 일치하는 아이디입니다.</string>
     <string name="find_id_login">로그인</string>
+
+    <string name="find_pw_save">저장</string>
+    <string name="find_pw_top">비밀번호 변경</string>
+    <string name="find_pw_edit">비밀번호</string>
+    <string name="find_pw_edit_check">비밀번호 확인</string>
+    <string name="find_pw_edit_cancel">취소</string>
 
 
     <!-- main  -->

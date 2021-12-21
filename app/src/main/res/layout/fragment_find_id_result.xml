@@ -34,13 +34,13 @@
             app:layout_constraintTop_toTopOf="@id/view_find_id_bg" />
 
         <TextView
+            style="@style/Medium_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="text@gmail.com"
             android:textColor="@color/main_blue"
             android:textSize="16sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/tv_id_find_result"
             app:layout_constraintStart_toStartOf="@id/tv_id_find_result"
             app:layout_constraintTop_toBottomOf="@id/tv_id_find_result" />
@@ -49,6 +49,7 @@
 
     <Button
         android:id="@+id/btn_id_find_login"
+        style="@style/Medium_text"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
@@ -57,7 +58,6 @@
         android:text="@string/find_id_login"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/iv_phone_error" />
 
     <Button
@@ -65,8 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/oauth"
-        android:backgroundTint="@color/bg_f4"
+        android:background="@drawable/input_cancel"
         android:text="@string/find_pw"
         android:textColor="@color/text_555"
         android:textSize="16sp"

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".join.JoinFinishActivity">
+
+    <ImageView
+        android:id="@+id/iv_join_back"
+        android:layout_width="8dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/back_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_join"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_join" />
+
+    <TextView
+        android:id="@+id/tv_join"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/join_signup"
+        android:textColor="@color/text_222"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_join">
+
+        <!-- 회원가입 이름 -->
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_join_success"
+            style="@style/Bold_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Test 님,"
+            android:textSize="28sp" />
+
+        <TextView
+            style="@style/Bold_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/join_success"
+            android:textSize="28sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/join_success_text"
+            android:textColor="@color/text_555"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/join_btn"
+            style="@style/Medium_text"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/input_id"
+            android:backgroundTint="@color/main_blue"
+            android:text="@string/join_success_btn"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/iv_phone_error" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

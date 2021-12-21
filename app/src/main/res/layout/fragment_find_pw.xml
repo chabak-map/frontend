@@ -98,7 +98,8 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/join_btn"
+        android:id="@+id/btn_find_pw"
+        style="@style/Medium_text"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
@@ -106,7 +107,6 @@
         android:backgroundTint="@color/logo"
         android:text="@string/find_btn"
         android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textSize="16sp" />
 
 </LinearLayout>

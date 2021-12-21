@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".post.mypost.MyPostFragment">
 
     <TextView
@@ -24,15 +25,14 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/mypost_item" />
 
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/goto_write_post_fbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="@color/floating_action"
         android:src="@drawable/pencil_line"
-        android:elevation="10dp"
+        app:elevation="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

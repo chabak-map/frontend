@@ -46,6 +46,7 @@ class TotalPostFragment : BaseFragment<FragmentTotalPostBinding>(FragmentTotalPo
 								DetailPostActivity::class.java
 							).apply {
 								putExtra("data", data.id)
+								putExtra("date", data.createdAt)
 							}
 						)
 					}

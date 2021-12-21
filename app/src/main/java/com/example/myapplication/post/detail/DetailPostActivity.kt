@@ -21,12 +21,12 @@ class DetailPostActivity : BaseActivity<ActivityDetailPostBinding>(ActivityDetai
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(binding.root)
-
 		val datas = intent.getSerializableExtra("data")
-		tryGetDetailPost(datas as Int)
+		val date = intent.getSerializableExtra("date")
+		tryGetDetailPost(datas as Int, date as String)
 
 	}
-	fun tryGetDetailPost(postId : Int){
+	fun tryGetDetailPost(postId : Int, date : String){
 		val detailPostRetrofitInterface = ApplicationClass.sRetrofit.create(DetailPostRetrofitInterface::class.java)
 		detailPostRetrofitInterface.tryGetDetailPost(postId).enqueue(object : Callback<DetailPost>{
 			override fun onResponse(call: Call<DetailPost>, response: Response<DetailPost>) {
@@ -37,7 +37,7 @@ class DetailPostActivity : BaseActivity<ActivityDetailPostBinding>(ActivityDetai
 				binding.detailPostTitleTv.text = result.result.title
 				binding.detailPostWriterTv.text = result.result.nickname
 				binding.detailPostContentTv.text = result.result.content
-
+				binding.detailPostDateTv.text = date
 			}
 
 			override fun onFailure(call: Call<DetailPost>, t: Throwable) {

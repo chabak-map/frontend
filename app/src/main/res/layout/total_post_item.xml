@@ -2,28 +2,29 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/total_post_title_tv"
+        style="@style/Medium_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:text="타이틀"
-        android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/text_222"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/total_post_writer_tv"
-        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:text="닉네임"
-        android:textSize="10sp"
+        android:textColor="@color/text_555"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/total_post_title_tv"
         app:layout_constraintTop_toBottomOf="@id/total_post_title_tv" />
 
@@ -31,97 +32,106 @@
         android:id="@+id/total_post_date_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="날짜"
-        android:textSize="10sp"
+        android:textColor="@color/text_bbb"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/total_post_writer_tv"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toBottomOf="@id/total_post_title_tv" />
+        app:layout_constraintTop_toTopOf="@+id/total_post_writer_tv" />
+
+    <TextView
+        android:id="@+id/total_post_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:ellipsize="middle"
+        android:maxLines="3"
+        android:text="내용"
+        android:textColor="@color/text_222"
+        app:layout_constraintStart_toStartOf="@id/total_post_writer_tv"
+        app:layout_constraintTop_toBottomOf="@id/total_post_writer_tv" />
+
+    <!--태그-->
+    <TextView
+        android:id="@+id/total_post_tag_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="태그"
+        android:textColor="@color/text_bbb"
+        app:layout_constraintStart_toStartOf="@id/total_post_speech_img"
+        app:layout_constraintTop_toBottomOf="@id/total_post_content_tv" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/total_post_background_cv"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="@id/total_post_date_tv"
+        app:layout_constraintStart_toStartOf="@id/total_post_title_tv"
+        app:layout_constraintTop_toBottomOf="@id/total_post_tag_tv">
+
+        <ImageView
+            android:id="@+id/total_post_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+    </androidx.cardview.widget.CardView>
 
     <ImageView
         android:id="@+id/total_post_speech_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/speechbubble"
         app:layout_constraintStart_toStartOf="@id/total_post_title_tv"
         app:layout_constraintTop_toBottomOf="@id/total_post_background_cv" />
 
     <TextView
         android:id="@+id/total_post_speech_cnt_tv"
+        style="@style/Medium_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
         android:text="댓글"
-        android:textSize="10sp"
+        android:textColor="@color/text_555"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/total_post_speech_img"
         app:layout_constraintStart_toEndOf="@id/total_post_speech_img"
-        app:layout_constraintTop_toBottomOf="@id/total_post_background_cv" />
+        app:layout_constraintTop_toTopOf="@+id/total_post_speech_img" />
 
-
-    <androidx.cardview.widget.CardView
-        app:cardCornerRadius="10dp"
-        android:scaleType="fitXY"
-        android:id="@+id/total_post_background_cv"
-        android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="@id/total_post_date_tv"
-        app:layout_constraintStart_toStartOf="@id/total_post_title_tv"
-        app:layout_constraintTop_toBottomOf="@id/total_post_tag_tv">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:id="@+id/total_post_img"/>
-    </androidx.cardview.widget.CardView>
 
     <ImageView
+        android:id="@+id/total_post_multi_pic_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/multipic"
-        android:backgroundTint="@color/basic"
-        app:layout_constraintEnd_toEndOf="@id/total_post_background_cv"
-        app:layout_constraintBottom_toBottomOf="@id/total_post_background_cv"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:id="@+id/total_post_multi_pic_img"/>
+        android:background="@drawable/multipic"
+        android:backgroundTint="@color/basic"
+        app:layout_constraintBottom_toBottomOf="@id/total_post_background_cv"
+        app:layout_constraintEnd_toEndOf="@id/total_post_background_cv" />
+
 
     <TextView
-        android:layout_width="wrap_content"
-        android:textColor="@color/black"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/total_post_writer_tv"
-        app:layout_constraintStart_toStartOf="@id/total_post_writer_tv"
-        android:text="내용"
-        android:maxLines="3"
-        android:ellipsize="middle"
-        android:id="@+id/total_post_content_tv"/>
-
-    <TextView
-        android:id="@+id/total_post_tag_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/total_post_content_tv"
-        android:text="태그"
-        app:layout_constraintStart_toStartOf="@id/total_post_speech_img"/>
-
-    <TextView
+        android:id="@+id/total_post_report_tv"
+        style="@style/Medium_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/report"
-        app:layout_constraintTop_toTopOf="@id/total_post_speech_cnt_tv"
-        app:layout_constraintStart_toStartOf="@id/total_post_date_tv"
-        android:textSize="10sp"
-        android:id="@+id/total_post_report_tv"/>
+        android:textColor="@color/text_bbb"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/total_post_speech_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/total_post_speech_img" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/basic"
+        android:layout_marginTop="12dp"
+        android:background="@color/bg_f4"
         app:layout_constraintTop_toBottomOf="@id/total_post_speech_img" />
 </androidx.constraintlayout.widget.ConstraintLayout>

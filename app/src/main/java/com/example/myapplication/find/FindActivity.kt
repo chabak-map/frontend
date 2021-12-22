@@ -1,15 +1,17 @@
 package com.example.myapplication.find
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.myapplication.R
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityFindBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-class FindActivity : BaseActivity<ActivityFindBinding>(ActivityFindBinding::inflate) {
+class FindActivity : BaseActivity<ActivityFindBinding>(ActivityFindBinding::inflate){
 
     val tabTextList = arrayListOf("아이디 찾기", "비밀번호 찾기")
 
@@ -42,7 +44,5 @@ class FindActivity : BaseActivity<ActivityFindBinding>(ActivityFindBinding::infl
             }
         }
     }
-
-
 }
 

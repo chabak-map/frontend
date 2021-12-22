@@ -42,6 +42,7 @@
                 android:textSize="14sp" />
 
             <Button
+                android:id="@+id/post_check_number_btn"
                 android:layout_width="110dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"

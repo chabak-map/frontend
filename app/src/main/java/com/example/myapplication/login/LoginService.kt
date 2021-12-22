@@ -1,10 +1,8 @@
 package com.example.myapplication.login
 
-import android.util.Log
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.login.models.LoginRequest
 import com.example.myapplication.login.models.LoginResponse
-import okhttp3.Callback
 import retrofit2.Call
 import retrofit2.Response
 

@@ -29,6 +29,7 @@
         android:id="@+id/goto_write_post_fbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/floating_action"
         android:src="@drawable/pencil_line"

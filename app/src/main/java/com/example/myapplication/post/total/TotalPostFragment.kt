@@ -18,44 +18,57 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class TotalPostFragment : BaseFragment<FragmentTotalPostBinding>(FragmentTotalPostBinding::bind, R.layout.fragment_total_post) {
+class TotalPostFragment : BaseFragment<FragmentTotalPostBinding>(
+    FragmentTotalPostBinding::bind,
+    R.layout.fragment_total_post
+) {
 
-	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-		super.onViewCreated(view, savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-		binding.totalPostRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-		binding.totalPostRv.setHasFixedSize(true)
-		binding.postTextBackground.setOnClickListener {
-			startActivity(Intent(context, WriteActivity::class.java))
-		}
-		tryGetTotalPost()
-	}
+        binding.totalPostRv.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.totalPostRv.setHasFixedSize(true)
 
-	fun tryGetTotalPost(){
-		val totalPostRetrofitInterface = ApplicationClass.sRetrofit.create(TotalPostRetrofitInterface::class.java)
-		totalPostRetrofitInterface.tryTotalPost().enqueue(object : Callback<TotalPost>{
-			override fun onResponse(call: Call<TotalPost>, response: Response<TotalPost>) {
-				val result = response.body() as TotalPost
-				val totalPostRecyclerview = TotalPostRecyclerview(result)
-				binding.totalPostRv.adapter = totalPostRecyclerview
-				totalPostRecyclerview.setItemClickListener(object : TotalPostRecyclerview.OnItemClickListener{
-					override fun onClick(v: View, position: Int, data: Result) {
-						startActivity(
-							Intent(
-								context,
-								DetailPostActivity::class.java
-							).apply {
-								putExtra("data", data.id)
-								putExtra("date", data.createdAt)
-							}
-						)
-					}
-				})
-			}
+        binding.postTextBackground.setOnClickListener {
+            startActivity(Intent(context, WriteActivity::class.java))
+        }
 
-			override fun onFailure(call: Call<TotalPost>, t: Throwable) {
-				showCustomToast(t.message.toString())
-			}
-		})
-	}
+        // 플로팅 버튼 클릭 시
+        binding.gotoWritePostFbtn.setOnClickListener {
+            startActivity(Intent(requireContext(), WriteActivity::class.java))
+        }
+
+        tryGetTotalPost()
+    }
+
+    fun tryGetTotalPost() {
+        val totalPostRetrofitInterface =
+            ApplicationClass.sRetrofit.create(TotalPostRetrofitInterface::class.java)
+        totalPostRetrofitInterface.tryTotalPost().enqueue(object : Callback<TotalPost> {
+            override fun onResponse(call: Call<TotalPost>, response: Response<TotalPost>) {
+                val result = response.body() as TotalPost
+                val totalPostRecyclerview = TotalPostRecyclerview(result)
+                binding.totalPostRv.adapter = totalPostRecyclerview
+                totalPostRecyclerview.setItemClickListener(object :
+                    TotalPostRecyclerview.OnItemClickListener {
+                    override fun onClick(v: View, position: Int, data: Result) {
+                        startActivity(
+                            Intent(
+                                context,
+                                DetailPostActivity::class.java
+                            ).apply {
+                                putExtra("data", data.id)
+                                putExtra("date", data.createdAt)
+                            }
+                        )
+                    }
+                })
+            }
+
+            override fun onFailure(call: Call<TotalPost>, t: Throwable) {
+                showCustomToast(t.message.toString())
+            }
+        })
+    }
 }

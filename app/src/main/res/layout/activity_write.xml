@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".post.write.WriteActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -17,10 +18,10 @@
 
             <ImageView
                 android:id="@+id/goto_mypost_img"
-                android:layout_width="10dp"
-                android:layout_height="25dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_margin="16dp"
-                android:background="@drawable/back_arrow"
+                android:src="@drawable/back_arrow"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,21 +29,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/write_post"
-                android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textColor="@color/text_222"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/goto_mypost_img"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/goto_mypost_img" />
 
             <TextView
                 android:id="@+id/register_post_tv"
+                style="@style/Medium_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:text="@string/register_post"
-                android:textColor="@color/register_post"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:textColor="@color/success"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/goto_mypost_img"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/goto_mypost_img" />
 
@@ -50,83 +53,86 @@
                 android:id="@+id/write_post_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="50dp"
                 android:text="@string/post_title"
-                android:textColor="@color/black"
+                android:textColor="@color/text_222"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/goto_mypost_img"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/goto_mypost_img" />
 
             <EditText
                 android:id="@+id/write_post_title_et"
                 android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:textSize="15sp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/input_id"
+                android:backgroundTint="@color/bg_f4"
                 android:hint="@string/post_title"
-                android:paddingStart="20dp"
+                android:paddingStart="16dp"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@id/register_post_tv"
-                app:layout_constraintStart_toStartOf="@id/goto_mypost_img"
+                app:layout_constraintStart_toStartOf="@+id/write_post_title_tv"
                 app:layout_constraintTop_toBottomOf="@id/write_post_title_tv" />
 
             <EditText
                 android:id="@+id/write_post_content_et"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/input_id"
+                android:backgroundTint="@color/bg_f4"
                 android:gravity="top"
-                android:textSize="15sp"
                 android:hint="@string/write_post_content"
-                android:paddingStart="20dp"
-                android:paddingTop="20dp"
+                android:padding="16dp"
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="@id/register_post_tv"
-                app:layout_constraintStart_toStartOf="@id/goto_mypost_img"
+                app:layout_constraintStart_toStartOf="@+id/write_post_title_tv"
                 app:layout_constraintTop_toBottomOf="@id/write_post_title_et" />
 
             <TextView
                 android:id="@+id/write_post_tag_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/detail_post_tag"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/goto_mypost_img"
+                android:textColor="@color/text_222"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/write_post_title_tv"
                 app:layout_constraintTop_toBottomOf="@id/write_post_content_et" />
 
             <EditText
                 android:id="@+id/write_post_tag_et"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/input_id"
-                android:textSize="15sp"
+                android:backgroundTint="@color/bg_f4"
                 android:hint="@string/write_post_tag"
-                android:paddingStart="20dp"
+                android:paddingStart="16dp"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@id/register_post_tv"
-                app:layout_constraintStart_toStartOf="@id/goto_mypost_img"
+                app:layout_constraintStart_toStartOf="@+id/write_post_tag_tv"
                 app:layout_constraintTop_toBottomOf="@id/write_post_tag_tv" />
 
             <Button
                 android:id="@+id/upload_picture_btn"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="110dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/upload_pic"
                 android:gravity="center"
                 android:text="@string/upload_picture"
-                android:textColor="@color/black"
+                android:textColor="@color/text_222"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/goto_mypost_img"
+                app:layout_constraintStart_toStartOf="@+id/write_post_title_tv"
                 app:layout_constraintTop_toBottomOf="@id/write_post_tag_et" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/upload_picture_rv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="@id/register_post_tv"
                 app:layout_constraintStart_toStartOf="@id/goto_mypost_img"
                 app:layout_constraintTop_toBottomOf="@id/upload_picture_btn"

@@ -10,6 +10,7 @@
         style="@style/Medium_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:text="타이틀"
         android:textColor="@color/text_222"
         android:textSize="16sp"
@@ -31,6 +32,7 @@
         android:id="@+id/total_post_date_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
         android:text="날짜"
         android:textColor="@color/text_bbb"
         android:textSize="12sp"
@@ -118,6 +120,7 @@
         style="@style/Medium_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
         android:text="@string/report"
         android:textColor="@color/text_bbb"
         android:textSize="12sp"
@@ -129,8 +132,8 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="12dp"
-        android:background="@color/bg_f4"
         android:layout_marginBottom="28dp"
+        android:background="@color/bg_f4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/total_post_speech_img" />
 

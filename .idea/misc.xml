@@ -43,7 +43,7 @@
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_my_post.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_place.xml" value="0.4161458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_post.xml" value="0.25" />
-        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_total_post.xml" value="0.3536458333333333" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/fragment_total_post.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/login_custom_dialog.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/main_close_item.xml" value="0.75" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/main_closer_item.xml" value="0.3536458333333333" />
@@ -51,9 +51,10 @@
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/main_rank_item.xml" value="0.5" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/map_detail_comment_item.xml" value="0.5" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/map_detail_pic_item.xml" value="0.3536458333333333" />
-        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/map_detail_tag_item.xml" value="2.0" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/map_detail_tag_item.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/mypost_item.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/radius_place_item.xml" value="0.5" />
+        <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/total_post_item.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/layout/upload_picture_item.xml" value="0.3536458333333333" />
         <entry key="..\:/AndroidProjects/frontend/app/src/main/res/menu/main_bottom_nav.xml" value="0.3536458333333333" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/drawable/base_img_background.xml" value="0.3037037037037037" />

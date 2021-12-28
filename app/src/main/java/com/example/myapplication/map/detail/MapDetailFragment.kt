@@ -1,6 +1,7 @@
 package com.example.myapplication.map.detail
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +13,7 @@ import com.example.myapplication.map.detail.adapter.MapCommentRecyclerView
 import com.example.myapplication.map.detail.adapter.MapDetailTagRecyclerView
 import com.example.myapplication.map.detail.models.MapDetail
 import com.example.myapplication.map.detail.models.MapDetailRetrofitInterface
+import com.example.myapplication.map.review.MapReviewActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,6 +33,13 @@ class MapDetailFragment(placeId: Int) : BaseFragment<FragmentMapDetailBinding>(
 		binding.mapDetailTagRv.layoutManager =
 			LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 		binding.mapDetailTagRv.setHasFixedSize(true)
+		binding.gotoWriteMapReviewBtn.setOnClickListener {
+			MapReviewActivity(place)
+			startActivity(Intent(requireContext(), MapReviewActivity::class.java))
+		}
+		binding.gotoWriteMapReviewTv.setOnClickListener {
+			startActivity(Intent(requireContext(), MapReviewActivity::class.java))
+		}
 	}
 
 	fun getMapDetail(placeId: Int) {

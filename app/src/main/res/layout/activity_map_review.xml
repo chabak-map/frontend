@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".comment.CommentActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/goto_detail_map_img"
+                android:layout_width="12dp"
+                android:layout_height="23dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/back_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/comment_cnt"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/goto_detail_map_img" />
+
+            <TextView
+                android:id="@+id/write_comment_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/write_comment"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@id/goto_detail_map_img"
+                app:layout_constraintTop_toBottomOf="@id/goto_detail_map_img" />
+
+            <EditText
+                android:id="@+id/map_review_comment_et"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/input_id"
+                android:gravity="top"
+                android:hint="@string/comment_hint"
+                android:padding="15dp"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@id/write_comment_tv" />
+
+            <TextView
+                android:id="@+id/comment_warning_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/comment_warning"
+                android:textColor="@color/error"
+                app:layout_constraintStart_toStartOf="@id/map_review_comment_et"
+                app:layout_constraintTop_toBottomOf="@id/map_review_comment_et" />
+
+            <Button
+                android:id="@+id/map_detail_review_cancle_btn"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/input_id"
+                android:text="@string/comment_cancle"
+                app:layout_constraintStart_toStartOf="@id/comment_warning_tv"
+                app:layout_constraintTop_toBottomOf="@id/comment_warning_tv" />
+
+            <Button
+                android:id="@+id/map_detail_review_enter_btn"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/commentbtn"
+                android:text="@string/comment_enter"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@id/map_review_comment_et"
+                app:layout_constraintStart_toEndOf="@id/map_detail_review_cancle_btn"
+                app:layout_constraintTop_toBottomOf="@id/comment_warning_tv" />
+
+            <View
+                android:id="@+id/middle_line"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/basic"
+                app:layout_constraintTop_toBottomOf="@id/map_detail_review_enter_btn" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/map_review_comment_rv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                tools:listitem="@layout/comment_item"
+                app:layout_constraintEnd_toEndOf="@id/map_detail_review_enter_btn"
+                app:layout_constraintStart_toStartOf="@id/map_detail_review_enter_btn"
+                app:layout_constraintTop_toBottomOf="@id/middle_line" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

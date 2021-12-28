@@ -14,6 +14,7 @@ import com.example.myapplication.map.detail.MapDetailFragment
 import com.example.myapplication.map.models.RadiusPlace
 import com.example.myapplication.map.models.RadiusPlaceRetrofitInterface
 import com.example.myapplication.map.models.Result
+import com.example.myapplication.map.review.MapReviewActivity
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.MapFragment
@@ -54,6 +55,7 @@ class MapFragment :
 		binding.itemRadiusPlaceRv.setHasFixedSize(true)
 
 		contentCnt = binding.contentCntTv.text.toString()
+
 	}
 
 	override fun onRequestPermissionsResult(
@@ -138,6 +140,7 @@ class MapFragment :
 					radiusPlaceRecyclerView.setItemClickListener(object: RadiusPlaceRecyclerView.OnItemClickListener{
 						override fun onClick(v: View, position: Int, data: Result) {
 							fragmentManager?.beginTransaction()?.replace(R.id.main_frame, MapDetailFragment(data.placeId))?.commit()
+							MapReviewActivity(data.placeId)
 						}
 					})
 				}

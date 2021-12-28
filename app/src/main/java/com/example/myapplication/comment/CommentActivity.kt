@@ -1,12 +1,11 @@
 package com.example.myapplication.comment
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.comment.adapter.CommentRecyclerview
 import com.example.myapplication.comment.models.CommentRetrofitInterface
 import com.example.myapplication.comment.models.Comments
+import com.example.myapplication.map.review.models.MapReview
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityCommentBinding

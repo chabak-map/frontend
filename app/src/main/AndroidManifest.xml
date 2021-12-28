@@ -19,7 +19,7 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".map.review.MapReviewActivity"
+            android:name="com.example.myapplication.map.detail.review.MapReviewActivity"
             android:exported="false" />
         <activity
             android:name=".join.JoinFinishActivity"

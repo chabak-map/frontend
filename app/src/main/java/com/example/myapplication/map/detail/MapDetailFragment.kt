@@ -13,7 +13,7 @@ import com.example.myapplication.map.detail.adapter.MapCommentRecyclerView
 import com.example.myapplication.map.detail.adapter.MapDetailTagRecyclerView
 import com.example.myapplication.map.detail.models.MapDetail
 import com.example.myapplication.map.detail.models.MapDetailRetrofitInterface
-import com.example.myapplication.map.review.MapReviewActivity
+import com.example.myapplication.map.detail.review.MapReviewActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,6 +38,7 @@ class MapDetailFragment(placeId: Int) : BaseFragment<FragmentMapDetailBinding>(
 			startActivity(Intent(requireContext(), MapReviewActivity::class.java))
 		}
 		binding.gotoWriteMapReviewTv.setOnClickListener {
+			MapReviewActivity(place)
 			startActivity(Intent(requireContext(), MapReviewActivity::class.java))
 		}
 	}

@@ -14,7 +14,7 @@ import com.example.myapplication.map.detail.MapDetailFragment
 import com.example.myapplication.map.models.RadiusPlace
 import com.example.myapplication.map.models.RadiusPlaceRetrofitInterface
 import com.example.myapplication.map.models.Result
-import com.example.myapplication.map.review.MapReviewActivity
+import com.example.myapplication.map.detail.review.MapReviewActivity
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.MapFragment

@@ -1,4 +1,4 @@
-package com.example.myapplication.map.review.models
+package com.example.myapplication.map.detail.review.models
 
 import retrofit2.Call
 import retrofit2.http.GET

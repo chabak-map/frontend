@@ -1,4 +1,4 @@
-package com.example.myapplication.map.review.models
+package com.example.myapplication.map.detail.review.models
 
 data class Result(
     val content: String,

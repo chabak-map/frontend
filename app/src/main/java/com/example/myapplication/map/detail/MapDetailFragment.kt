@@ -14,6 +14,7 @@ import com.example.myapplication.map.detail.adapter.MapDetailTagRecyclerView
 import com.example.myapplication.map.detail.models.MapDetail
 import com.example.myapplication.map.detail.models.MapDetailRetrofitInterface
 import com.example.myapplication.map.detail.review.MapReviewActivity
+import com.example.myapplication.post.detail.DetailPostActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,12 +35,14 @@ class MapDetailFragment(placeId: Int) : BaseFragment<FragmentMapDetailBinding>(
 			LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 		binding.mapDetailTagRv.setHasFixedSize(true)
 		binding.gotoWriteMapReviewBtn.setOnClickListener {
-			MapReviewActivity(place)
-			startActivity(Intent(requireContext(), MapReviewActivity::class.java))
-		}
-		binding.gotoWriteMapReviewTv.setOnClickListener {
-			MapReviewActivity(place)
-			startActivity(Intent(requireContext(), MapReviewActivity::class.java))
+			startActivity(
+				Intent(
+					requireContext(),
+					MapReviewActivity::class.java
+				).apply {
+					putExtra("MapPlaceId", place)
+				}
+			)
 		}
 	}
 

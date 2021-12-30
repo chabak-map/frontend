@@ -12,20 +12,19 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MapReviewActivity(placeId: Int) :
+class MapReviewActivity() :
 	BaseActivity<ActivityMapReviewBinding>(ActivityMapReviewBinding::inflate) {
-	val place = placeId
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+		val placeId = intent.getSerializableExtra("MapPlaceId")
 		setContentView(binding.root)
-
-//		binding.mapReviewCommentRv.layoutManager =
-//			LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-//		binding.mapReviewCommentRv.setHasFixedSize(true)
+		binding.mapReviewCommentRv.layoutManager =
+			LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+		binding.mapReviewCommentRv.setHasFixedSize(true)
 		binding.gotoDetailMapImg.setOnClickListener {
 			finish()
 		}
-		println(place)
+		getMapReview(placeId as Int)
 	}
 
 	fun getMapReview(placeId: Int) {

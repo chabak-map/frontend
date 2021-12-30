@@ -17,10 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
         <activity
-            android:name="com.example.myapplication.map.detail.review.MapReviewActivity"
+            android:name=".map.detail.review.ReviewActivity"
             android:exported="false" />
+        <activity
+            android:name=".map.detail.review.MapReviewActivity"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".join.JoinFinishActivity"
             android:exported="false" />

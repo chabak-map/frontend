@@ -140,7 +140,6 @@ class MapFragment :
 					radiusPlaceRecyclerView.setItemClickListener(object: RadiusPlaceRecyclerView.OnItemClickListener{
 						override fun onClick(v: View, position: Int, data: Result) {
 							fragmentManager?.beginTransaction()?.replace(R.id.main_frame, MapDetailFragment(data.placeId))?.commit()
-							MapReviewActivity(data.placeId)
 						}
 					})
 				}

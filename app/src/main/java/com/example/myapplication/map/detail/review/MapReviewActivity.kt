@@ -8,12 +8,13 @@ import com.example.myapplication.databinding.ActivityMapReviewBinding
 import com.example.myapplication.map.detail.review.adapter.MapReviewRecyclerView
 import com.example.myapplication.map.detail.review.models.MapReview
 import com.example.myapplication.map.detail.review.models.MapReviewRetrofitInterface
+import com.example.myapplication.map.detail.review.write.models.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MapReviewActivity() :
-	BaseActivity<ActivityMapReviewBinding>(ActivityMapReviewBinding::inflate) {
+	BaseActivity<ActivityMapReviewBinding>(ActivityMapReviewBinding::inflate), WriteCommentView {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		val placeId = intent.getSerializableExtra("MapPlaceId")
@@ -24,8 +25,18 @@ class MapReviewActivity() :
 		binding.gotoDetailMapImg.setOnClickListener {
 			finish()
 		}
+		binding.mapDetailReviewEnterBtn.setOnClickListener {
+			showCustomToast("click")
+			val review = binding.mapReviewCommentEt
+			val write = WriteCommentRequest(content = review.text.toString())
+			println(write)
+			WriteCommentService(this).tryWriteComment(write, placeId = placeId as Int)
+//			println(writeRequest)
+
+		}
 		getMapReview(placeId as Int)
 	}
+
 
 	fun getMapReview(placeId: Int) {
 		val mapReviewRetrofitInterface =
@@ -40,5 +51,13 @@ class MapReviewActivity() :
 				showCustomToast(t.message.toString())
 			}
 		})
+	}
+
+	override fun onPostWriteSuccess(response: WriteCommentResponse) {
+		showCustomToast(response.toString())
+	}
+
+	override fun onPostWriteFailure(message: String) {
+		showCustomToast(message.toString())
 	}
 }

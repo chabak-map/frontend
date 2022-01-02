@@ -34,6 +34,16 @@ class MapDetailFragment(placeId: Int) : BaseFragment<FragmentMapDetailBinding>(
 		binding.mapDetailTagRv.layoutManager =
 			LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 		binding.mapDetailTagRv.setHasFixedSize(true)
+		binding.gotoWriteMapReviewTv.setOnClickListener {
+			startActivity(
+				Intent(
+					requireContext(),
+					MapReviewActivity::class.java
+				).apply {
+					putExtra("MapPlaceId", place)
+				}
+			)
+		}
 		binding.gotoWriteMapReviewBtn.setOnClickListener {
 			startActivity(
 				Intent(

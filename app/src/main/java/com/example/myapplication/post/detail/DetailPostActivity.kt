@@ -1,11 +1,15 @@
 package com.example.myapplication.post.detail
 
+import android.content.Intent
 import android.os.Bundle
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityDetailPostBinding
 import com.example.myapplication.glide.GlideApp
+import com.example.myapplication.map.detail.review.MapReviewActivity
+import com.example.myapplication.post.detail.comment.WritePostCommentActivity
 import com.example.myapplication.post.detail.models.DetailPost
 import com.example.myapplication.post.detail.models.DetailPostRetrofitInterface
 import com.example.myapplication.post.tag.models.PostTag
@@ -27,6 +31,16 @@ class DetailPostActivity : BaseActivity<ActivityDetailPostBinding>(ActivityDetai
 		binding.postDetailTagRv.setHasFixedSize(true)
 		binding.backArrowImg.setOnClickListener {
 			finish()
+		}
+		binding.detailPostCommentImg.setOnClickListener {
+			startActivity(
+				Intent(
+					baseContext,
+					WritePostCommentActivity::class.java
+				).apply {
+					putExtra("postId", datas)
+				}
+			)
 		}
 	}
 	fun tryGetDetailPost(postId : Int, date : String){

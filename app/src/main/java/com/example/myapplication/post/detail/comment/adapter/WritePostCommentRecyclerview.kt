@@ -1,4 +1,4 @@
-package com.example.myapplication.comment.adapter
+package com.example.myapplication.post.detail.comment.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,20 +6,20 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.comment.models.Comments
-import com.example.myapplication.comment.models.Result
+import com.example.myapplication.post.detail.comment.models.Comments
+import com.example.myapplication.post.detail.comment.models.Result
 
-class CommentRecyclerview (val commentList : Comments) :
-RecyclerView.Adapter<CommentRecyclerview.ViewHolder>(){
+class WritePostCommentRecyclerview (val commentList : Comments) :
+RecyclerView.Adapter<WritePostCommentRecyclerview.ViewHolder>(){
 	override fun onCreateViewHolder(
 		parent: ViewGroup,
 		viewType: Int
-	): CommentRecyclerview.ViewHolder {
+	): ViewHolder {
 		val view = LayoutInflater.from(parent.context).inflate(R.layout.comment_item, parent, false)
 		return ViewHolder(view)
 	}
 
-	override fun onBindViewHolder(holder: CommentRecyclerview.ViewHolder, position: Int) {
+	override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 		holder.bindItems(commentList.result[position])
 	}
 

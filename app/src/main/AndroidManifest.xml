@@ -20,6 +20,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".post.detail.comment.WritePostCommentActivity"
+            android:exported="false" />
+        <activity
             android:name=".map.detail.review.ReviewActivity"
             android:exported="false" />
         <activity

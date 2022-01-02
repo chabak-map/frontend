@@ -129,33 +129,25 @@
                 app:layout_constraintTop_toBottomOf="@id/detail_post_tag_tv"
                 tools:listitem="@layout/map_detail_tag_item" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/post_place_review_cnt_tv"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/basic"
-                app:layout_constraintStart_toStartOf="@id/detail_post_main_cl"
-                app:layout_constraintTop_toBottomOf="@id/detail_post_main_cl">
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:text="댓글 수"
+                app:layout_constraintStart_toEndOf="@id/detail_post_comment_img"
+                app:layout_constraintTop_toBottomOf="@id/post_detail_tag_rv" />
 
-                <TextView
-                    android:id="@+id/post_place_review_cnt_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="20dp"
-                    android:text="댓글 수"
-                    app:layout_constraintStart_toEndOf="@id/detail_post_comment_img"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/detail_post_comment_img"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/speechbubble"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/detail_post_comment_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/speechbubble"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/post_detail_tag_rv" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

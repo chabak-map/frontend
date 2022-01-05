@@ -8,15 +8,12 @@ import com.example.myapplication.databinding.ActivityWritePostCommentBinding
 import com.example.myapplication.post.detail.comment.adapter.WritePostCommentRecyclerview
 import com.example.myapplication.post.detail.comment.models.Comments
 import com.example.myapplication.post.detail.comment.models.WritePostCommentRetrofitInterface
-import com.example.myapplication.post.detail.comment.write.models.WritePostCommentRequest
-import com.example.myapplication.post.detail.comment.write.models.WritePostCommentResponse
-import com.example.myapplication.post.detail.comment.write.models.WritePostCommentService
-import com.example.myapplication.post.detail.comment.write.models.WritePostCommentView
+import com.example.myapplication.post.detail.comment.write.models.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class WritePostCommentActivity : BaseActivity<ActivityWritePostCommentBinding>(ActivityWritePostCommentBinding::inflate), WritePostCommentView {
+class WritePostCommentActivity : BaseActivity<ActivityWritePostCommentBinding>(ActivityWritePostCommentBinding::inflate){
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(binding.root)
@@ -28,7 +25,7 @@ class WritePostCommentActivity : BaseActivity<ActivityWritePostCommentBinding>(A
 		binding.commentEnterBtn.setOnClickListener {
 			val review = binding.commentEt.text.toString()
 			val write = WritePostCommentRequest(content = review)
-			WritePostCommentService(this).tryWriteComment(write, postId)
+			tryWriteComment(write, postId)
 			binding.commentEnterBtn.text = ""
 		}
 		binding.gotopostImg.setOnClickListener {
@@ -50,11 +47,19 @@ class WritePostCommentActivity : BaseActivity<ActivityWritePostCommentBinding>(A
 		})
 	}
 
-	override fun onPostWriteSuccess(response: WritePostCommentResponse) {
-		showCustomToast(response.result.toString())
-	}
+	fun tryWriteComment(writePostComment: WritePostCommentRequest, postId: Int){
+		val writePostCommentRetrofitInterface = ApplicationClass.sRetrofit.create(com.example.myapplication.post.detail.comment.write.models.WritePostCommentRetrofitInterface::class.java)
+		writePostCommentRetrofitInterface.tryPostComments(writePostComment, postId).enqueue(object : Callback<WritePostCommentResponse>{
+			override fun onResponse(
+				call: Call<WritePostCommentResponse>,
+				response: Response<WritePostCommentResponse>
+			) {
+				val result = response.body() as ResultWritePostComment
+			}
 
-	override fun onPostWriteFailure(message: String) {
-		showCustomToast(message.toString())
+			override fun onFailure(call: Call<WritePostCommentResponse>, t: Throwable) {
+				showCustomToast(t.message.toString())
+			}
+		})
 	}
 }

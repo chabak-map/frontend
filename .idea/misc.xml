@@ -93,6 +93,7 @@
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/fragment_place.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/fragment_post.xml" value="0.17603850050658562" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/fragment_total_post.xml" value="0.25" />
+        <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/item_map_detail_picture.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/item_radius_place.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/login_custom_dialog.xml" value="0.33" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/login_failed_alert.xml" value="0.36614583333333334" />
@@ -101,6 +102,7 @@
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/main_rank_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/map_detail_comment_item.xml" value="0.5" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/map_detail_item.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/map_detail_pic_item.xml" value="0.21603260869565216" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/map_detail_tag_item.xml" value="0.14447463768115942" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/map_item.xml" value="0.1778115501519757" />
         <entry key="..\:/Users/Ji Hwan/Documents/GitHub/frontend/app/src/main/res/layout/mypost_item.xml" value="0.23333333333333334" />

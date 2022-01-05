@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="거리"
+                 android:text="거리"
                 android:textColor="@color/main_blue"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@id/map_detail_name_tv"

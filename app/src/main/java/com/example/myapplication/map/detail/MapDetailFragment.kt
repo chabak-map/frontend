@@ -14,7 +14,6 @@ import com.example.myapplication.map.detail.adapter.MapDetailTagRecyclerView
 import com.example.myapplication.map.detail.models.MapDetail
 import com.example.myapplication.map.detail.models.MapDetailRetrofitInterface
 import com.example.myapplication.map.detail.review.MapReviewActivity
-import com.example.myapplication.post.detail.DetailPostActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

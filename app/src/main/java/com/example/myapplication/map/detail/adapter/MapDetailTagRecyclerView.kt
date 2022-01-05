@@ -9,13 +9,14 @@ import com.example.myapplication.R
 import com.example.myapplication.map.detail.models.MapDetail
 import com.example.myapplication.map.detail.models.Result
 
-class MapDetailTagRecyclerView(var tagList : MapDetail) :
-	RecyclerView.Adapter<MapDetailTagRecyclerView.CustomHolder>(){
+class MapDetailTagRecyclerView(var tagList: MapDetail) :
+	RecyclerView.Adapter<MapDetailTagRecyclerView.CustomHolder>() {
 	override fun onCreateViewHolder(
 		parent: ViewGroup,
 		viewType: Int
 	): MapDetailTagRecyclerView.CustomHolder {
-		val view = LayoutInflater.from(parent.context).inflate(R.layout.map_detail_tag_item, parent, false)
+		val view =
+			LayoutInflater.from(parent.context).inflate(R.layout.map_detail_tag_item, parent, false)
 		return CustomHolder(view)
 	}
 
@@ -27,12 +28,13 @@ class MapDetailTagRecyclerView(var tagList : MapDetail) :
 		return tagList.result.tagNames.size
 	}
 
-	inner class CustomHolder(view : View) : RecyclerView.ViewHolder(view){
-		fun bindItems(data: Result){
-			for (element in data.tagNames){
-				itemView.findViewById<TextView>(R.id.map_detail_tag_tv).text = "# $element"
-				println(element)
+	inner class CustomHolder(view: View) : RecyclerView.ViewHolder(view) {
+		val tag = ArrayList<String>()
+		fun bindItems(data: Result) {
+			for(i in data.tagNames.indices){
+				tag.add(data.tagNames[i].toString())
 			}
+			itemView.findViewById<TextView>(R.id.map_detail_tag_tv).text = "# " + tag[position]
 		}
 	}
 }

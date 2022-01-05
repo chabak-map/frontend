@@ -15,7 +15,6 @@ import com.example.myapplication.databinding.FragmentMyPageBinding
 import com.example.myapplication.glide.GlideApp
 import com.example.myapplication.mypage.profile.ProfileActivityView
 import com.example.myapplication.mypage.profile.models.*
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -66,14 +65,15 @@ class MyPageFragment :
 					cursor?.moveToFirst()
 					var mediaPath =
 						cursor?.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA))
-					println(mediaPath)
 					var file = File(mediaPath)
 					var requestBody: RequestBody =
 						RequestBody.create("multipart/form-data".toMediaTypeOrNull(),  file)
 					println(requestBody)
 					var profile =
 						MultipartBody.Part.createFormData("file", requestBody.toString())
-//					getProfile(profile)
+					var postProfile = PostProfileRequest(profile)
+					println(postProfile)
+//					getProfile(postProfile)
 				} catch (e: Exception) {
 					showCustomToast(e.toString())
 				}
@@ -81,7 +81,7 @@ class MyPageFragment :
 		}
 	}
 
-	fun getProfile(body: MultipartBody.Part) {
+	fun getProfile(body: PostProfileRequest) {
 		var profileRetrofitInterface =
 			ApplicationClass.sRetrofit.create(ProfileRetrofitInterface::class.java)
 		profileRetrofitInterface.postProfile(body).enqueue(object : Callback<ProfileResponse> {
@@ -90,7 +90,6 @@ class MyPageFragment :
 				response: Response<ProfileResponse>
 			) {
 				var result = response.body() as ProfileResponse
-				println(result)
 				showCustomToast(result.toString())
 			}
 

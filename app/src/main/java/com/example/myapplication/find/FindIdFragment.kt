@@ -14,12 +14,15 @@ class FindIdFragment :
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
+		// 확인 버튼 클릭시
 		binding.joinBtn.setOnClickListener {
 			childFragmentManager.beginTransaction()
 				.replace(R.id.frame_id, FindIdResultFragment())
-//                .addToBackStack(null)
+                .addToBackStack(null)
 				.commit()
 		}
+
+		// 인증번호 전송 버튼 클릭시
 		binding.postCheckNumberBtn.setOnClickListener {
 			val phoneNum = binding.etFindPhoneNum
 			val findRequest = FindEmailRequest(phoneNumber = phoneNum.text.toString())

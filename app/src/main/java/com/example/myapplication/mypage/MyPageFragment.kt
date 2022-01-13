@@ -2,11 +2,8 @@ package com.example.myapplication.mypage
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.database.Cursor
-import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
@@ -48,55 +45,40 @@ class MyPageFragment :
 
 		if (requestCode == GALLERY) {
 			if (resultCode == RESULT_OK) {
-				var selectedImage = data?.data
-				var dataUri = data?.data
-				var bitmap: Bitmap? = null
-				try {
-					bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, dataUri)
-					binding.profileImg.setImageBitmap(bitmap)
-					var cursor: Cursor? = context?.contentResolver?.query(
-						Uri.parse(selectedImage.toString()),
-						null,
-						null,
-						null,
-						null
-					)
-					assert(cursor != null)
-					cursor?.moveToFirst()
-					var mediaPath =
-						cursor?.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA))
-					var file = File(mediaPath)
-					var requestBody: RequestBody =
-						RequestBody.create("multipart/form-data".toMediaTypeOrNull(),  file)
-					println(requestBody)
-					var profile =
-						MultipartBody.Part.createFormData("file", requestBody.toString())
-					var postProfile = PostProfileRequest(profile)
-					println(postProfile)
-//					getProfile(postProfile)
-				} catch (e: Exception) {
-					showCustomToast(e.toString())
-				}
+				val dataUri = data?.data
+				Log.d("picture", dataUri.toString())
+				val file = File(dataUri.toString())
+				var requestBody : RequestBody = RequestBody.create(
+					"image/*".toMediaTypeOrNull(),
+					file
+				)
+				var body : MultipartBody.Part = MultipartBody.Part.createFormData("uploaded_file",
+					requestBody.toString()
+				)
+				Log.d("picture", body.toString())
+				getProfile(body)
 			}
 		}
 	}
 
-	fun getProfile(body: PostProfileRequest) {
+	fun getProfile(body : MultipartBody.Part) {
 		var profileRetrofitInterface =
 			ApplicationClass.sRetrofit.create(ProfileRetrofitInterface::class.java)
-		profileRetrofitInterface.postProfile(body).enqueue(object : Callback<ProfileResponse> {
-			override fun onResponse(
-				call: Call<ProfileResponse>,
-				response: Response<ProfileResponse>
-			) {
-				var result = response.body() as ProfileResponse
-				showCustomToast(result.toString())
-			}
+		profileRetrofitInterface.postProfile(body)
+			.enqueue(object : Callback<ProfileResponse> {
+				override fun onResponse(
+					call: Call<ProfileResponse>,
+					response: Response<ProfileResponse>
+				) {
+					val result = response.body() as ProfileResponse
+					Log.d("picture", result.toString())
+					showCustomToast(result.toString())
+				}
 
-			override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
-				showCustomToast(t.message.toString())
-			}
-		})
+				override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+					showCustomToast(t.message.toString())
+				}
+			})
 	}
 
 	override fun profileSuccess(response: ProfileResponse) {
@@ -111,7 +93,10 @@ class MyPageFragment :
 		val getprofileRetrofitInterface =
 			ApplicationClass.sRetrofit.create(GetProfileRetrofitInterface::class.java)
 		getprofileRetrofitInterface.getProfile().enqueue(object : Callback<GetProfile> {
-			override fun onResponse(call: Call<GetProfile>, response: Response<GetProfile>) {
+			override fun onResponse(
+				call: Call<GetProfile>,
+				response: Response<GetProfile>
+			) {
 				val result = response.body() as GetProfile
 				binding.profileNameTv.text = result.result.nickname
 				GlideApp.with(requireContext()).load(result.result.imageUrl)

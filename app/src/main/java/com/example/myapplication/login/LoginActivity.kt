@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import com.example.myapplication.MainActivity
+import com.example.myapplication.main.MainActivity
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityLoginBinding

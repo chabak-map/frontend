@@ -36,7 +36,7 @@ class TotalPostRecyclerview(val postList: TotalPost) :
 		this.itemClickListener = onItemClickListener
 	}
 
-	private lateinit var itemClickListener : OnItemClickListener
+	private lateinit var itemClickListener: OnItemClickListener
 	override fun onCreateViewHolder(
 		parent: ViewGroup,
 		viewType: Int
@@ -88,6 +88,8 @@ class TotalPostRecyclerview(val postList: TotalPost) :
 			getPostTag(data.id)
 		}
 
+		val tag = ArrayList<String>()
+
 		fun getPostTag(postId: Int) {
 			val postTagRetrofitInterface = ApplicationClass.sRetrofit.create(
 				PostTagRetrofitInterface::class.java
@@ -97,9 +99,10 @@ class TotalPostRecyclerview(val postList: TotalPost) :
 				override fun onResponse(call: Call<PostTag>, response: Response<PostTag>) {
 					val result = response.body() as PostTag
 					println(result.result)
-					for (i in result.result.indices){
-						itemView.findViewById<TextView>(R.id.total_post_tag_tv).text ="# " + result.result
+					for (element in result.result) {
+						tag.add(element)
 					}
+					itemView.findViewById<TextView>(R.id.total_post_tag_tv).text = tag[position]
 				}
 
 				override fun onFailure(call: Call<PostTag>, t: Throwable) {

@@ -72,7 +72,7 @@
             android:windowSoftInputMode="adjustPan"
             tools:ignore="IntentFilterExportedReceiver" />
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:exported="true" />
         <activity
             android:name=".config.BaseActivity"

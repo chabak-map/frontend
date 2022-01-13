@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".main.MainActivity">
 
     <ImageView
         android:id="@+id/iv_main_logo"
@@ -16,6 +16,20 @@
         android:background="@drawable/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/search_btn"
+        android:background="@drawable/input_id"
+        app:layout_constraintTop_toTopOf="@id/search_btn"
+        android:hint="@string/total_search"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textSize="13sp"
+        android:id="@+id/total_search_et"
+        android:layout_marginEnd="10dp"/>
 
     <ImageButton
         android:id="@+id/search_btn"

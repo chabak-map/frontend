@@ -1,5 +1,6 @@
 package com.example.myapplication.map.detail.review.write.models
 
+import android.util.Log
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.find.models.FindEmailResponse
 import retrofit2.Call
@@ -16,6 +17,7 @@ class WriteCommentService(val view : WriteCommentView) {
 				call: Call<WriteCommentResponse>,
 				response: Response<WriteCommentResponse>
 			) {
+				val result = response.body() as WriteCommentResponse
 				view.onPostWriteSuccess(response.body() as WriteCommentResponse)
 			}
 

@@ -2,7 +2,6 @@ package com.example.myapplication.main
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseActivity
@@ -12,6 +11,7 @@ import com.example.myapplication.main.models.TotalSearch
 import com.example.myapplication.main.models.TotalSearchRetrofitInterface
 import com.example.myapplication.map.MapFragment
 import com.example.myapplication.mypage.MyPageFragment
+import com.example.myapplication.mypage.profile.UserProfileFragment
 import com.example.myapplication.post.PostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call

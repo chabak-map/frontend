@@ -1,41 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypage.MyPageFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.core.widget.NestedScrollView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:overScrollMode="never">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black"
+        android:text="@string/goto_user_profile"
+        android:textSize="15sp"
+        android:paddingStart="20dp"
+        android:drawablePadding="30dp"
+        android:gravity="center_vertical"
+        app:drawableStartCompat="@drawable/my_nav"
+        android:id="@+id/goto_user_page_tv"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/goto_user_page_tv"
+        android:background="@color/basic"
+        android:layout_marginTop="20dp"
+        android:id="@+id/first_line"/>
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_img"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/ic_baseline_person_24"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/first_line"
+        android:layout_marginTop="20dp"
+        android:text="@string/goto_user_bookmark"
+        android:textColor="@color/black"
+        android:paddingStart="20dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="30dp"
+        android:textSize="15sp"
+        android:id="@+id/goto_user_bookmark_tv"
+        app:drawableStartCompat="@drawable/bookmark" />
 
-            <TextView
-                android:id="@+id/profile_name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="닉네임"
-                app:layout_constraintStart_toEndOf="@id/profile_img"
-                app:layout_constraintBottom_toBottomOf="@id/profile_img"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/profile_img" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/basic"
+        app:layout_constraintTop_toBottomOf="@id/goto_user_bookmark_tv"
+        android:layout_marginTop="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

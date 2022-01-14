@@ -24,6 +24,7 @@ class MapDetailFragment(placeId: Int) : BaseFragment<FragmentMapDetailBinding>(
 ) {
 
 	private val place = placeId
+	var bookmark = 0
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		getMapDetail(place)
@@ -53,6 +54,21 @@ class MapDetailFragment(placeId: Int) : BaseFragment<FragmentMapDetailBinding>(
 				}
 			)
 		}
+		if (bookmark == 0) {
+			binding.mapDetailBookmarkImg.setOnClickListener {
+				binding.mapDetailBookmarkImg.setBackgroundResource(R.drawable.bookmark_click)
+				bookmark = 1
+			}
+		}
+		println(bookmark)
+		if (bookmark == 1) {
+			binding.mapDetailBookmarkImg.setOnClickListener {
+				binding.mapDetailBookmarkImg.setBackgroundResource(R.drawable.bookmark)
+				bookmark = 0
+			}
+		}
+		println(bookmark)
+
 	}
 
 	fun getMapDetail(placeId: Int) {
@@ -78,4 +94,6 @@ class MapDetailFragment(placeId: Int) : BaseFragment<FragmentMapDetailBinding>(
 			}
 		})
 	}
+
+
 }

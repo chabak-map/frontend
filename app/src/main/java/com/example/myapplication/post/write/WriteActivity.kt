@@ -5,11 +5,14 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.config.BaseActivity
 import com.example.myapplication.databinding.ActivityWriteBinding
 
 class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::inflate) {
+
+	private val OPEN_GALLERY = 1
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -18,24 +21,24 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
 		binding.gotoMypostImg.setOnClickListener {
 			finish()
 		}
+		binding.uploadPictureBtn.setOnClickListener {
+			val intent = Intent(Intent.ACTION_GET_CONTENT)
+			intent.type = "image/*"
+			startActivityForResult(intent, OPEN_GALLERY)
+		}
+		binding.registerPostTv.setOnClickListener {
+			var tag = binding.writePostTagEt.text.toString().split(",")
+			Log.d("tag", tag.toString())
+		}
 	}
 
-//	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//		super.onActivityResult(requestCode, resultCode, data)
-//
-//		if(resultCode == RESULT_OK && requestCode == 200){
-//
-//			if(data?.clipData != null) { // 사진을 여러개 선택한 경우
-//				val count = data.clipData!!.itemCount
-//				if(count > 10){
-//					showCustomToast("사진은 10장까지 선택 가능합니다.")
-//					return
-//				}
-//				for (i in 0 until count){
-//					val imageUri = data.clipData!!.getItemAt(i).uri
-//				}
-//			}
-//
-//		}
-//	}
+	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+		super.onActivityResult(requestCode, resultCode, data)
+		if(requestCode == OPEN_GALLERY){
+			if (resultCode == RESULT_OK){
+				var currentImageUri = data?.data
+				Log.d("camera", currentImageUri.toString())
+			}
+		}
+	}
 }

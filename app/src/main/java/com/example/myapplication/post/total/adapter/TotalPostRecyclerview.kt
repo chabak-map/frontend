@@ -102,7 +102,6 @@ class TotalPostRecyclerview(val postList: TotalPost) :
 					for (element in result.result) {
 						tag.add(element)
 					}
-					itemView.findViewById<TextView>(R.id.total_post_tag_tv).text = tag[position]
 				}
 
 				override fun onFailure(call: Call<PostTag>, t: Throwable) {

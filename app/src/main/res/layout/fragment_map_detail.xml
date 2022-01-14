@@ -29,6 +29,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintEnd_toEndOf="@id/goto_write_map_review_tv"
+                android:background="@drawable/bookmark"
+                app:layout_constraintTop_toTopOf="@id/map_detail_name_tv"
+                android:id="@+id/map_detail_bookmark_img"/>
+
+
             <TextView
                 android:id="@+id/map_detail_distance_tv"
                 style="@style/Bold_text"

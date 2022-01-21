@@ -14,6 +14,8 @@ import com.example.myapplication.map.detail.adapter.MapDetailTagRecyclerView
 import com.example.myapplication.map.detail.models.MapDetail
 import com.example.myapplication.map.detail.models.MapDetailRetrofitInterface
 import com.example.myapplication.map.detail.review.MapReviewActivity
+import com.example.myapplication.mypage.bookmark.models.Bookmarks
+import com.example.myapplication.mypage.bookmark.models.BookmarksRetrofitInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -57,6 +59,7 @@ class MapDetailFragment(placeId: Int) : BaseFragment<FragmentMapDetailBinding>(
 		if (bookmark == 0) {
 			binding.mapDetailBookmarkImg.setOnClickListener {
 				binding.mapDetailBookmarkImg.setBackgroundResource(R.drawable.bookmark_click)
+				tryBookmark(place)
 				bookmark = 1
 			}
 		}
@@ -95,5 +98,17 @@ class MapDetailFragment(placeId: Int) : BaseFragment<FragmentMapDetailBinding>(
 		})
 	}
 
+	fun tryBookmark(placeId : Int){
+		val bookmarksRetrofitInterface = ApplicationClass.sRetrofit.create(BookmarksRetrofitInterface::class.java)
+		bookmarksRetrofitInterface.tryBookmarks(placeId).enqueue(object : Callback<Bookmarks>{
+			override fun onResponse(call: Call<Bookmarks>, response: Response<Bookmarks>) {
+				val result = response.body() as Bookmarks
+			}
+
+			override fun onFailure(call: Call<Bookmarks>, t: Throwable) {
+				showCustomToast(t.message.toString())
+			}
+		})
+	}
 
 }

@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
 import com.example.myapplication.config.BaseFragment
 import com.example.myapplication.databinding.FragmentUserBookmarkBinding
+import com.example.myapplication.mypage.bookmark.adapter.BookmarkRecyclerView
 import com.example.myapplication.mypage.bookmark.models.Bookmarks
 import com.example.myapplication.mypage.bookmark.models.BookmarksRetrofitInterface
 import retrofit2.Call
@@ -22,6 +24,8 @@ class UserBookmarkFragment : BaseFragment<FragmentUserBookmarkBinding>(FragmentU
 		super.onViewCreated(view, savedInstanceState)
 
 		binding.bookmarkCntTv.visibility = View.GONE
+		binding.myBookmarkRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+		binding.myBookmarkRv.setHasFixedSize(true)
 		getBookmark()
 	}
 
@@ -33,6 +37,7 @@ class UserBookmarkFragment : BaseFragment<FragmentUserBookmarkBinding>(FragmentU
 				if (result.result.isEmpty()){
 					binding.bookmarkCntTv.visibility = View.VISIBLE
 				}
+				binding.myBookmarkRv.adapter = BookmarkRecyclerView(result)
 			}
 
 			override fun onFailure(call: Call<Bookmarks>, t: Throwable) {

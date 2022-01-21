@@ -3,6 +3,7 @@ package com.example.myapplication.post.total
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.config.ApplicationClass
